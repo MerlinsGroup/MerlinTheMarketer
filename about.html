@@ -867,8 +867,15 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--navy); flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem; z-index: 999;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; }
+  .mobile-toggle { display: flex; z-index: 1000; }
   .values-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: 1fr; }
@@ -885,15 +892,15 @@ footer {
 
 <!-- NAVIGATION -->
 <nav id="navbar">
-  <a href="index.html" class="nav-brand">
+  <a href="index" class="nav-brand">
     <img src="merlinslogo.png" alt="Merlin The Marketer">
   </a>
   <ul class="nav-links">
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#ugc">UGC</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#results">Results</a></li>
+    <li><a href="about" class="active">About</a></li>
+    <li><a href="services">Services</a></li>
+    <li><a href="index#ugc">UGC</a></li>
+    <li><a href="index#clients">Clients</a></li>
+    <li><a href="index#results">Results</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
@@ -1204,7 +1211,7 @@ footer {
     <p>Book a no-obligation strategy call and discover how Merlin can transform your marketing infrastructure.</p>
     <div class="cta-buttons">
       <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="services.html" class="btn-outline">View Our Services</a>
+      <a href="services" class="btn-outline">View Our Services</a>
     </div>
   </div>
 </section>
@@ -1219,24 +1226,24 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html">Paid Media</a>
-        <a href="services.html">UGC Production</a>
-        <a href="services.html">Brand Strategy</a>
-        <a href="services.html">Web Development</a>
-        <a href="services.html">Social Management</a>
-        <a href="services.html">SEO & Content</a>
+        <a href="services">Paid Media</a>
+        <a href="services">UGC Production</a>
+        <a href="services">Brand Strategy</a>
+        <a href="services">Web Development</a>
+        <a href="services">Social Management</a>
+        <a href="services">SEO & Content</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="index.html#ugc">UGC Division</a>
-        <a href="index.html#clients">Our Clients</a>
-        <a href="index.html#results">Case Studies</a>
+        <a href="about">About Us</a>
+        <a href="index#ugc">UGC Division</a>
+        <a href="index#clients">Our Clients</a>
+        <a href="index#results">Case Studies</a>
         <a href="#">Careers</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="#">hello@merlinthemarketer.com</a>
+        <a href="https://wa.me/447388539987">07388539987 - WhatsApp</a>
         <a href="#">LinkedIn</a>
         <a href="#">Instagram</a>
         <a href="#">TikTok</a>
@@ -1250,6 +1257,18 @@ footer {
 </footer>
 
 <script>
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.querySelector('.nav-links');
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
 // Navbar scroll
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');

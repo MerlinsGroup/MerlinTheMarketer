@@ -946,8 +946,15 @@ footer {
   .hero-stats { justify-content: center; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--navy); flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem; z-index: 999;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; }
+  .mobile-toggle { display: flex; z-index: 1000; }
   .hero h1 { font-size: 2.8rem; }
   .hero-stats { flex-direction: column; gap: 1.5rem; }
   .hero-content { grid-template-columns: 1fr; }
@@ -972,12 +979,12 @@ footer {
 
 <!-- NAVIGATION -->
 <nav id="navbar">
-  <a href="index.html" class="nav-brand">
+  <a href="index" class="nav-brand">
     <img src="merlinslogo.png" alt="Merlin The Marketer">
   </a>
   <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="services">Services</a></li>
     <li><a href="#ugc">UGC</a></li>
     <li><a href="#clients">Clients</a></li>
     <li><a href="#results">Results</a></li>
@@ -1255,16 +1262,16 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html">Paid Media</a>
-        <a href="services.html">UGC Production</a>
-        <a href="services.html">Brand Strategy</a>
-        <a href="services.html">Web Development</a>
-        <a href="services.html">Social Management</a>
-        <a href="services.html">SEO & Content</a>
+        <a href="services">Paid Media</a>
+        <a href="services">UGC Production</a>
+        <a href="services">Brand Strategy</a>
+        <a href="services">Web Development</a>
+        <a href="services">Social Management</a>
+        <a href="services">SEO & Content</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About Us</a>
+        <a href="about">About Us</a>
         <a href="#ugc">UGC Division</a>
         <a href="#clients">Our Clients</a>
         <a href="#results">Case Studies</a>
@@ -1272,7 +1279,7 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="#">hello@merlinthemarketer.com</a>
+        <a href="https://wa.me/447388539987">07388539987 - WhatsApp</a>
         <a href="#">LinkedIn</a>
         <a href="#">Instagram</a>
         <a href="#">TikTok</a>
@@ -1304,6 +1311,18 @@ window.addEventListener('load', () => {
     clearInterval(wordInterval);
     document.getElementById('preloader').classList.add('hidden');
   }, 1200);
+});
+
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.querySelector('.nav-links');
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
 });
 
 // Navbar scroll
