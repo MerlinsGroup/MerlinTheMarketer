@@ -401,18 +401,6 @@ nav.scrolled { padding: 0.8rem 4%; }
   color: rgba(255,255,255,0.4);
   font-size: 0.85rem;
 }
-.toggle-right {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-.toggle-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--gold);
-  white-space: nowrap;
-}
 .toggle-switch {
   position: relative;
   width: 52px;
@@ -474,14 +462,14 @@ nav.scrolled { padding: 0.8rem 4%; }
 }
 .summary-services li {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   padding: 0.5rem 0;
   color: rgba(255,255,255,0.7);
   font-size: 0.9rem;
 }
-.summary-services li span:last-child {
-  color: var(--white);
-  font-weight: 600;
+.summary-services li svg {
+  flex-shrink: 0;
 }
 .summary-empty {
   color: rgba(255,255,255,0.3);
@@ -489,22 +477,13 @@ nav.scrolled { padding: 0.8rem 4%; }
   font-style: italic;
   padding: 1rem 0;
 }
-.summary-discount {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.75rem 0;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.summary-discount .label {
-  color: rgba(155,142,196,0.9);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.summary-discount .value {
+.summary-tier-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--lavender-light);
-  font-weight: 700;
-  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 .summary-total-label {
   color: rgba(255,255,255,0.5);
@@ -524,11 +503,11 @@ nav.scrolled { padding: 0.8rem 4%; }
   font-weight: 400;
   color: rgba(255,255,255,0.4);
 }
-.summary-save {
+.summary-includes {
   font-size: 0.85rem;
-  color: var(--lavender-light);
+  color: rgba(255,255,255,0.45);
   margin-bottom: 2rem;
-  min-height: 1.2rem;
+  line-height: 1.6;
 }
 .summary-cta {
   display: block;
@@ -998,31 +977,29 @@ footer {
   </div>
 </section>
 
+
 <!-- CALCULATOR -->
 <section class="calculator-section">
   <div class="calculator-inner">
     <div class="calculator-header reveal">
       <div class="section-tag">Build Your Package</div>
-      <h2>Custom Service Calculator</h2>
-      <p>Pick the services you need and see your investment in real time. Bundle 3+ services for 10% off, or 5+ for 15% off.</p>
+      <h2>Pick Your Services</h2>
+      <p>Select the services you need and see which package you fall into. More services, more value.</p>
     </div>
 
     <div class="calculator-layout">
       <div class="service-toggles reveal" id="serviceToggles"></div>
 
       <div class="calculator-summary reveal">
-        <div class="summary-title">Your Investment</div>
+        <div class="summary-title">Your Package</div>
         <ul class="summary-services" id="summaryServices">
-          <li class="summary-empty">Select services to build your package</li>
+          <li class="summary-empty">Select services to see your package</li>
         </ul>
-        <div class="summary-discount" id="summaryDiscount" style="display:none;">
-          <span class="label" id="discountLabel">Bundle Discount (10%)</span>
-          <span class="value" id="discountValue">-&pound;0</span>
-        </div>
+        <div class="summary-tier-name" id="summaryTier"></div>
         <div class="summary-total-label">Monthly Investment</div>
         <div class="summary-total">&pound;<span id="summaryTotal">0</span> <span class="per">/month</span></div>
-        <div class="summary-save" id="summarySave"></div>
-        <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="summary-cta">Get Custom Quote</a>
+        <div class="summary-includes" id="summaryIncludes"></div>
+        <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="summary-cta">Get Started</a>
       </div>
     </div>
   </div>
@@ -1285,40 +1262,45 @@ reveals.forEach(el => observer.observe(el));
 
 // ============ CALCULATOR ============
 const services = [
-  { id: 'paid-media', name: 'Paid Media & Performance', price: 950, desc: 'Meta, Google, TikTok & LinkedIn ads management' },
-  { id: 'ugc', name: 'UGC & Studio Production', price: 0, desc: 'In-house studio filming, scripting & editing. Priced per project.', perProject: true },
-  { id: 'brand', name: 'Brand Strategy', price: 750, desc: 'Positioning, messaging & go-to-market planning' },
-  { id: 'web', name: 'Web Design & Development', price: 0, desc: 'Standard sites from \u00A32,200 (5 pages) | Shopify & E-commerce from \u00A35,000', perProject: true },
-  { id: 'social', name: 'Social Media Management', price: 800, desc: 'Content calendars, posting & community management' },
-  { id: 'seo', name: 'SEO & Content Marketing', price: 900, desc: 'Technical SEO, blog content & authority building' }
+  { id: 'paid-media', name: 'Paid Media & Performance', desc: 'Meta, Google, TikTok & LinkedIn ads management' },
+  { id: 'ugc', name: 'UGC & Studio Production', desc: 'In-house studio filming, scripting & editing' },
+  { id: 'brand', name: 'Brand Strategy', desc: 'Positioning, messaging & go-to-market planning' },
+  { id: 'social', name: 'Social Media Management', desc: 'Content calendars, posting & community management' },
+  { id: 'seo', name: 'SEO & Content Marketing', desc: 'Technical SEO, blog content & authority building' },
+  { id: 'web', name: 'Web Design & Development', desc: 'Standard sites from \u00A32,200 | Shopify & e-commerce from \u00A35,000' }
 ];
+
+const tiers = [
+  { name: 'Growth', price: '2,200', content: '9 content pieces/month', calls: 'Bi-weekly strategy calls', report: 'Monthly performance report', support: 'Email support (24hr response)', max: 2 },
+  { name: 'Scale', price: '4,500', content: '12 content pieces/month', calls: 'Weekly strategy calls', report: 'Bi-weekly reports + live dashboard', support: 'Priority Slack support + dedicated AM', max: 4 },
+  { name: 'Enterprise', price: '8,000+', content: '16 content pieces/month', calls: 'Twice-weekly strategy calls', report: 'Real-time dashboard + weekly report', support: 'Same-day Slack + senior account team', max: 6 }
+];
+
+function getTier(count) {
+  if (count <= 2) return tiers[0];
+  if (count <= 4) return tiers[1];
+  return tiers[2];
+}
 
 const togglesContainer = document.getElementById('serviceToggles');
 const summaryList = document.getElementById('summaryServices');
 const summaryTotalEl = document.getElementById('summaryTotal');
-const summaryDiscountEl = document.getElementById('summaryDiscount');
-const discountLabelEl = document.getElementById('discountLabel');
-const discountValueEl = document.getElementById('discountValue');
-const summarySaveEl = document.getElementById('summarySave');
+const summaryTierEl = document.getElementById('summaryTier');
+const summaryIncludesEl = document.getElementById('summaryIncludes');
 
-// Render toggle cards
 services.forEach(service => {
   const card = document.createElement('div');
   card.className = 'service-toggle-card';
   card.dataset.id = service.id;
-  const priceDisplay = service.perProject ? (service.id === 'web' ? 'From \u00A32,200' : 'Per project') : `\u00A3${service.price.toLocaleString()}`;
   card.innerHTML = `
     <div class="toggle-info">
       <h4>${service.name}</h4>
       <p>${service.desc}</p>
     </div>
-    <div class="toggle-right">
-      <span class="toggle-price">${priceDisplay}</span>
-      <label class="toggle-switch">
-        <input type="checkbox" data-id="${service.id}">
-        <span class="toggle-slider"></span>
-      </label>
-    </div>
+    <label class="toggle-switch">
+      <input type="checkbox" data-id="${service.id}">
+      <span class="toggle-slider"></span>
+    </label>
   `;
   const checkbox = card.querySelector('input');
   card.addEventListener('click', (e) => {
@@ -1333,16 +1315,6 @@ services.forEach(service => {
   togglesContainer.appendChild(card);
 });
 
-function formatPrice(num) {
-  return num.toLocaleString();
-}
-
-function getDiscount(count) {
-  if (count >= 5) return 0.15;
-  if (count >= 3) return 0.10;
-  return 0;
-}
-
 function updateCalculator() {
   const selected = [];
   document.querySelectorAll('.service-toggle-card').forEach(card => {
@@ -1356,43 +1328,24 @@ function updateCalculator() {
     }
   });
 
-  // Update summary list
   if (selected.length === 0) {
-    summaryList.innerHTML = '<li class="summary-empty">Select services to build your package</li>';
-    summaryDiscountEl.style.display = 'none';
+    summaryList.innerHTML = '<li class="summary-empty">Select services to see your package</li>';
     summaryTotalEl.textContent = '0';
-    summarySaveEl.textContent = '';
+    summaryTierEl.textContent = '';
+    summaryIncludesEl.textContent = '';
     return;
   }
 
-  const pricedServices = selected.filter(s => !s.perProject);
-  const projectServices = selected.filter(s => s.perProject);
+  const tier = getTier(selected.length);
+  const checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9b8ec4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
 
   summaryList.innerHTML = selected.map(s =>
-    `<li><span>${s.name}</span><span>${s.perProject ? (s.id === 'web' ? 'From \u00A32,200' : 'Per project') : '\u00A3' + formatPrice(s.price)}</span></li>`
+    `<li>${checkSvg} ${s.name}</li>`
   ).join('');
 
-  const subtotal = pricedServices.reduce((sum, s) => sum + s.price, 0);
-  const discountRate = getDiscount(pricedServices.length);
-  const discountAmount = Math.round(subtotal * discountRate);
-  const total = subtotal - discountAmount;
-
-  if (discountRate > 0) {
-    summaryDiscountEl.style.display = 'flex';
-    discountLabelEl.textContent = `Bundle Discount (${Math.round(discountRate * 100)}%)`;
-    discountValueEl.textContent = `-\u00A3${formatPrice(discountAmount)}`;
-    summarySaveEl.textContent = `You save \u00A3${formatPrice(discountAmount)}/mo with bundle pricing`;
-  } else {
-    summaryDiscountEl.style.display = 'none';
-    const hint = pricedServices.length === 2 ? 'Add 1 more service for 10% bundle discount' : 'Add services to build your package';
-    summarySaveEl.textContent = projectServices.length > 0 && pricedServices.length === 0 ? 'Per-project services quoted separately' : hint;
-  }
-
-  summaryTotalEl.textContent = formatPrice(total);
-  if (projectServices.length > 0) {
-    const projectNames = projectServices.map(s => s.name).join(' & ');
-    summarySaveEl.textContent = (discountRate > 0 ? summarySaveEl.textContent + ' | ' : '') + projectNames + ' quoted separately';
-  }
+  summaryTierEl.textContent = tier.name + ' Package';
+  summaryTotalEl.textContent = tier.price;
+  summaryIncludesEl.innerHTML = `${tier.content}<br>${tier.calls}<br>${tier.report}<br>${tier.support}`;
 }
 
 // ============ FAQ ACCORDION ============
