@@ -508,6 +508,33 @@ footer {
   .cta-buttons { flex-direction: column; align-items: center; }
   .footer-top { grid-template-columns: 1fr; }
 }
+
+/* ============ WHATSAPP BUTTON ============ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 998;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
 </style>
 </head>
 <body>
@@ -520,6 +547,7 @@ footer {
   <ul class="nav-links">
     <li><a href="about">About</a></li>
     <li><a href="services" class="active">Services</a></li>
+    <li><a href="pricing">Pricing</a></li>
     <li><a href="/#ugc">UGC</a></li>
     <li><a href="/#clients">Clients</a></li>
     <li><a href="/#results">Results</a></li>
@@ -742,9 +770,6 @@ footer {
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="https://wa.me/447388539987">07388539987 - WhatsApp</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
       </div>
     </div>
     <div class="footer-bottom">

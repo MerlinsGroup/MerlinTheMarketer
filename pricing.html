@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Merlin The Marketer</title>
+<link rel="icon" type="image/png" href="merlinslogo.png">
+<link rel="apple-touch-icon" href="merlinslogo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2354;
+  --navy-deep: #0d1333;
+  --gold: #f2ce7e;
+  --gold-light: #f5dca0;
+  --lavender: #9b8ec4;
+  --lavender-light: #b8aed4;
+  --white: #fafafa;
+  --off-white: #f0eef5;
+  --text-dark: #0e0e1a;
+  --text-muted: #5a5a7a;
+  --gradient-hero: linear-gradient(135deg, #1a2354 0%, #2a3578 40%, #1a2354 100%);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ============ NAVIGATION ============ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.25rem 4%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+  background: rgba(13, 19, 51, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+nav.scrolled { padding: 0.8rem 4%; }
+.nav-brand {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+}
+.nav-brand img {
+  height: 60px; width: 60px; object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.2));
+}
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem; font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--navy-deep) !important;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(242,206,126,0.35);
+}
+.nav-cta::after { display: none !important; }
+.mobile-toggle {
+  display: none;
+  flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer;
+}
+.mobile-toggle span {
+  width: 26px; height: 2px;
+  background: var(--gold);
+  transition: 0.3s;
+}
+
+/* ============ PAGE HERO ============ */
+.page-hero {
+  min-height: 50vh;
+  background: var(--gradient-hero);
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(155,142,196,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(242,206,126,0.1) 0%, transparent 50%);
+}
+.page-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 6%;
+  text-align: center;
+  width: 100%;
+}
+.page-hero .section-tag {
+  justify-content: center;
+  color: var(--gold);
+}
+.page-hero .section-tag::before { background: var(--gold); }
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.page-hero h1 .gold { color: var(--gold); }
+.page-hero h1 .italic { font-style: italic; color: var(--lavender-light); }
+.page-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============ SHARED ============ */
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--lavender);
+}
+.accent { color: var(--lavender); font-style: italic; }
+.check {
+  width: 24px; height: 24px;
+  background: rgba(155,142,196,0.15);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============ PRICING TIERS ============ */
+.pricing-section {
+  padding: 8rem 6%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.pricing-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.pricing-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.pricing-header .section-tag { justify-content: center; }
+.pricing-header .section-tag::before { display: none; }
+.pricing-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+.pricing-card {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  border: 1px solid rgba(26,35,84,0.08);
+  box-shadow: 0 10px 40px rgba(26,35,84,0.06);
+  transition: all 0.4s ease;
+  position: relative;
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(26,35,84,0.12);
+}
+.pricing-card.recommended {
+  border: 2px solid var(--gold);
+  box-shadow: 0 20px 60px rgba(242,206,126,0.15);
+}
+.pricing-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.pricing-tier-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 1.5rem;
+}
+.pricing-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--navy-deep);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.pricing-amount .currency {
+  font-size: 1.6rem;
+  vertical-align: top;
+  line-height: 1.8;
+}
+.pricing-amount .period {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+.pricing-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(26,35,84,0.08);
+}
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+}
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.55rem 0;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.pricing-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+.pricing-cta.primary {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+.pricing-cta.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(242,206,126,0.3);
+}
+.pricing-cta.outline {
+  background: transparent;
+  color: var(--navy-deep);
+  border: 2px solid var(--navy-deep);
+}
+.pricing-cta.outline:hover {
+  background: var(--navy-deep);
+  color: var(--gold);
+}
+
+/* ============ CALCULATOR ============ */
+.calculator-section {
+  padding: 8rem 6%;
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+}
+.calculator-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(155,142,196,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 50%, rgba(242,206,126,0.06) 0%, transparent 50%);
+}
+.calculator-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.calculator-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.calculator-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-top: 1rem;
+}
+.calculator-header .section-tag { justify-content: center; color: var(--gold); }
+.calculator-header .section-tag::before { display: none; }
+.calculator-header p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: start;
+}
+.service-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.service-toggle-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.service-toggle-card:hover {
+  background: rgba(255,255,255,0.07);
+}
+.service-toggle-card.active {
+  border-color: var(--gold);
+  background: rgba(242,206,126,0.08);
+}
+.toggle-info h4 {
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.toggle-info p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+}
+.toggle-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.toggle-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 28px;
+  transition: 0.3s;
+}
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 22px; width: 22px;
+  left: 3px; bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.toggle-switch input:checked + .toggle-slider {
+  background: var(--gold);
+}
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+/* Summary panel */
+.calculator-summary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: sticky;
+  top: 120px;
+}
+.summary-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.summary-services {
+  list-style: none;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  min-height: 60px;
+}
+.summary-services li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+.summary-services li span:last-child {
+  color: var(--white);
+  font-weight: 600;
+}
+.summary-empty {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 1rem 0;
+}
+.summary-discount {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.summary-discount .label {
+  color: rgba(155,142,196,0.9);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.summary-discount .value {
+  color: var(--lavender-light);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.summary-total-label {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.summary-total {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.summary-total .per {
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: rgba(255,255,255,0.4);
+}
+.summary-save {
+  font-size: 0.85rem;
+  color: var(--lavender-light);
+  margin-bottom: 2rem;
+  min-height: 1.2rem;
+}
+.summary-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.summary-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(242,206,126,0.3);
+}
+
+/* ============ COMPARISON ============ */
+.comparison-section {
+  padding: 8rem 6%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.comparison-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.comparison-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.comparison-header .section-tag { justify-content: center; }
+.comparison-header .section-tag::before { display: none; }
+.comparison-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+.comparison-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(26,35,84,0.08);
+  box-shadow: 0 10px 40px rgba(26,35,84,0.06);
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+.comparison-table thead th {
+  padding: 1.5rem 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 2px solid rgba(26,35,84,0.08);
+  background: var(--off-white);
+  color: var(--text-muted);
+}
+.comparison-table thead th:first-child {
+  border-radius: 16px 0 0 0;
+}
+.comparison-table thead th:last-child {
+  border-radius: 0 16px 0 0;
+}
+.comparison-table thead th.merlin-col {
+  background: var(--navy-deep);
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+.comparison-table tbody td {
+  padding: 1.2rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(26,35,84,0.05);
+  vertical-align: top;
+}
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.comparison-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+.comparison-table tbody td.merlin-col {
+  background: rgba(242,206,126,0.06);
+  color: var(--navy-deep);
+  font-weight: 600;
+}
+.comparison-table tbody td.merlin-col .highlight {
+  color: var(--lavender);
+  font-weight: 700;
+}
+.comparison-table tbody td.dim {
+  color: var(--text-muted);
+}
+.savings-callout {
+  margin-top: 3rem;
+  padding: 2.5rem 3rem;
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  border-radius: 16px;
+  text-align: center;
+}
+.savings-callout h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.savings-callout p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* ============ FAQ ============ */
+.faq-section {
+  padding: 8rem 6%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.faq-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.faq-header .section-tag { justify-content: center; }
+.faq-header .section-tag::before { display: none; }
+.faq-item {
+  border-bottom: 1px solid rgba(26,35,84,0.08);
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  gap: 1rem;
+}
+.faq-question h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  transition: color 0.3s;
+}
+.faq-question:hover h4 {
+  color: var(--lavender);
+}
+.faq-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--off-white);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+.faq-item.open .faq-icon {
+  background: var(--navy-deep);
+  color: var(--gold);
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-answer p {
+  padding-bottom: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 8rem 6%;
+  background: var(--off-white);
+  text-align: center;
+}
+.cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cta-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-bottom: 1.5rem;
+}
+.cta-inner h2 .accent { color: var(--lavender); font-style: italic; }
+.cta-inner p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.cta-buttons { display: flex; justify-content: center; gap: 1rem; }
+.btn-dark {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--navy-deep);
+  color: var(--gold);
+  padding: 16px 38px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+.btn-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(26,35,84,0.25);
+}
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent;
+  color: var(--navy-deep);
+  padding: 16px 38px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid var(--navy-deep);
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: var(--navy-deep);
+  color: var(--gold);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--navy-deep);
+  padding: 5rem 6% 2rem;
+}
+.footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--gold);
+}
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .calculator-layout { grid-template-columns: 1fr; }
+  .calculator-summary { position: static; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--navy); flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem; z-index: 999;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .footer-top { grid-template-columns: 1fr; }
+  .comparison-table { min-width: 600px; }
+  .savings-callout { padding: 2rem 1.5rem; }
+  .savings-callout h3 { font-size: 1.4rem; }
+}
+
+/* ============ WHATSAPP BUTTON ============ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 998;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="/" class="nav-brand">
+    <img src="merlinslogo.png" alt="Merlin The Marketer">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about">About</a></li>
+    <li><a href="services">Services</a></li>
+    <li><a href="pricing" class="active">Pricing</a></li>
+    <li><a href="/#ugc">UGC</a></li>
+    <li><a href="/#clients">Clients</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="section-tag">Pricing</div>
+    <h1>Transparent <span class="italic">Pricing,</span><br><span class="gold">Real Results</span></h1>
+    <p>No hidden fees. No long-term lock-ins. Clear, results-driven marketing packages built to scale your business.</p>
+  </div>
+</section>
+
+<!-- PRICING TIERS -->
+<section class="pricing-section">
+  <div class="pricing-header reveal">
+    <div class="section-tag">Packages</div>
+    <h2>Choose Your Growth Plan</h2>
+    <p>Three flexible packages designed for businesses at every stage. All include a dedicated strategy onboarding and monthly reporting.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- GROWTH -->
+    <div class="pricing-card reveal">
+      <div class="pricing-tier-name">Growth</div>
+      <div class="pricing-amount"><span class="currency">&pound;</span>2,200 <span class="period">/month</span></div>
+      <p class="pricing-desc">For startups and SMEs ready to build a serious marketing foundation and start generating consistent leads.</p>
+      <ul class="pricing-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 2 core services of your choice</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Up to &pound;5,000/mo ad spend managed</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 9 content pieces per month</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Bi-weekly strategy calls</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Monthly performance report</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Email support (24hr response)</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Standard onboarding (1 week)</li>
+      </ul>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="pricing-cta outline">Get Started</a>
+    </div>
+
+    <!-- SCALE (Recommended) -->
+    <div class="pricing-card recommended reveal">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-tier-name">Scale</div>
+      <div class="pricing-amount"><span class="currency">&pound;</span>4,500 <span class="period">/month</span></div>
+      <p class="pricing-desc">For scaling brands that need multi-channel marketing, dedicated support, and a team that moves fast.</p>
+      <ul class="pricing-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 4 core services of your choice</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Up to &pound;15,000/mo ad spend managed</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 12 content pieces per month</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Weekly strategy calls</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Bi-weekly reports + live dashboard</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Dedicated account manager</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Quarterly brand audit</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Priority Slack support</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Priority onboarding (3 days)</li>
+      </ul>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="pricing-cta primary">Get Started</a>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="pricing-card reveal">
+      <div class="pricing-tier-name">Enterprise</div>
+      <div class="pricing-amount"><span class="currency">&pound;</span>8,000+ <span class="period">/month</span></div>
+      <p class="pricing-desc">For established brands wanting a full-service marketing department without the overhead of hiring one.</p>
+      <ul class="pricing-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> All 6 services included</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Unlimited ad spend management</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 16 content pieces per month</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Twice-weekly strategy calls</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Real-time dashboard + weekly report</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Senior account manager + specialist team</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Monthly executive review</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Same-day Slack support</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> White-glove onboarding (same day)</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Custom integrations & reporting</li>
+      </ul>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="pricing-cta outline">Let's Talk</a>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calculator-section">
+  <div class="calculator-inner">
+    <div class="calculator-header reveal">
+      <div class="section-tag">Build Your Package</div>
+      <h2>Custom Service Calculator</h2>
+      <p>Pick the services you need and see your investment in real time. Bundle 3+ services for 10% off, or 5+ for 15% off.</p>
+    </div>
+
+    <div class="calculator-layout">
+      <div class="service-toggles reveal" id="serviceToggles"></div>
+
+      <div class="calculator-summary reveal">
+        <div class="summary-title">Your Investment</div>
+        <ul class="summary-services" id="summaryServices">
+          <li class="summary-empty">Select services to build your package</li>
+        </ul>
+        <div class="summary-discount" id="summaryDiscount" style="display:none;">
+          <span class="label" id="discountLabel">Bundle Discount (10%)</span>
+          <span class="value" id="discountValue">-&pound;0</span>
+        </div>
+        <div class="summary-total-label">Monthly Investment</div>
+        <div class="summary-total">&pound;<span id="summaryTotal">0</span> <span class="per">/month</span></div>
+        <div class="summary-save" id="summarySave"></div>
+        <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="summary-cta">Get Custom Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison-section">
+  <div class="comparison-header reveal">
+    <div class="section-tag">Why Merlin</div>
+    <h2>The Smart <span class="accent">Investment</span></h2>
+    <p>See how Merlin stacks up against hiring in-house or working with a traditional agency.</p>
+  </div>
+
+  <div class="comparison-table-wrap reveal">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="merlin-col">Merlin (Scale)</th>
+          <th>In-House Team</th>
+          <th>Traditional Agency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly Cost</td>
+          <td class="merlin-col"><span class="highlight">&pound;4,500/mo</span></td>
+          <td class="dim">&pound;12,000 - 18,000/mo</td>
+          <td class="dim">&pound;6,000 - 15,000/mo</td>
+        </tr>
+        <tr>
+          <td>Time to Launch</td>
+          <td class="merlin-col">1 week</td>
+          <td class="dim">3 - 6 months (hiring)</td>
+          <td class="dim">4 - 8 weeks</td>
+        </tr>
+        <tr>
+          <td>Specialists Working on Your Brand</td>
+          <td class="merlin-col">Full team (6+ specialists)</td>
+          <td class="dim">2 - 3 hires realistically</td>
+          <td class="dim">1 - 2 assigned</td>
+        </tr>
+        <tr>
+          <td>Paid Media Management</td>
+          <td class="merlin-col"><span class="highlight">Included</span></td>
+          <td class="dim">Marketing Manager ~&pound;45k salary</td>
+          <td class="dim">15 - 20% of ad spend</td>
+        </tr>
+        <tr>
+          <td>Content Creation</td>
+          <td class="merlin-col"><span class="highlight">12 pieces/mo included</span></td>
+          <td class="dim">Content Creator ~&pound;32k salary</td>
+          <td class="dim">&pound;500 - 1,500 per piece</td>
+        </tr>
+        <tr>
+          <td>Strategy & Planning</td>
+          <td class="merlin-col"><span class="highlight">Included</span></td>
+          <td class="dim">Head of Marketing ~&pound;65k salary</td>
+          <td class="dim">&pound;150 - 300/hr billed</td>
+        </tr>
+        <tr>
+          <td>Web Development</td>
+          <td class="merlin-col">Available per project</td>
+          <td class="dim">Developer ~&pound;50k salary</td>
+          <td class="dim">&pound;5,000 - 25,000 per project</td>
+        </tr>
+        <tr>
+          <td>SEO</td>
+          <td class="merlin-col"><span class="highlight">Included</span></td>
+          <td class="dim">SEO Specialist ~&pound;38k salary</td>
+          <td class="dim">&pound;1,500 - 5,000/mo retainer</td>
+        </tr>
+        <tr>
+          <td>Social Media</td>
+          <td class="merlin-col"><span class="highlight">Included</span></td>
+          <td class="dim">Social Manager ~&pound;30k salary</td>
+          <td class="dim">&pound;1,000 - 3,000/mo</td>
+        </tr>
+        <tr>
+          <td>Contract Flexibility</td>
+          <td class="merlin-col">Month-to-month</td>
+          <td class="dim">Employment contracts, notice periods</td>
+          <td class="dim">6 - 12 month lock-in</td>
+        </tr>
+        <tr>
+          <td>Equivalent Annual Cost</td>
+          <td class="merlin-col"><span class="highlight">&pound;54,000/yr</span></td>
+          <td class="dim">&pound;180,000+/yr (salaries + tools + overhead)</td>
+          <td class="dim">&pound;120,000+/yr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="savings-callout reveal">
+    <h3>Save Up to 70% vs In-House</h3>
+    <p>Get access to a full team of senior specialists across every marketing discipline, with zero recruitment headaches, no employer NICs, and no tool subscriptions. Scale up or down as your business needs change.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header reveal">
+    <div class="section-tag">FAQ</div>
+    <h2>Common Questions</h2>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question">
+      <h4>What's included in the monthly retainer?</h4>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+      <p>Everything listed under your chosen package. There are no hidden fees for strategy, reporting, or account management. The only additional cost is your actual ad spend budget, which goes directly to the platforms (Meta, Google, TikTok etc) and is completely separate from our management fee.</p>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question">
+      <h4>Are there any setup fees?</h4>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+      <p>No. Onboarding, account setup, audit of your existing channels, and initial strategy development are all included at no extra cost. We invest in the first few weeks because it sets the foundation for everything that follows.</p>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question">
+      <h4>What contract length is required?</h4>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+      <p>We recommend a minimum 3-month commitment to see meaningful results, but we operate on a rolling monthly basis after that. We do not lock clients into 12-month contracts. We earn your business every month.</p>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question">
+      <h4>Can I upgrade or change my package?</h4>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely. You can scale up, scale down, or swap services at any point with 30 days notice. Most of our clients start on Growth and move to Scale within the first 3-6 months as they see results.</p>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question">
+      <h4>How quickly can you start?</h4>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+      <p>We can typically begin onboarding within 48 hours of signing. Growth clients are fully live within 1 week, Scale within 3 days, and Enterprise clients get same-day white-glove onboarding with a dedicated team.</p>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question">
+      <h4>Is ad spend included in the pricing?</h4>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+      <p>No, ad spend is a separate budget that goes directly to the advertising platforms. Our pricing covers the strategy, creative, management, optimisation, and reporting of your campaigns. We will advise on the right ad spend level for your goals during our strategy call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="section-tag" style="justify-content: center;">Ready to Invest?</div>
+    <h2>Let's Build Your <span class="accent">Growth Engine</span></h2>
+    <p>Book a no-obligation strategy call and we'll map out exactly how we can scale your business.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="services" class="btn-outline">View Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span>Merlin The Marketer</span>
+        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance, all under one roof.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services">Paid Media</a>
+        <a href="services">UGC Production</a>
+        <a href="services">Brand Strategy</a>
+        <a href="services">Web Development</a>
+        <a href="services">Social Management</a>
+        <a href="services">SEO & Content</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about">About Us</a>
+        <a href="/#ugc">UGC Division</a>
+        <a href="/#clients">Our Clients</a>
+        <a href="/#results">Case Studies</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/447388539987">07388539987 - WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Merlin The Marketer. All rights reserved.</span>
+      <span>Privacy Policy &middot; Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.querySelector('.nav-links');
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+
+// ============ CALCULATOR ============
+const services = [
+  { id: 'paid-media', name: 'Paid Media & Performance', price: 950, desc: 'Meta, Google, TikTok & LinkedIn ads management' },
+  { id: 'ugc', name: 'UGC & Studio Production', price: 0, desc: 'In-house studio filming, scripting & editing. Priced per project.', perProject: true },
+  { id: 'brand', name: 'Brand Strategy', price: 750, desc: 'Positioning, messaging & go-to-market planning' },
+  { id: 'web', name: 'Web Design & Development', price: 0, desc: 'Custom websites, landing pages & Shopify builds. Priced per project.', perProject: true },
+  { id: 'social', name: 'Social Media Management', price: 800, desc: 'Content calendars, posting & community management' },
+  { id: 'seo', name: 'SEO & Content Marketing', price: 900, desc: 'Technical SEO, blog content & authority building' }
+];
+
+const togglesContainer = document.getElementById('serviceToggles');
+const summaryList = document.getElementById('summaryServices');
+const summaryTotalEl = document.getElementById('summaryTotal');
+const summaryDiscountEl = document.getElementById('summaryDiscount');
+const discountLabelEl = document.getElementById('discountLabel');
+const discountValueEl = document.getElementById('discountValue');
+const summarySaveEl = document.getElementById('summarySave');
+
+// Render toggle cards
+services.forEach(service => {
+  const card = document.createElement('div');
+  card.className = 'service-toggle-card';
+  card.dataset.id = service.id;
+  const priceDisplay = service.perProject ? 'Per project' : `\u00A3${service.price.toLocaleString()}`;
+  card.innerHTML = `
+    <div class="toggle-info">
+      <h4>${service.name}</h4>
+      <p>${service.desc}</p>
+    </div>
+    <div class="toggle-right">
+      <span class="toggle-price">${priceDisplay}</span>
+      <label class="toggle-switch">
+        <input type="checkbox" data-id="${service.id}">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+  `;
+  const checkbox = card.querySelector('input');
+  card.addEventListener('click', (e) => {
+    if (e.target !== checkbox && !e.target.classList.contains('toggle-slider')) {
+      checkbox.checked = !checkbox.checked;
+    }
+    updateCalculator();
+  });
+  checkbox.addEventListener('change', () => {
+    updateCalculator();
+  });
+  togglesContainer.appendChild(card);
+});
+
+function formatPrice(num) {
+  return num.toLocaleString();
+}
+
+function getDiscount(count) {
+  if (count >= 5) return 0.15;
+  if (count >= 3) return 0.10;
+  return 0;
+}
+
+function updateCalculator() {
+  const selected = [];
+  document.querySelectorAll('.service-toggle-card').forEach(card => {
+    const checkbox = card.querySelector('input');
+    if (checkbox.checked) {
+      card.classList.add('active');
+      const service = services.find(s => s.id === checkbox.dataset.id);
+      selected.push(service);
+    } else {
+      card.classList.remove('active');
+    }
+  });
+
+  // Update summary list
+  if (selected.length === 0) {
+    summaryList.innerHTML = '<li class="summary-empty">Select services to build your package</li>';
+    summaryDiscountEl.style.display = 'none';
+    summaryTotalEl.textContent = '0';
+    summarySaveEl.textContent = '';
+    return;
+  }
+
+  const pricedServices = selected.filter(s => !s.perProject);
+  const projectServices = selected.filter(s => s.perProject);
+
+  summaryList.innerHTML = selected.map(s =>
+    `<li><span>${s.name}</span><span>${s.perProject ? 'Per project' : '\u00A3' + formatPrice(s.price)}</span></li>`
+  ).join('');
+
+  const subtotal = pricedServices.reduce((sum, s) => sum + s.price, 0);
+  const discountRate = getDiscount(pricedServices.length);
+  const discountAmount = Math.round(subtotal * discountRate);
+  const total = subtotal - discountAmount;
+
+  if (discountRate > 0) {
+    summaryDiscountEl.style.display = 'flex';
+    discountLabelEl.textContent = `Bundle Discount (${Math.round(discountRate * 100)}%)`;
+    discountValueEl.textContent = `-\u00A3${formatPrice(discountAmount)}`;
+    summarySaveEl.textContent = `You save \u00A3${formatPrice(discountAmount)}/mo with bundle pricing`;
+  } else {
+    summaryDiscountEl.style.display = 'none';
+    const hint = pricedServices.length === 2 ? 'Add 1 more service for 10% bundle discount' : 'Add services to build your package';
+    summarySaveEl.textContent = projectServices.length > 0 && pricedServices.length === 0 ? 'Per-project services quoted separately' : hint;
+  }
+
+  summaryTotalEl.textContent = formatPrice(total);
+  if (projectServices.length > 0) {
+    const projectNames = projectServices.map(s => s.name).join(' & ');
+    summarySaveEl.textContent = (discountRate > 0 ? summarySaveEl.textContent + ' | ' : '') + projectNames + ' quoted separately';
+  }
+}
+
+// ============ FAQ ACCORDION ============
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    // Open clicked (if it was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
