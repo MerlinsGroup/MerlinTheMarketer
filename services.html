@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services | Merlin The Marketer</title>
+<link rel="icon" type="image/png" href="merlinslogo.png">
+<link rel="apple-touch-icon" href="merlinslogo.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -46,14 +48,11 @@ nav.scrolled { padding: 0.8rem 4%; }
   text-decoration: none;
 }
 .nav-brand img {
-  height: 48px; width: 48px; object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(242,206,126,0.3));
-}
-.nav-brand span {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800; font-size: 1.35rem;
-  color: var(--gold);
-  letter-spacing: 1px;
+  height: 60px; width: 60px; object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.2));
 }
 .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -214,29 +213,18 @@ nav.scrolled { padding: 0.8rem 4%; }
   position: relative;
 }
 .service-visual-card {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, #2a3578 100%);
   border-radius: 24px;
-  padding: 3.5rem;
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 320px;
 }
-.service-visual-card::before {
-  content: '';
-  position: absolute; top: -30%; right: -30%;
-  width: 80%; height: 80%;
-  background: radial-gradient(circle, rgba(242,206,126,0.12) 0%, transparent 60%);
-}
-.service-visual-icon {
-  position: relative; z-index: 1;
-}
-.service-visual-icon svg {
-  width: 120px;
-  height: 120px;
-  opacity: 0.9;
+.service-visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 320px;
+  border-radius: 24px;
 }
 .service-detail-content h3 {
   font-family: 'Playfair Display', serif;
@@ -520,8 +508,7 @@ footer {
 <!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html" class="nav-brand">
-    <img src="logos/1.png" alt="Merlin The Marketer">
-    <span>Merlin</span>
+    <img src="merlinslogo.png" alt="Merlin The Marketer">
   </a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
@@ -529,7 +516,7 @@ footer {
     <li><a href="index.html#ugc">UGC</a></li>
     <li><a href="index.html#clients">Clients</a></li>
     <li><a href="index.html#results">Results</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
     <span></span><span></span><span></span>
@@ -557,8 +544,8 @@ footer {
   <!-- Service 1 -->
   <div class="service-detail reveal">
     <div class="service-detail-visual">
-      <div class="service-video-card">
-        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/24c36897081d1192d406a8b17f1689f7/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F24c36897081d1192d406a8b17f1689f7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+      <div class="service-visual-card">
+        <img src="clients/7.jpg" alt="Paid Media work">
       </div>
     </div>
     <div class="service-detail-content">
@@ -578,9 +565,7 @@ footer {
   <div class="service-detail reverse reveal">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <div class="service-visual-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-        </div>
+        <img src="clients/3.jpeg" alt="UGC Production work">
       </div>
     </div>
     <div class="service-detail-content">
@@ -600,9 +585,7 @@ footer {
   <div class="service-detail reveal">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <div class="service-visual-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        </div>
+        <img src="clients/9.png" alt="Brand Strategy work">
       </div>
     </div>
     <div class="service-detail-content">
@@ -621,8 +604,8 @@ footer {
   <!-- Service 4 -->
   <div class="service-detail reverse reveal">
     <div class="service-detail-visual">
-      <div class="service-video-card">
-        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/a923308ea8f45ec1aa2465e858945a81/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fa923308ea8f45ec1aa2465e858945a81%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+      <div class="service-visual-card">
+        <img src="clients/13.jpeg" alt="Web Design work">
       </div>
     </div>
     <div class="service-detail-content">
@@ -642,9 +625,7 @@ footer {
   <div class="service-detail reveal">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <div class="service-visual-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><path d="M2 8c0-3.31 2.69-6 6-6"/><path d="M22 8c0-3.31-2.69-6-6-6"/></svg>
-        </div>
+        <img src="clients/3fx1.jpg" alt="Social Media work">
       </div>
     </div>
     <div class="service-detail-content">
@@ -664,9 +645,7 @@ footer {
   <div class="service-detail reverse reveal">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <div class="service-visual-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-        </div>
+        <img src="clients/15.png" alt="SEO & Content work">
       </div>
     </div>
     <div class="service-detail-content">
@@ -722,7 +701,7 @@ footer {
     <h2>Let's Build Your <span class="accent">Growth Engine</span></h2>
     <p>Book a no-obligation strategy call and we'll show you exactly how we can scale your business.</p>
     <div class="cta-buttons">
-      <a href="index.html#contact" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <a href="index.html" class="btn-outline">Back to Home</a>
     </div>
   </div>
@@ -734,7 +713,7 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <span>Merlin The Marketer</span>
-        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance — all under one roof.</p>
+        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance, all under one roof.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>

@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | Merlin The Marketer</title>
+<link rel="icon" type="image/png" href="merlinslogo.png">
+<link rel="apple-touch-icon" href="merlinslogo.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -46,14 +48,11 @@ nav.scrolled { padding: 0.8rem 4%; }
   text-decoration: none;
 }
 .nav-brand img {
-  height: 48px; width: 48px; object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(242,206,126,0.3));
-}
-.nav-brand span {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800; font-size: 1.35rem;
-  color: var(--gold);
-  letter-spacing: 1px;
+  height: 60px; width: 60px; object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.2));
 }
 .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -200,6 +199,286 @@ nav.scrolled { padding: 0.8rem 4%; }
   color: var(--text-muted);
 }
 .story-text p + p { margin-top: 1.5rem; }
+
+/* ============ PARLIAMENT SECTION ============ */
+.parliament-section {
+  padding: 8rem 6%;
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+}
+.parliament-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(155,142,196,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(242,206,126,0.06) 0%, transparent 50%);
+}
+.parliament-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.parliament-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.parliament-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-top: 1rem;
+}
+.parliament-header p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5);
+  max-width: 650px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+.parliament-header .section-tag { justify-content: center; color: var(--gold); }
+.parliament-header .section-tag::before { display: none; }
+.parliament-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.parliament-img {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+  transition: all 0.5s ease;
+}
+.parliament-img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+.parliament-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.parliament-img:hover img {
+  transform: scale(1.05);
+}
+.parliament-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,19,51,0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ============ SHOWCASE VIDEOS ============ */
+.showcase-section {
+  padding: 8rem 6%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.showcase-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.showcase-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.showcase-header .section-tag { justify-content: center; }
+.showcase-header .section-tag::before { display: none; }
+.showcase-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.showcase-video {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(26,35,84,0.08);
+  box-shadow: 0 20px 60px rgba(26,35,84,0.12);
+  background: var(--navy-deep);
+  transition: all 0.4s ease;
+}
+.showcase-video:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(26,35,84,0.18);
+}
+.showcase-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border: none;
+}
+
+/* ============ BIG PROJECTS ============ */
+.projects-section {
+  padding: 8rem 6%;
+  background: var(--off-white);
+}
+.projects-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.projects-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.projects-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.projects-header .section-tag { justify-content: center; }
+.projects-header .section-tag::before { display: none; }
+.projects-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(26,35,84,0.06);
+}
+.project-card:last-child { border-bottom: none; }
+.project-card.reverse .project-visual { order: 2; }
+.project-card.reverse .project-content { order: 1; }
+.project-visual {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, #2a3578 100%);
+  border-radius: 24px;
+  padding: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+.project-visual::before {
+  content: '';
+  position: absolute; top: -30%; right: -30%;
+  width: 80%; height: 80%;
+  background: radial-gradient(circle, rgba(242,206,126,0.12) 0%, transparent 60%);
+}
+.project-visual svg {
+  width: 100px; height: 100px;
+  position: relative; z-index: 1;
+}
+.project-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(26,35,84,0.05);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.project-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-bottom: 1rem;
+}
+.project-content h3 .accent {
+  color: var(--lavender);
+  font-style: italic;
+}
+.project-content p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.project-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  background: rgba(155,142,196,0.1);
+  color: var(--lavender);
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* ============ CLIENTS ============ */
+.clients-section {
+  padding: 8rem 6%;
+}
+.clients-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.clients-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.clients-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.clients-header .section-tag { justify-content: center; }
+.clients-header .section-tag::before { display: none; }
+.clients-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.client-logo-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.4s ease;
+}
+.client-logo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(26,35,84,0.08);
+  border-color: var(--lavender);
+}
+.client-icon {
+  width: 100%;
+  max-width: 180px;
+  height: 80px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.client-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
 /* ============ VALUES ============ */
 .values-section {
@@ -378,7 +657,7 @@ nav.scrolled { padding: 0.8rem 4%; }
   max-width: 1300px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 .stat-item {
@@ -578,8 +857,13 @@ footer {
 @media (max-width: 1024px) {
   .story-grid { grid-template-columns: 1fr; gap: 3rem; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stats-inner { grid-template-columns: repeat(3, 1fr); }
   .industries-grid { grid-template-columns: repeat(2, 1fr); }
+  .parliament-gallery { grid-template-columns: repeat(2, 1fr); }
+  .project-card { grid-template-columns: 1fr; gap: 2rem; }
+  .project-card.reverse .project-visual { order: 1; }
+  .project-card.reverse .project-content { order: 2; }
+  .clients-logos { grid-template-columns: repeat(3, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
@@ -589,6 +873,9 @@ footer {
   .team-grid { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: 1fr; }
   .industries-grid { grid-template-columns: 1fr; }
+  .parliament-gallery { grid-template-columns: 1fr; }
+  .showcase-grid { grid-template-columns: 1fr; max-width: 320px; }
+  .clients-logos { grid-template-columns: repeat(2, 1fr); }
   .cta-buttons { flex-direction: column; align-items: center; }
   .footer-top { grid-template-columns: 1fr; }
 }
@@ -599,8 +886,7 @@ footer {
 <!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html" class="nav-brand">
-    <img src="logos/1.png" alt="Merlin The Marketer">
-    <span>Merlin</span>
+    <img src="merlinslogo.png" alt="Merlin The Marketer">
   </a>
   <ul class="nav-links">
     <li><a href="about.html" class="active">About</a></li>
@@ -608,7 +894,7 @@ footer {
     <li><a href="index.html#ugc">UGC</a></li>
     <li><a href="index.html#clients">Clients</a></li>
     <li><a href="index.html#results">Results</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
     <span></span><span></span><span></span>
@@ -634,9 +920,31 @@ footer {
     </div>
     <div class="reveal">
       <div class="story-text">
-        <p>Merlin The Marketer was founded with a single conviction: that businesses deserve marketing partners who are as invested in their growth as they are. We operate at the intersection of data-driven strategy and bold creative execution, delivering campaigns that move needles — not just metrics.</p>
+        <p>Merlin The Marketer was founded with a single conviction: that businesses deserve marketing partners who are as invested in their growth as they are. We operate at the intersection of data-driven strategy and bold creative execution, delivering campaigns that move needles, not just metrics.</p>
         <p>Having partnered with over 1,000 companies across construction, automotive, recruitment, jewellery, hospitality and beyond, we bring the rigour of a consultancy with the creativity of a boutique agency. Every engagement is architected to deliver measurable ROI.</p>
-        <p>Today, we're a full-service enterprise marketing agency with capabilities spanning paid media, UGC production, brand strategy, web development, social management, and SEO — all under one roof, all driven by results.</p>
+        <p>Today, we're a full-service enterprise marketing agency with capabilities spanning paid media, UGC production, brand strategy, web development, social management, and SEO, all under one roof, all driven by results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARLIAMENT -->
+<section class="parliament-section">
+  <div class="parliament-inner">
+    <div class="parliament-header reveal">
+      <div class="section-tag">Making an Impact</div>
+      <h2>Merlin at Parliament</h2>
+      <p>Recognised at the highest levels. Merlin The Marketer has been invited to the Houses of Parliament, showcasing our commitment to business excellence, innovation, and driving meaningful change across industries.</p>
+    </div>
+    <div class="parliament-gallery">
+      <div class="parliament-img reveal">
+        <img src="parliament1.jpg" alt="Merlin at Parliament">
+      </div>
+      <div class="parliament-img reveal">
+        <img src="parliament2.jpg" alt="Merlin at Parliament">
+      </div>
+      <div class="parliament-img reveal">
+        <img src="parliament3.jpg" alt="Merlin at Parliament">
       </div>
     </div>
   </div>
@@ -650,16 +958,121 @@ footer {
       <p>Clients Served</p>
     </div>
     <div class="stat-item reveal">
-      <h3>£50M+</h3>
-      <p>Revenue Generated</p>
-    </div>
-    <div class="stat-item reveal">
       <h3>98%</h3>
       <p>Client Retention</p>
     </div>
     <div class="stat-item reveal">
       <h3>12x</h3>
       <p>Average ROI</p>
+    </div>
+  </div>
+</section>
+
+<!-- BIG PROJECTS -->
+<section class="projects-section">
+  <div class="projects-inner">
+    <div class="projects-header reveal">
+      <div class="section-tag">Flagship Projects</div>
+      <h2>Enterprise-Scale<br>Solutions We've Built</h2>
+      <p>Beyond marketing, we build real products. From HMRC-compliant tax platforms to full-scale project management tools, here are some of the big projects we've delivered.</p>
+    </div>
+
+    <!-- Project 1: AnyTax -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      </div>
+      <div class="project-content">
+        <div class="project-number">01</div>
+        <h3>AnyTax: <span class="accent">Tax Filing Platform</span></h3>
+        <p>We designed, developed, and launched AnyTax, a fully digital tax filing platform built to simplify self-assessment for freelancers, sole traders, and small businesses across the UK.</p>
+        <p>AnyTax streamlines the entire process from income entry to HMRC submission, with an intuitive interface that makes tax filing accessible to everyone, not just accountants.</p>
+        <div class="project-tags">
+          <span class="project-tag">Web App</span>
+          <span class="project-tag">UX Design</span>
+          <span class="project-tag">Tax Filing</span>
+          <span class="project-tag">HMRC Integration</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Making Tax Digital -->
+    <div class="project-card reverse reveal">
+      <div class="project-visual">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="project-content">
+        <div class="project-number">02</div>
+        <h3>Making Tax Digital: <span class="accent">MTD Compliance</span></h3>
+        <p>With HMRC's Making Tax Digital mandate transforming how UK businesses handle VAT and income tax, we built a compliant MTD solution that bridges the gap between legacy accounting and digital-first tax reporting.</p>
+        <p>Our platform enables businesses to maintain digital records, submit quarterly updates, and stay fully compliant with HMRC's evolving requirements, all through a clean, modern interface.</p>
+        <div class="project-tags">
+          <span class="project-tag">MTD Compliance</span>
+          <span class="project-tag">VAT Submissions</span>
+          <span class="project-tag">Digital Records</span>
+          <span class="project-tag">HMRC API</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Project Management Apps -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="project-content">
+        <div class="project-number">03</div>
+        <h3>Project Management: <span class="accent">Custom PM Tools</span></h3>
+        <p>We developed bespoke project management applications tailored for teams that need more than off-the-shelf solutions. From task tracking and resource allocation to real-time collaboration and reporting dashboards.</p>
+        <p>Built for construction firms, agencies, and enterprise teams who need full visibility across projects, milestones, and team performance, without the bloat of generic PM software.</p>
+        <div class="project-tags">
+          <span class="project-tag">SaaS Platform</span>
+          <span class="project-tag">Task Management</span>
+          <span class="project-tag">Team Collaboration</span>
+          <span class="project-tag">Custom Dashboards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE VIDEOS -->
+<section class="showcase-section">
+  <div class="showcase-header reveal">
+    <div class="section-tag">Our Work</div>
+    <h2>See What We Do</h2>
+    <p>A glimpse into the creative output and campaigns we produce for our clients every day.</p>
+  </div>
+  <div class="showcase-grid">
+    <div class="showcase-video reveal">
+      <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/24c36897081d1192d406a8b17f1689f7/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F24c36897081d1192d406a8b17f1689f7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+    </div>
+    <div class="showcase-video reveal">
+      <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/a923308ea8f45ec1aa2465e858945a81/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fa923308ea8f45ec1aa2465e858945a81%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section">
+  <div class="clients-inner">
+    <div class="clients-header reveal">
+      <div class="section-tag">Our Clients</div>
+      <h2>Trusted by Industry Leaders</h2>
+    </div>
+    <div class="clients-logos">
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/1.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/2.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/3.jpg" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/4.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/5.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/6.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/anytax.jpeg" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/hirely.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/images.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/karakchai.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/nhs.png" alt="Client"></div></div>
+      <div class="client-logo-card reveal"><div class="client-icon"><img src="logos/oxfordbusinesscollege.png" alt="Client"></div></div>
     </div>
   </div>
 </section>
@@ -675,7 +1088,7 @@ footer {
       <div class="value-card reveal">
         <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Results-Obsessed</h3>
-        <p>Every decision we make is measured against its impact on your bottom line. Vanity metrics don't pay the bills — real results do.</p>
+        <p>Every decision we make is measured against its impact on your bottom line. Vanity metrics don't pay the bills. Real results do.</p>
       </div>
       <div class="value-card reveal">
         <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
@@ -690,7 +1103,7 @@ footer {
       <div class="value-card reveal">
         <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Partnership First</h3>
-        <p>We don't work for you — we work with you. Your goals become our goals, and your success is the only metric that matters.</p>
+        <p>We don't work for you, we work with you. Your goals become our goals, and your success is the only metric that matters.</p>
       </div>
       <div class="value-card reveal">
         <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
@@ -716,11 +1129,19 @@ footer {
   <div class="team-grid">
     <div class="team-card reveal">
       <div class="team-avatar">
-        <div class="team-avatar-placeholder">M</div>
+        <div class="team-avatar-placeholder">P</div>
       </div>
-      <h3>Merlin</h3>
-      <div class="team-role">Founder & CEO</div>
+      <h3>Prabjot</h3>
+      <div class="team-role">Founder</div>
       <p>Visionary strategist with a track record of building brands that dominate their markets. Leads overall agency direction and enterprise client relationships.</p>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">
+        <div class="team-avatar-placeholder">S</div>
+      </div>
+      <h3>Sanokth</h3>
+      <div class="team-role">Founder</div>
+      <p>Driving growth and operational excellence across every client engagement. Ensures every campaign delivers measurable impact and long-term value.</p>
     </div>
     <div class="team-card reveal">
       <div class="team-avatar">
@@ -782,7 +1203,7 @@ footer {
     <h2>Ready to Work With <span class="accent">The Best?</span></h2>
     <p>Book a no-obligation strategy call and discover how Merlin can transform your marketing infrastructure.</p>
     <div class="cta-buttons">
-      <a href="index.html#contact" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <a href="services.html" class="btn-outline">View Our Services</a>
     </div>
   </div>
@@ -794,7 +1215,7 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <span>Merlin The Marketer</span>
-        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance — all under one roof.</p>
+        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance, all under one roof.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>

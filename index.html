@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Merlin The Marketer | Enterprise Marketing Solutions</title>
+<link rel="icon" type="image/png" href="merlinslogo.png">
+<link rel="apple-touch-icon" href="merlinslogo.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -34,22 +36,40 @@ body {
 /* ============ PRELOADER ============ */
 .preloader {
   position: fixed; inset: 0;
-  background: var(--navy-deep);
+  background: #ffffff;
   z-index: 10000;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.5rem;
   transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 .preloader.hidden { opacity: 0; visibility: hidden; }
 .preloader-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem; font-weight: 800;
-  color: var(--gold);
-  letter-spacing: 2px;
-  animation: pulse 1.2s ease-in-out infinite;
+  animation: logoPulse 1.5s ease-in-out infinite;
 }
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; transform: scale(0.98); }
-  50% { opacity: 1; transform: scale(1); }
+.preloader-logo img {
+  width: 140px; height: 140px;
+  object-fit: contain;
+}
+.preloader-words {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--navy-deep);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: wordFade 0.6s ease-in-out forwards;
+  min-height: 2.5rem;
+}
+@keyframes logoPulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+@keyframes wordFade {
+  0% { opacity: 0; transform: translateY(8px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
 }
 
 /* ============ NAVIGATION ============ */
@@ -72,14 +92,11 @@ nav.scrolled {
   text-decoration: none;
 }
 .nav-brand img {
-  height: 48px; width: 48px; object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(242,206,126,0.3));
-}
-.nav-brand span {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800; font-size: 1.35rem;
-  color: var(--gold);
-  letter-spacing: 1px;
+  height: 60px; width: 60px; object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.2));
 }
 .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -186,9 +203,20 @@ nav.scrolled {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(242,206,126,0.15);
-  box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.4), inset 0 0 60px rgba(26,35,84,0.6);
   animation: fadeInUp 0.8s ease 1.3s both;
   aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #0d1333 0%, #1a2354 40%, #2a3578 70%, #1a2354 100%);
+}
+.hero-slideshow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(242,206,126,0.08);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(13,19,51,0.4) 100%);
+  pointer-events: none;
+  z-index: 3;
 }
 .hero-slide {
   position: absolute;
@@ -204,6 +232,23 @@ nav.scrolled {
   width: 100%;
   height: 100%;
   border: none;
+}
+.slide-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 4;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: rgba(13,19,51,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(242,206,126,0.15);
+  border-radius: 6px;
+  padding: 6px 14px;
 }
 .slideshow-dots {
   position: absolute;
@@ -511,46 +556,60 @@ nav.scrolled {
 
 /* ============ UGC SECTION ============ */
 .ugc-section {
-  padding: 8rem 6%;
-  max-width: 1300px;
-  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--navy-deep) 0%, #2a3578 50%, var(--navy-deep) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.ugc-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(242,206,126,0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 .ugc-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  min-height: 100vh;
   align-items: center;
 }
 .ugc-visual {
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .ugc-card {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, #2a3578 100%);
-  border-radius: 24px;
-  padding: 3.5rem;
+  background: none;
+  padding: 4rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .ugc-card::before {
   content: '';
   position: absolute; top: -50%; right: -50%;
   width: 100%; height: 100%;
-  background: radial-gradient(circle, rgba(242,206,126,0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(242,206,126,0.1) 0%, transparent 60%);
 }
 .ugc-avatar {
-  width: 100px; height: 100px;
+  width: 200px; height: 200px;
   border-radius: 50%;
-  background: var(--gold);
+  border: 4px solid var(--gold);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem; font-weight: 800;
-  color: var(--navy-deep);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   position: relative; z-index: 1;
+  box-shadow: 0 0 40px rgba(242,206,126,0.2);
 }
 .ugc-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   color: var(--white);
   margin-bottom: 0.5rem;
   position: relative; z-index: 1;
@@ -563,19 +622,25 @@ nav.scrolled {
   text-transform: uppercase;
   position: relative; z-index: 1;
 }
+.ugc-content {
+  padding: 5rem 6%;
+  position: relative;
+  z-index: 1;
+}
 .ugc-content h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
-  color: var(--navy-deep);
+  color: var(--white);
   line-height: 1.15;
   margin-bottom: 1.5rem;
 }
-.ugc-content h2 .accent { color: var(--lavender); font-style: italic; }
+.ugc-content h2 .accent { color: var(--gold); font-style: italic; }
+.ugc-content .section-tag { color: var(--gold); border-color: rgba(242,206,126,0.2); }
 .ugc-content p {
   font-size: 1.05rem;
   line-height: 1.85;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.7);
   margin-bottom: 1.5rem;
 }
 .ugc-features {
@@ -586,16 +651,16 @@ nav.scrolled {
   display: flex; align-items: center; gap: 12px;
   padding: 0.7rem 0;
   font-size: 0.95rem;
-  color: var(--text-dark);
+  color: rgba(255,255,255,0.85);
   font-weight: 500;
 }
 .ugc-features li .check {
   width: 24px; height: 24px;
-  background: rgba(155,142,196,0.15);
+  background: rgba(242,206,126,0.15);
   border-radius: 6px;
   display: flex; align-items: center; justify-content: center;
   font-size: 0.75rem;
-  color: var(--lavender);
+  color: var(--gold);
   flex-shrink: 0;
 }
 
@@ -634,15 +699,12 @@ nav.scrolled {
 .client-logo-card {
   background: white;
   border-radius: 16px;
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   border: 1px solid rgba(0,0,0,0.04);
   transition: all 0.4s ease;
-  text-align: center;
 }
 .client-logo-card:hover {
   transform: translateY(-6px);
@@ -650,19 +712,16 @@ nav.scrolled {
   border-color: var(--lavender);
 }
 .client-icon {
-  width: 60px; height: 60px;
-  border-radius: 14px;
+  width: 100%;
+  max-width: 180px;
+  height: 80px;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  font-size: 1.3rem;
-  color: white;
   overflow: hidden;
 }
 .client-icon img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 .client-logo-card h4 {
   font-family: 'DM Sans', sans-serif;
@@ -892,7 +951,8 @@ footer {
   .hero h1 { font-size: 2.8rem; }
   .hero-stats { flex-direction: column; gap: 1.5rem; }
   .hero-content { grid-template-columns: 1fr; }
-  .about-grid, .ugc-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .ugc-grid { grid-template-columns: 1fr; min-height: auto; }
   .services-grid { grid-template-columns: 1fr; }
   .clients-logos { grid-template-columns: 1fr; }
   .results-grid { grid-template-columns: 1fr 1fr; }
@@ -906,14 +966,14 @@ footer {
 
 <!-- PRELOADER -->
 <div class="preloader" id="preloader">
-  <div class="preloader-logo">MERLIN</div>
+  <div class="preloader-logo"><img src="merlinslogo.png" alt="Merlin"></div>
+  <div class="preloader-words" id="preloaderWords"></div>
 </div>
 
 <!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html" class="nav-brand">
-    <img src="logos/1.png" alt="Merlin The Marketer">
-    <span>Merlin</span>
+    <img src="merlinslogo.png" alt="Merlin The Marketer">
   </a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
@@ -921,7 +981,7 @@ footer {
     <li><a href="#ugc">UGC</a></li>
     <li><a href="#clients">Clients</a></li>
     <li><a href="#results">Results</a></li>
-    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
     <span></span><span></span><span></span>
@@ -939,9 +999,9 @@ footer {
         <span>Enterprise Marketing Solutions</span>
       </div>
       <h1>We Build Brands<br>That <span class="italic">Dominate</span><br><span class="gold">Markets.</span></h1>
-      <p class="hero-sub">Merlin The Marketer is a full-service enterprise marketing agency. From UGC to full-scale brand strategy, we turn businesses into market leaders.</p>
+      <p class="hero-sub">Trusted by industry leaders including GSF, NHS, Greggs, and top construction firms like Bordo Design. From UGC to full-scale brand strategy, we partner with the biggest names to deliver results that matter.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Book a Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Book a Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <a href="#services" class="btn-secondary">Explore Services</a>
       </div>
     </div>
@@ -951,29 +1011,26 @@ footer {
           <h3>1,000+</h3>
           <p>Clients Served</p>
         </div>
-        <div class="hero-stat">
-          <h3>£50M+</h3>
-          <p>Revenue Generated</p>
-        </div>
-        <div class="hero-stat">
+<div class="hero-stat">
           <h3>98%</h3>
           <p>Client Retention</p>
         </div>
       </div>
       <div class="hero-slideshow" id="heroSlideshow">
         <div class="hero-slide active">
-          <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/fedeb84a1691525d91adee82f5fabaf7/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Ffedeb84a1691525d91adee82f5fabaf7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
-        </div>
-        <div class="hero-slide">
+          <span class="slide-label">Construction</span>
           <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F74a7b7f85b59015bb9f8335c39e29b78%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
         <div class="hero-slide">
+          <span class="slide-label">Motor Services</span>
           <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/d617f6f219ab023d3d4b8fe37c247239/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fd617f6f219ab023d3d4b8fe37c247239%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
         <div class="hero-slide">
+          <span class="slide-label">Entertainment</span>
           <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/a0a12aa2e2721dfe980d23805de7381b/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fa0a12aa2e2721dfe980d23805de7381b%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
         <div class="hero-slide">
+          <span class="slide-label">Entertainment</span>
           <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/7f59a0740a5f51ddea8fdf02724d853d/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F7f59a0740a5f51ddea8fdf02724d853d%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
         <div class="slideshow-dots">
@@ -981,7 +1038,6 @@ footer {
           <button class="slideshow-dot" data-slide="1"></button>
           <button class="slideshow-dot" data-slide="2"></button>
           <button class="slideshow-dot" data-slide="3"></button>
-          <button class="slideshow-dot" data-slide="4"></button>
         </div>
         <div class="slideshow-progress" id="slideshowProgress"></div>
       </div>
@@ -1020,8 +1076,8 @@ footer {
     </div>
     <div class="reveal">
       <div class="about-text">
-        <p>Merlin The Marketer is an enterprise-grade marketing agency built for businesses that refuse to be invisible. We operate at the intersection of data-driven strategy and bold creative execution, delivering campaigns that move needles — not just metrics.</p>
-        <p>Having partnered with over 1,000 companies across construction, automotive, recruitment, jewellery, hospitality and beyond, we bring the rigour of a consultancy with the creativity of a boutique agency. From high-converting UGC content to full-funnel paid media, every engagement is architected to deliver measurable ROI.</p>
+        <p>Merlin The Marketer is an enterprise-grade marketing agency trusted by the UK's biggest firms. From GSF and NHS to Greggs, Hoodrich and JD, we operate at the intersection of data-driven strategy and bold creative execution, delivering campaigns that move needles, not just metrics.</p>
+        <p>Having partnered with over 1,000 companies across construction, automotive, recruitment, jewellery, hospitality and beyond, including top-tier firms like Bordo Design and Icebank Jewellers. We bring the rigour of a consultancy with the creativity of a boutique agency. Every engagement is architected to deliver measurable ROI.</p>
       </div>
     </div>
   </div>
@@ -1082,7 +1138,7 @@ footer {
     <div class="ugc-content reveal">
       <div class="section-tag">UGC Division</div>
       <h2>Creator-Led Content<br>That <span class="accent">Actually Converts</span></h2>
-      <p>Our dedicated UGC division, led by Balraj, produces authentic, high-performing creator content that builds trust and drives sales. We work with a curated network of creators to deliver content that feels real — because it is.</p>
+      <p>Our dedicated UGC division, led by Balraj, produces authentic, high-performing creator content that builds trust and drives sales. We work with a curated network of creators to deliver content that feels real, because it is.</p>
       <p>From product showcases to testimonial-style ads, we handle the entire pipeline from scripting to final cut, ensuring every piece of content is optimised for performance.</p>
       <ul class="ugc-features">
         <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Dedicated creator network & talent management</li>
@@ -1101,53 +1157,44 @@ footer {
     <div class="clients-header reveal">
       <div class="section-tag">Trusted Partners</div>
       <h2>Companies That Trust<br>Merlin To Deliver</h2>
-      <p>From construction to automotive, recruitment to luxury jewellery — we partner with market leaders across every vertical.</p>
+      <p>From construction to automotive, recruitment to luxury jewellery, we partner with market leaders across every vertical.</p>
     </div>
     <div class="clients-logos">
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #2d4a7a, #1a2d4d);"><img src="clients/9.png" alt="Bordo Design"></div>
-        <h4>Bordo Design</h4>
-        <span>Construction & Design</span>
+        <div class="client-icon"><img src="logos/1.png" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #c0392b, #96281b);"><img src="clients/7.jpg" alt="Woodside Motor Services"></div>
-        <h4>Woodside Motor Services</h4>
-        <span>Automotive</span>
+        <div class="client-icon"><img src="logos/2.png" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #27ae60, #1e8449);"><img src="clients/15.png" alt="Easy2Recruit"></div>
-        <h4>Easy2Recruit</h4>
-        <span>Recruitment</span>
+        <div class="client-icon"><img src="logos/3.jpg" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #8e44ad, #6c3483);"><img src="clients/8.PNG" alt="Binley Motor Services"></div>
-        <h4>Binley Motor Services</h4>
-        <span>Automotive</span>
+        <div class="client-icon"><img src="logos/4.png" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #00b4d8, #0077b6);"><img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/fc8720aa-0fa6-4fcb-69c1-f3f9a254d000/public" alt="Icebank Jewellers"></div>
-        <h4>Icebank Jewellers</h4>
-        <span>Worked with Hoodrich & JD</span>
+        <div class="client-icon"><img src="logos/5.png" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #e6b800, #cc9900);"><img src="clients/12.jpeg" alt="ETR Jewellers"></div>
-        <h4>ETR Jewellers</h4>
-        <span>Luxury Jewellery</span>
+        <div class="client-icon"><img src="logos/6.png" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);"><img src="clients/logo3fx.png" alt="3FX"></div>
-        <h4>3FX</h4>
-        <span>Bar & Hospitality</span>
+        <div class="client-icon"><img src="logos/anytax.jpeg" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #d4380d, #a8071a);"><img src="clients/GSF.png" alt="GSF"></div>
-        <h4>GSF</h4>
-        <span>Motor Services</span>
+        <div class="client-icon"><img src="logos/hirely.png" alt="Client"></div>
       </div>
       <div class="client-logo-card reveal">
-        <div class="client-icon" style="background: linear-gradient(135deg, #1a1a2e, #16213e);"><img src="clients/hoodrich.png" alt="Hoodrich"></div>
-        <h4>Hoodrich</h4>
-        <span>Fashion & Streetwear</span>
+        <div class="client-icon"><img src="logos/images.png" alt="Client"></div>
+      </div>
+      <div class="client-logo-card reveal">
+        <div class="client-icon"><img src="logos/karakchai.png" alt="Client"></div>
+      </div>
+      <div class="client-logo-card reveal">
+        <div class="client-icon"><img src="logos/nhs.png" alt="Client"></div>
+      </div>
+      <div class="client-logo-card reveal">
+        <div class="client-icon"><img src="logos/oxfordbusinesscollege.png" alt="Client"></div>
       </div>
     </div>
     <div class="clients-count reveal">
@@ -1192,7 +1239,7 @@ footer {
     <h2>Let's Build Something <span class="accent">Extraordinary</span></h2>
     <p>Book a no-obligation strategy call with our team and discover how Merlin can transform your marketing infrastructure.</p>
     <div class="cta-buttons">
-      <a href="#" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <a href="#" class="btn-outline">View Case Studies</a>
     </div>
   </div>
@@ -1204,7 +1251,7 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <span>Merlin The Marketer</span>
-        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance — all under one roof.</p>
+        <p>Enterprise marketing solutions for businesses that demand results. Strategy, creative, and performance, all under one roof.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -1239,11 +1286,24 @@ footer {
 </footer>
 
 <script>
-// Preloader
+// Preloader with rotating words
+const marketingWords = ['Strategy', 'Growth', 'Branding', 'Performance', 'Creative', 'Digital', 'Content', 'Analytics', 'Paid Media', 'UGC', 'SEO', 'Innovation'];
+const wordsEl = document.getElementById('preloaderWords');
+let wordIndex = 0;
+function cycleWord() {
+  wordsEl.textContent = marketingWords[wordIndex];
+  wordsEl.style.animation = 'none';
+  wordsEl.offsetHeight;
+  wordsEl.style.animation = 'wordFade 0.6s ease-in-out forwards';
+  wordIndex = (wordIndex + 1) % marketingWords.length;
+}
+cycleWord();
+const wordInterval = setInterval(cycleWord, 700);
 window.addEventListener('load', () => {
   setTimeout(() => {
+    clearInterval(wordInterval);
     document.getElementById('preloader').classList.add('hidden');
-  }, 800);
+  }, 1200);
 });
 
 // Navbar scroll
