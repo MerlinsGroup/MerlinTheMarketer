@@ -897,7 +897,8 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   }
   .hero-stats { flex-direction: column; gap: 0.8rem; }
   .hero-actions { flex-direction: column; gap: 0.8rem; }
-  .hero-slideshow { aspect-ratio: 16/10; }
+  .hero-slideshow { aspect-ratio: 16/10; transform: none !important; }
+  .hero-slideshow::after { background: none; }
 
   /* ---- MOBILE: Disable sticky, use normal flow ---- */
   .sticky-wrap { height: auto !important; }
@@ -1434,7 +1435,7 @@ const slides = document.querySelectorAll('.hero-slide');
 const dots = document.querySelectorAll('.slideshow-dot');
 const progressBar = document.getElementById('slideshowProgress');
 let currentSlide = 0;
-const slideDuration = 6000;
+const slideDuration = 9000;
 let slideStart = Date.now();
 const loadedSlides = new Set();
 
