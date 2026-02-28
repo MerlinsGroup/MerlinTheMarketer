@@ -956,9 +956,11 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .phone-scroll-wrapper { height: 200vh; }
   .phone-sticky { padding-top: 5vh; }
   .phone-inner { gap: 1.5rem; padding: 0 4%; }
-  .phone-text-container { min-height: auto; transform: none !important; opacity: 1 !important; }
+  .phone-text-container { min-height: auto; transform: none !important; opacity: 1 !important; position: relative; }
+  .phone-text-panel { position: relative; display: none; }
+  .phone-text-panel.active { display: block; opacity: 1; transform: none; pointer-events: auto; }
   .phone-text-panel h2 { font-size: 1.3rem; margin-bottom: 0.6rem; }
-  .phone-text-panel p { display: none; }
+  .phone-text-panel p { display: block; font-size: 0.85rem; margin-bottom: 1rem; }
   .phone-text-panel .btn-primary { font-size: 0.82rem; padding: 10px 18px; }
   .phone-progress { margin-top: 0.8rem; }
   .phone-frame { width: 220px; }
