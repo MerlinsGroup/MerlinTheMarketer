@@ -818,40 +818,40 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 
 /* ============ MOBILE ANIMATION CLASSES (used by IntersectionObserver) ============ */
 .mob-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0 !important;
+  transform: translateY(40px) !important;
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1) !important;
 }
 .mob-reveal.mob-visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 .mob-reveal-left {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0 !important;
+  transform: translateX(-60px) !important;
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1) !important;
 }
 .mob-reveal-left.mob-visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 .mob-reveal-right {
-  opacity: 0;
-  transform: translateX(60px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0 !important;
+  transform: translateX(60px) !important;
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1) !important;
 }
 .mob-reveal-right.mob-visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 .mob-reveal-scale {
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0 !important;
+  transform: scale(0.85) !important;
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1) !important;
 }
 .mob-reveal-scale.mob-visible {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1 !important;
+  transform: scale(1) !important;
 }
 
 /* ============ RESPONSIVE ============ */
@@ -997,7 +997,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 
   /* UGC */
   .ugc-grid { grid-template-columns: 1fr; min-height: auto; }
-  .ugc-content { padding: 3rem 5%; opacity: 1 !important; transform: none !important; }
+  .ugc-content { padding: 3rem 5%; }
   .ugc-content h2 { font-size: 1.6rem; }
   .ugc-content p { font-size: 0.9rem; }
   .ugc-content p:nth-of-type(2) { display: none; }
@@ -1516,6 +1516,11 @@ function initMobile() {
   if (mobileInitialized) return;
   mobileInitialized = true;
 
+  // Clear desktop parallax inline styles so mob-reveal classes can take over
+  [aboutHeadingWrap, servicesHeaderWrap, ugcContentWrap, ctaInner].forEach(el => {
+    if (el) { el.style.transform = ''; el.style.opacity = ''; }
+  });
+
   // Add mob-reveal classes to key elements
   const revealElements = [
     { el: document.getElementById('aboutHeadingWrap'), cls: 'mob-reveal-scale' },
@@ -1529,6 +1534,9 @@ function initMobile() {
     { el: document.querySelector('.compare-header'), cls: 'mob-reveal' },
     { el: document.querySelector('.clients-header'), cls: 'mob-reveal' },
     { el: document.querySelector('.results-header'), cls: 'mob-reveal' },
+    { el: document.querySelector('.phone-text-panel.active'), cls: 'mob-reveal' },
+    { el: document.querySelector('.phone-frame'), cls: 'mob-reveal-scale' },
+    { el: document.querySelector('.hero-stats'), cls: 'mob-reveal' },
   ];
 
   // Statement sections — slide animations (classes handle initial hidden state, no inline styles needed)
@@ -1578,8 +1586,8 @@ function initMobile() {
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   // Observe all mob-reveal elements
@@ -1649,9 +1657,9 @@ function onScroll() {
     // 2. Scroll progress bar
     document.getElementById('scrollProgress').style.width = (scrollY / (docH - winH) * 100) + '%';
 
-    // 3. Hero slideshow scale effect
+    // 3. Hero slideshow parallax — desktop only
     const heroSlideshow = document.getElementById('heroSlideshow');
-    if (heroSlideshow) {
+    if (heroSlideshow && !mobile) {
       const progress = Math.min(scrollY / winH, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       heroSlideshow.style.transform = `scale(${1.12 - eased * 0.17})`;
