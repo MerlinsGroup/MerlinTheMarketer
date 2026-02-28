@@ -1694,7 +1694,7 @@ function onScroll() {
         if (sp >= 0) {
           const mp = Math.min(1, sp / 0.45);
           const me = mp * mp * (3 - 2 * mp);
-          const mScale = 0.2 + me * 0.8;
+          const mScale = 0.2 + me * 0.4;
           const mTx = -50 + me * -50;
           const mTy = -50 + (sp >= 0.5 ? -20 : 0);
           statementMarketing.style.transform = `translate(${mTx}%, ${mTy}%) scale(${mScale})`;
@@ -1706,7 +1706,7 @@ function onScroll() {
           } else {
             const ap = Math.min(1, (sp - 0.5) / 0.45);
             const ae = ap * ap * (3 - 2 * ap);
-            const aScale = 0.2 + ae * 0.8;
+            const aScale = 0.2 + ae * 0.4;
             const aTx = -50 + ae * 50;
             statementAutomated.style.transform = `translate(${aTx}%, -20%) scale(${aScale})`;
             statementAutomated.style.opacity = Math.min(1, ap * 3);
