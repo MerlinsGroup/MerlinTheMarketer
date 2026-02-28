@@ -1718,8 +1718,7 @@ function onScroll() {
             const ap = Math.min(1, (sp - 0.5) / 0.45);
             const ae = ap * ap * (3 - 2 * ap);
             const aScale = 0.2 + ae * 0.4;
-            const aTx = -50 + ae * 50;
-            statementAutomated.style.transform = `translate(${aTx}%, -20%) scale(${aScale})`;
+            statementAutomated.style.transform = `translate(-50%, -20%) scale(${aScale})`;
             statementAutomated.style.opacity = Math.min(1, ap * 3);
           }
         }
