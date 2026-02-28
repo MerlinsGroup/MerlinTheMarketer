@@ -525,6 +525,7 @@ nav.scrolled {
   margin: 1.5rem auto 0;
   line-height: 1.7;
 }
+.comparison-scroll-hint { display: none; }
 .comparison-table-wrap {
   overflow-x: auto;
   border-radius: 16px;
@@ -819,6 +820,10 @@ footer {
   .cta-buttons { flex-direction: column; align-items: center; }
   .footer-top { grid-template-columns: 1fr; }
   .comparison-table { min-width: 600px; }
+  .comparison-scroll-hint {
+    display: block; width: 60px; height: 4px; border-radius: 2px;
+    background: rgba(24,0,173,0.3); margin: 0 auto 1rem;
+  }
   .savings-callout { padding: 2rem 1.5rem; }
   .savings-callout h3 { font-size: 1.4rem; }
 }
@@ -986,6 +991,7 @@ footer {
     <p>See how Merlin stacks up against hiring in-house or working with a traditional agency.</p>
   </div>
 
+  <div class="comparison-scroll-hint"></div>
   <div class="comparison-table-wrap reveal">
     <table class="comparison-table">
       <thead>
