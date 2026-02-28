@@ -1707,9 +1707,8 @@ function onScroll() {
           const mp = Math.min(1, sp / 0.45);
           const me = mp * mp * (3 - 2 * mp);
           const mScale = 0.2 + me * 0.4;
-          const mTx = -50 + me * -50;
           const mTy = -50 + (sp >= 0.5 ? -20 : 0);
-          statementMarketing.style.transform = `translate(${mTx}%, ${mTy}%) scale(${mScale})`;
+          statementMarketing.style.transform = `translate(-50%, ${mTy}%) scale(${mScale})`;
           statementMarketing.style.opacity = Math.min(1, mp * 3);
 
           if (sp < 0.5) {
