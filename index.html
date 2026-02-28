@@ -110,7 +110,6 @@ nav.scrolled {
                      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
   background-size: 60px 60px;
 }
-/* Particles via CSS only — no JS overhead */
 .hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .particle {
   position: absolute; background: var(--gold); border-radius: 50%; opacity: 0;
@@ -291,7 +290,8 @@ nav.scrolled {
   opacity: 0;
   will-change: transform, opacity;
 }
-/* ============ STICKY SCROLL-LOCK ============ */
+
+/* ============ STICKY SCROLL-LOCK (desktop only) ============ */
 .sticky-wrap { position: relative; }
 .sticky-lock {
   position: sticky !important; top: 0; height: 100vh;
@@ -524,7 +524,7 @@ nav.scrolled {
   top: 50%; left: 50%;
   transform-origin: center center;
 }
-/* Single-word statement (higher up) */
+/* Single-word statement */
 .statement-single {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(5rem, 18vw, 16rem);
@@ -762,27 +762,21 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 .ugc-section::before {
   display: none;
 }
-/* Section tags — gold with line */
 .services-section .section-tag,
 .results-section .section-tag,
 .ugc-content .section-tag { color: var(--gold) !important; }
 .services-section .section-tag::before,
 .results-section .section-tag::before,
 .ugc-content .section-tag::before { background: var(--gold) !important; display: block !important; }
-/* Headings — navy blue */
 .services-header h2,
 .results-header h2,
 .ugc-content h2,
 .ugc-card h3 { color: var(--navy) !important; }
-/* Accent words stay gold */
 .ugc-content h2 .accent { color: var(--gold) !important; }
-/* Card titles — navy */
 .service-card h3 { color: var(--navy) !important; }
-/* Body text — muted */
 .service-card p { color: var(--text-muted); }
 .result-card p,
 .ugc-content p { color: var(--text-muted); }
-/* Service cards — white on white bg with subtle border */
 .service-card {
   background: #f8f6ff; border-color: rgba(24,0,173,0.08);
   opacity: 0; transform: translateY(30px);
@@ -795,7 +789,6 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   box-shadow: 0 8px 30px rgba(24,0,173,0.1);
 }
 .service-card .service-icon { background: rgba(24,0,173,0.08); }
-/* Result cards */
 .result-card {
   background: #f8f6ff; border-color: rgba(24,0,173,0.08);
   opacity: 0; transform: translateY(30px);
@@ -805,12 +798,49 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 .result-card.visible { opacity: 1; transform: translateY(0); }
 .result-card:hover { border-color: var(--gold); box-shadow: 0 8px 30px rgba(24,0,173,0.1); }
 .result-card h3 { color: var(--gold) !important; }
-/* UGC section — Balraj card styling */
 .ugc-card h3 { color: var(--navy) !important; }
 .ugc-card .role { color: var(--gold) !important; }
 .ugc-avatar { border-color: var(--gold) !important; box-shadow: 0 0 40px rgba(24,0,173,0.15) !important; }
 .ugc-features li { color: var(--text-dark); }
 .ugc-features li .check { background: rgba(24,0,173,0.08) !important; }
+
+/* ============ MOBILE ANIMATION CLASSES (used by IntersectionObserver) ============ */
+.mob-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.mob-reveal.mob-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mob-reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.mob-reveal-left.mob-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.mob-reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.mob-reveal-right.mob-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.mob-reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.mob-reveal-scale.mob-visible {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
@@ -844,9 +874,9 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
   .mobile-toggle { display: flex; z-index: 1000; }
 
-  /* Hide hero tiles on mobile */
-  /* Hero — tighter on mobile */
-  .hero { padding: 6rem 5% 2rem; }
+  /* Hero */
+  .hero { padding: 5rem 5% 2rem; }
+  .hero-content { padding-top: 60px; }
   .hero h1 { font-size: 2.2rem; }
   .hero-sub {
     font-size: 0.88rem; line-height: 1.6;
@@ -857,24 +887,62 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .hero-actions { flex-direction: column; gap: 0.8rem; }
   .hero-slideshow { aspect-ratio: 16/10; }
 
-  /* About — hide 2nd paragraph */
+  /* ---- MOBILE: Disable sticky, use normal flow ---- */
+  .sticky-wrap { height: auto !important; }
+  .sticky-lock {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* ---- MOBILE: Reset desktop JS transforms so IntersectionObserver takes over ---- */
+  /* These elements get .mob-reveal classes added by JS on mobile */
+  #aboutHeadingWrap,
+  #servicesHeaderWrap,
+  #ugcContentWrap,
+  #ctaInner {
+    /* Let JS handle via mob-reveal classes */
+    transform: none;
+    opacity: 1;
+  }
+  #resultsGrid {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Statement sections — mobile specific layout */
+  .statement-marketing,
+  .statement-automated {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none;
+  }
+  .statement-single {
+    transform: none;
+  }
+  #statementSection .scroll-statement-inner {
+    height: auto !important;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Compare — no slide effect on mobile, just fade in */
+  .compare-card.after {
+    transform: none !important;
+  }
+
+  /* About */
   .about-section { padding: 4rem 5%; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-heading { font-size: 1.8rem; }
   .about-text p { font-size: 0.9rem; }
   .about-text p:last-child { display: none; }
-  /* Disable sticky + parallax on mobile */
-  .sticky-wrap { height: auto !important; }
-  .sticky-lock { position: relative !important; height: auto !important; overflow: visible !important; }
-  #aboutHeadingWrap, #servicesHeaderWrap, #ugcContentWrap { transform: none !important; opacity: 1 !important; }
-  .statement-marketing, .statement-automated, .statement-single { transform: none !important; opacity: 1 !important; position: relative !important; top: auto !important; left: auto !important; }
-  #statementSection .scroll-statement-inner { height: auto !important; }
-  #resultsGrid { transform: none !important; opacity: 1 !important; }
-  #ctaInner { transform: none !important; opacity: 1 !important; }
-  .compare-card.after { transform: none !important; }
-  .service-card, .result-card { opacity: 1 !important; transform: none !important; }
 
-  /* Services — hide descriptions, show titles only */
+  /* Services */
   .services-section { padding: 4rem 5%; }
   .services-header { margin-bottom: 3rem; }
   .services-header h2 { font-size: 1.8rem; }
@@ -912,9 +980,9 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .compare-card h3 { font-size: 1.4rem; }
   .compare-list li { font-size: 0.82rem; padding: 0.6rem 0; }
 
-  /* UGC — hide 2nd paragraph and extra features */
+  /* UGC */
   .ugc-grid { grid-template-columns: 1fr; min-height: auto; }
-  .ugc-content { padding: 3rem 5%; }
+  .ugc-content { padding: 3rem 5%; opacity: 1 !important; transform: none !important; }
   .ugc-content h2 { font-size: 1.6rem; }
   .ugc-content p { font-size: 0.9rem; }
   .ugc-content p:nth-of-type(2) { display: none; }
@@ -922,7 +990,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .ugc-avatar { width: 140px; height: 140px; }
   .ugc-card { padding: 2rem; }
 
-  /* Clients — 2-col grid, hide description */
+  /* Clients */
   .clients-section { padding: 4rem 5%; }
   .clients-header { margin-bottom: 2rem; }
   .clients-header h2 { font-size: 1.8rem; }
@@ -932,7 +1000,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .client-icon { height: 50px; }
   .clients-count h3 { font-size: 2.5rem; }
 
-  /* Results — compact tiles */
+  /* Results */
   .results-section { padding: 3rem 5%; }
   .results-header { margin-bottom: 2rem; }
   .results-header h2 { font-size: 1.6rem; }
@@ -941,7 +1009,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .result-card h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
   .result-card p { font-size: 0.7rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-  /* CTA — hide description */
+  /* CTA */
   .cta-section { padding: 4rem 5%; }
   .cta-inner h2 { font-size: 1.8rem; }
   .cta-inner p { display: none; }
@@ -1012,11 +1080,9 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
         <div class="hero-stat"><h3>1,000+</h3><p>Clients Served</p></div>
         <div class="hero-stat"><h3>98%</h3><p>Client Retention</p></div>
       </div>
-      <!-- Slideshow — lazy loaded iframes -->
       <div class="hero-slideshow" id="heroSlideshow">
         <div class="hero-slide active" data-src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F74a7b7f85b59015bb9f8335c39e29b78%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600">
           <span class="slide-label">Construction</span>
-          <!-- iframe injected lazily by JS -->
         </div>
         <div class="hero-slide" data-src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/d617f6f219ab023d3d4b8fe37c247239/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fd617f6f219ab023d3d4b8fe37c247239%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600">
           <span class="slide-label">Motor Services</span>
@@ -1081,7 +1147,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 </section>
 </div>
 
-<!-- PARALLAX STATEMENT — "Merlin." from left -->
+<!-- PARALLAX STATEMENT — "We Are Merlin." -->
 <div class="sticky-wrap" id="statement2Wrap" style="height:130vh;">
 <section class="scroll-statement sticky-lock" id="statement2Section">
   <div class="scroll-statement-inner" style="align-items:center;">
@@ -1153,7 +1219,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   </div>
 </section>
 
-<!-- PARALLAX STATEMENT — "Marketing." from left, "Automated." from right -->
+<!-- PARALLAX STATEMENT — "Marketing." + "Automated." -->
 <div class="sticky-wrap" id="statementWrap" style="height:200vh;">
 <section class="scroll-statement sticky-lock" id="statementSection">
   <div class="scroll-statement-inner">
@@ -1301,11 +1367,13 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 <script>
 /* =============================================
    PERFORMANCE-OPTIMIZED JAVASCRIPT
+   - Dual-mode: Desktop (sticky parallax) / Mobile (IntersectionObserver)
    - Single unified scroll handler via rAF
    - Lazy-loaded video iframes
    - Reduced particle count
-   - IntersectionObserver for reveals
    ============================================= */
+
+const isMobile = () => window.innerWidth <= 768;
 
 // ============ PRELOADER ============
 const mw = ['Strategy','Growth','Branding','Performance','Creative','Digital','Content','Analytics','Paid Media','UGC','SEO','Innovation'];
@@ -1324,7 +1392,6 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     clearInterval(wiv);
     document.getElementById('preloader').classList.add('hidden');
-    // Trigger hero entrance after preloader fades
     setTimeout(() => document.querySelector('.hero').classList.add('hero-entered'), 300);
   }, 1200);
 });
@@ -1333,9 +1400,10 @@ window.addEventListener('load', () => {
 document.getElementById('mobileToggle').addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('active'));
 document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active')));
 
-// ============ PARTICLES — reduced to 12 for performance ============
+// ============ PARTICLES ============
 const pc = document.getElementById('particles');
-for (let i = 0; i < 12; i++) {
+const particleCount = isMobile() ? 6 : 12;
+for (let i = 0; i < particleCount; i++) {
   const p = document.createElement('div');
   p.classList.add('particle');
   p.style.left = Math.random() * 100 + '%';
@@ -1378,14 +1446,11 @@ function goToSlide(i) {
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
   slideStart = Date.now();
-  // Lazy load current + next
   loadSlideIframe(currentSlide);
   loadSlideIframe((currentSlide + 1) % slides.length);
 }
 
-// Load first slide immediately
 loadSlideIframe(0);
-
 dots.forEach(d => d.addEventListener('click', () => goToSlide(parseInt(d.dataset.slide))));
 
 // ============ PHONE PARALLAX STATE ============
@@ -1414,31 +1479,135 @@ function setPanel(index) {
   msgsRevealed[index] = false;
   currentPanel = index;
 }
-// Initial reveal
 revealMessages(chatScreens[0]);
 
-// ============ PARALLAX SCROLL-IN ELEMENTS ============
+// ============ DESKTOP PARALLAX ELEMENTS ============
 const aboutHeadingWrap = document.getElementById('aboutHeadingWrap');
-const aboutSection = document.getElementById('about');
 const servicesHeaderWrap = document.getElementById('servicesHeaderWrap');
-const servicesSection = document.getElementById('services');
 const ugcContentWrap = document.getElementById('ugcContentWrap');
-const ugcSection = document.getElementById('ugc');
 const compareAfter = document.getElementById('compareAfter');
 const compareBefore = document.getElementById('compareBefore');
-const compareSection = document.getElementById('compare');
 const resultsGrid = document.getElementById('resultsGrid');
-const resultsSection = document.getElementById('results');
 const ctaInner = document.getElementById('ctaInner');
-const ctaSection = document.getElementById('contact');
-
-// ============ PARALLAX STATEMENT ELEMENTS ============
 const statementSection = document.getElementById('statementSection');
 const statementMarketing = document.querySelector('.statement-marketing');
 const statementAutomated = document.querySelector('.statement-automated');
 
+// ============ MOBILE: IntersectionObserver ANIMATIONS ============
+let mobileObserver = null;
+let mobileInitialized = false;
+
+function initMobile() {
+  if (mobileInitialized) return;
+  mobileInitialized = true;
+
+  // Add mob-reveal classes to key elements
+  const revealElements = [
+    { el: document.getElementById('aboutHeadingWrap'), cls: 'mob-reveal-scale' },
+    { el: document.querySelector('.about-text'), cls: 'mob-reveal' },
+    { el: document.getElementById('servicesHeaderWrap'), cls: 'mob-reveal-scale' },
+    { el: document.getElementById('ugcContentWrap'), cls: 'mob-reveal' },
+    { el: document.getElementById('ctaInner'), cls: 'mob-reveal-scale' },
+    { el: document.querySelector('.compare-card.before'), cls: 'mob-reveal' },
+    { el: document.querySelector('.compare-card.after'), cls: 'mob-reveal' },
+    { el: document.querySelector('.ugc-card'), cls: 'mob-reveal-scale' },
+    { el: document.querySelector('.compare-header'), cls: 'mob-reveal' },
+    { el: document.querySelector('.clients-header'), cls: 'mob-reveal' },
+    { el: document.querySelector('.results-header'), cls: 'mob-reveal' },
+  ];
+
+  // Statement sections — slide animations (classes handle initial hidden state, no inline styles needed)
+  const singleStatement = document.querySelector('.statement-single');
+  if (singleStatement) {
+    singleStatement.style.transform = '';
+    singleStatement.style.opacity = '';
+    singleStatement.classList.add('mob-reveal-left');
+  }
+  if (statementMarketing) {
+    statementMarketing.style.transform = '';
+    statementMarketing.style.opacity = '';
+    statementMarketing.classList.add('mob-reveal-left');
+  }
+  if (statementAutomated) {
+    statementAutomated.style.transform = '';
+    statementAutomated.style.opacity = '';
+    statementAutomated.classList.add('mob-reveal-right');
+  }
+
+  revealElements.forEach(({ el, cls }) => {
+    if (el) el.classList.add(cls);
+  });
+
+  // Service cards + result cards
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.classList.add('mob-reveal');
+    card.style.transitionDelay = (i * 80) + 'ms';
+  });
+  document.querySelectorAll('.result-card').forEach((card, i) => {
+    card.classList.add('mob-reveal');
+    card.style.transitionDelay = (i * 80) + 'ms';
+  });
+
+  // Client logo cards
+  document.querySelectorAll('.client-logo-card').forEach((card, i) => {
+    card.classList.add('mob-reveal');
+    card.style.transitionDelay = (i * 50) + 'ms';
+  });
+
+  // Create single IntersectionObserver for all elements
+  mobileObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('mob-visible');
+        mobileObserver.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  // Observe all mob-reveal elements
+  const allRevealEls = document.querySelectorAll('.mob-reveal, .mob-reveal-left, .mob-reveal-right, .mob-reveal-scale');
+  allRevealEls.forEach(el => {
+    mobileObserver.observe(el);
+  });
+
+  // Phone text container — make visible immediately on mobile
+  const ptc = document.querySelector('.phone-text-container');
+  if (ptc) {
+    ptc.style.transform = 'none';
+    ptc.style.opacity = '1';
+  }
+
+  // Force-reveal elements already in viewport (fixes race condition on load)
+  requestAnimationFrame(() => {
+    allRevealEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('mob-visible');
+      }
+    });
+  });
+}
+
+function cleanupMobile() {
+  if (!mobileInitialized) return;
+  mobileInitialized = false;
+
+  if (mobileObserver) {
+    mobileObserver.disconnect();
+    mobileObserver = null;
+  }
+
+  // Remove all mob- classes and reset inline styles
+  document.querySelectorAll('.mob-reveal, .mob-reveal-left, .mob-reveal-right, .mob-reveal-scale').forEach(el => {
+    el.classList.remove('mob-reveal', 'mob-reveal-left', 'mob-reveal-right', 'mob-reveal-scale', 'mob-visible');
+    el.style.transitionDelay = '';
+  });
+}
+
 // ============ SINGLE UNIFIED SCROLL HANDLER ============
-// All scroll-driven logic consolidated into one rAF loop
 let scrollTicking = false;
 
 function onScroll() {
@@ -1448,6 +1617,7 @@ function onScroll() {
     const scrollY = window.scrollY;
     const winH = window.innerHeight;
     const docH = document.documentElement.scrollHeight;
+    const mobile = isMobile();
 
     // Sticky-wrap progress helper (0→1 as section scrolls through)
     function stickyProgress(id) {
@@ -1473,7 +1643,7 @@ function onScroll() {
       heroSlideshow.style.opacity = 1 - eased * 0.5;
     }
 
-    // 4. Phone panels + text container slide-in
+    // 4. Phone panels (works on both mobile and desktop — scroll-driven)
     if (phoneWrapper) {
       const rect = phoneWrapper.getBoundingClientRect();
       const wrapperH = phoneWrapper.offsetHeight;
@@ -1485,115 +1655,113 @@ function onScroll() {
         msgsRevealed[panelIndex] = true;
         revealMessages(chatScreens[panelIndex]);
       }
-      // Slide text container in from right on initial entry
-      const ptc = document.querySelector('.phone-text-container');
-      if (ptc) {
-        const entryRaw = (winH * 0.45 - rect.top) / (winH * 0.9);
-        const entryClamped = Math.max(0, Math.min(1, entryRaw));
-        const entryEased = entryClamped * entryClamped * (3 - 2 * entryClamped); // smoothstep
-        ptc.style.transform = `translateX(${(1 - entryEased) * 50}vw)`;
-        ptc.style.opacity = entryEased;
-      }
-    }
 
-    // 5a. "We Are Merlin." — slides from left + zooms in (sticky scroll-lock)
-    const s2 = document.getElementById('statement2Section');
-    if (s2) {
-      const s2p = stickyProgress('statement2Wrap');
-      if (s2p >= 0) {
-        const s2e = s2p * s2p * (3 - 2 * s2p);
-        const singleEl = s2.querySelector('.statement-single');
-        if (singleEl) {
-          const sc = 0.6 + s2e * 0.4;
-          singleEl.style.transform = `translateX(${(1 - s2e) * -100}vw) scale(${sc})`;
-          singleEl.style.opacity = s2e;
+      // Desktop only: Slide text container in from right
+      if (!mobile) {
+        const ptc = document.querySelector('.phone-text-container');
+        if (ptc) {
+          const entryRaw = (winH * 0.45 - rect.top) / (winH * 0.9);
+          const entryClamped = Math.max(0, Math.min(1, entryRaw));
+          const entryEased = entryClamped * entryClamped * (3 - 2 * entryClamped);
+          ptc.style.transform = `translateX(${(1 - entryEased) * 50}vw)`;
+          ptc.style.opacity = entryEased;
         }
       }
     }
 
-    // 5b. "Marketing." zooms in + sweeps left, "Automated." zooms in + sweeps right
-    // Scale never exceeds 1.0 (prevents blur — text rasterized at full CSS font-size)
-    if (statementSection && statementMarketing && statementAutomated) {
-      const sp = stickyProgress('statementWrap');
-      if (sp >= 0) {
-        // Phase 1: 0→0.45 — "Marketing." zooms from 0.2→1.0 while sliding from center to left
-        // Phase 2: 0.5→0.95 — "Automated." zooms from 0.2→1.0 while sliding from center to right
-
-        // --- Marketing ---
-        const mp = Math.min(1, sp / 0.45);
-        const me = mp * mp * (3 - 2 * mp); // smoothstep
-        const mScale = 0.2 + me * 0.8; // 0.2 → 1.0
-        // Slide: starts centered (-50%), ends at left edge (-100%)
-        const mTx = -50 + me * -50; // -50% → -100%
-        const mTy = -50 + (sp >= 0.5 ? -20 : 0); // shift up once Automated appears
-        statementMarketing.style.transform = `translate(${mTx}%, ${mTy}%) scale(${mScale})`;
-        statementMarketing.style.opacity = Math.min(1, mp * 3);
-
-        // --- Automated ---
-        if (sp < 0.5) {
-          statementAutomated.style.transform = 'translate(-50%, -50%) scale(0.15)';
-          statementAutomated.style.opacity = 0;
-        } else {
-          const ap = Math.min(1, (sp - 0.5) / 0.45);
-          const ae = ap * ap * (3 - 2 * ap);
-          const aScale = 0.2 + ae * 0.8; // 0.2 → 1.0
-          // Slide: starts centered (-50%), ends at right edge (0%)
-          const aTx = -50 + ae * 50; // -50% → 0%
-          statementAutomated.style.transform = `translate(${aTx}%, -20%) scale(${aScale})`;
-          statementAutomated.style.opacity = Math.min(1, ap * 3);
+    // ====== DESKTOP-ONLY PARALLAX ======
+    if (!mobile) {
+      // 5a. "We Are Merlin." — slides from left + zooms in
+      const s2 = document.getElementById('statement2Section');
+      if (s2) {
+        const s2p = stickyProgress('statement2Wrap');
+        if (s2p >= 0) {
+          const s2e = s2p * s2p * (3 - 2 * s2p);
+          const singleEl = s2.querySelector('.statement-single');
+          if (singleEl) {
+            const sc = 0.6 + s2e * 0.4;
+            singleEl.style.transform = `translateX(${(1 - s2e) * -100}vw) scale(${sc})`;
+            singleEl.style.opacity = s2e;
+          }
         }
       }
-    }
 
-    // 6. Fade-in helper — sticky scroll-lock based
-    function parallaxFade(el, wrapperId) {
-      if (!el) return;
-      const p = stickyProgress(wrapperId);
-      if (p < 0) return;
-      const eased = p * p * (3 - 2 * p);
-      el.style.transform = `scale(${0.92 + eased * 0.08})`;
-      el.style.opacity = eased;
-    }
-    parallaxFade(aboutHeadingWrap, 'aboutWrap');
-    parallaxFade(servicesHeaderWrap, 'servicesWrap');
-    parallaxFade(ugcContentWrap, 'ugcWrap');
+      // 5b. "Marketing." + "Automated."
+      if (statementSection && statementMarketing && statementAutomated) {
+        const sp = stickyProgress('statementWrap');
+        if (sp >= 0) {
+          const mp = Math.min(1, sp / 0.45);
+          const me = mp * mp * (3 - 2 * mp);
+          const mScale = 0.2 + me * 0.8;
+          const mTx = -50 + me * -50;
+          const mTy = -50 + (sp >= 0.5 ? -20 : 0);
+          statementMarketing.style.transform = `translate(${mTx}%, ${mTy}%) scale(${mScale})`;
+          statementMarketing.style.opacity = Math.min(1, mp * 3);
 
-    // 6b. Service cards staggered fade-in
-    const svp = stickyProgress('servicesWrap');
-    if (svp > 0.3) {
-      document.querySelectorAll('.service-card').forEach((card, i) => {
-        setTimeout(() => card.classList.add('visible'), i * 100);
-      });
-    }
-
-    // 7. Compare parallax — "After" slides over "Before" (sticky scroll-lock)
-    if (compareAfter && compareBefore && window.innerWidth > 1024) {
-      const cp = stickyProgress('compareWrap');
-      if (cp >= 0) {
-        const cEased = cp * cp * (3 - 2 * cp);
-        const cardW = compareBefore.offsetWidth;
-        const gap = 32;
-        compareAfter.style.transform = `translateX(-${cEased * (cardW + gap)}px)`;
+          if (sp < 0.5) {
+            statementAutomated.style.transform = 'translate(-50%, -50%) scale(0.15)';
+            statementAutomated.style.opacity = 0;
+          } else {
+            const ap = Math.min(1, (sp - 0.5) / 0.45);
+            const ae = ap * ap * (3 - 2 * ap);
+            const aScale = 0.2 + ae * 0.8;
+            const aTx = -50 + ae * 50;
+            statementAutomated.style.transform = `translate(${aTx}%, -20%) scale(${aScale})`;
+            statementAutomated.style.opacity = Math.min(1, ap * 3);
+          }
+        }
       }
-    }
 
-    // 8. Results — fade in cards (sticky scroll-lock)
-    if (resultsGrid) {
-      const rp = stickyProgress('resultsWrap');
-      if (rp > 0.2) {
-        document.querySelectorAll('.result-card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('visible'), i * 120);
+      // 6. Fade-in helper — sticky scroll-lock based
+      function parallaxFade(el, wrapperId) {
+        if (!el) return;
+        const p = stickyProgress(wrapperId);
+        if (p < 0) return;
+        const eased = p * p * (3 - 2 * p);
+        el.style.transform = `scale(${0.92 + eased * 0.08})`;
+        el.style.opacity = eased;
+      }
+      parallaxFade(aboutHeadingWrap, 'aboutWrap');
+      parallaxFade(servicesHeaderWrap, 'servicesWrap');
+      parallaxFade(ugcContentWrap, 'ugcWrap');
+
+      // 6b. Service cards staggered fade-in
+      const svp = stickyProgress('servicesWrap');
+      if (svp > 0.3) {
+        document.querySelectorAll('.service-card').forEach((card, i) => {
+          setTimeout(() => card.classList.add('visible'), i * 100);
         });
       }
-    }
 
-    // 9. CTA — scales up (sticky scroll-lock)
-    if (ctaInner) {
-      const ctp = stickyProgress('ctaWrap');
-      if (ctp >= 0) {
-        const ctEased = ctp * ctp * (3 - 2 * ctp);
-        ctaInner.style.transform = `scale(${0.85 + ctEased * 0.15})`;
-        ctaInner.style.opacity = ctEased;
+      // 7. Compare parallax — "After" slides over "Before"
+      if (compareAfter && compareBefore && window.innerWidth > 1024) {
+        const cp = stickyProgress('compareWrap');
+        if (cp >= 0) {
+          const cEased = cp * cp * (3 - 2 * cp);
+          const cardW = compareBefore.offsetWidth;
+          const gap = 32;
+          compareAfter.style.transform = `translateX(-${cEased * (cardW + gap)}px)`;
+        }
+      }
+
+      // 8. Results — fade in cards
+      if (resultsGrid) {
+        const rp = stickyProgress('resultsWrap');
+        if (rp > 0.2) {
+          document.querySelectorAll('.result-card').forEach((card, i) => {
+            setTimeout(() => card.classList.add('visible'), i * 120);
+          });
+        }
+      }
+
+      // 9. CTA — scales up
+      if (ctaInner) {
+        const ctp = stickyProgress('ctaWrap');
+        if (ctp >= 0) {
+          const ctEased = ctp * ctp * (3 - 2 * ctp);
+          ctaInner.style.transform = `scale(${0.85 + ctEased * 0.15})`;
+          ctaInner.style.opacity = ctEased;
+        }
       }
     }
 
@@ -1603,7 +1771,43 @@ function onScroll() {
 
 window.addEventListener('scroll', onScroll, { passive: true });
 
-// ============ SLIDESHOW TIMER (runs in rAF, separate from scroll) ============
+// ============ MODE SWITCHING: Desktop ↔ Mobile ============
+let lastMode = isMobile() ? 'mobile' : 'desktop';
+
+function checkMode() {
+  const mobile = isMobile();
+  const mode = mobile ? 'mobile' : 'desktop';
+  if (mode !== lastMode) {
+    lastMode = mode;
+    if (mobile) {
+      initMobile();
+    } else {
+      cleanupMobile();
+      // Reset desktop elements to their initial state
+      if (aboutHeadingWrap) { aboutHeadingWrap.style.transform = 'scale(0.92)'; aboutHeadingWrap.style.opacity = '0'; }
+      if (servicesHeaderWrap) { servicesHeaderWrap.style.transform = 'scale(0.92)'; servicesHeaderWrap.style.opacity = '0'; }
+      if (ugcContentWrap) { ugcContentWrap.style.transform = 'scale(0.92)'; ugcContentWrap.style.opacity = '0'; }
+      if (ctaInner) { ctaInner.style.transform = 'scale(0.85)'; ctaInner.style.opacity = '0'; }
+      document.querySelectorAll('.service-card, .result-card').forEach(c => c.classList.remove('visible'));
+      // Re-trigger scroll to recompute desktop parallax
+      onScroll();
+    }
+  }
+}
+
+// Initialize on page load
+if (isMobile()) {
+  initMobile();
+}
+
+// Listen for resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(checkMode, 150);
+});
+
+// ============ SLIDESHOW TIMER ============
 function slideshowTick() {
   const elapsed = Date.now() - slideStart;
   progressBar.style.width = Math.min(elapsed / slideDuration * 100, 100) + '%';
