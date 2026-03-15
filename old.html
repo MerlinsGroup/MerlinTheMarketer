@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology Services | Merlins Group - AI, Automation, CRM & Development</title>
+<meta name="description" content="Full-spectrum technology services from Merlins Group. AI, automation, CRM solutions, application development, data science and migration services. Trusted by 1,000+ UK businesses.">
+<meta name="keywords" content="technology services UK, AI solutions, automation agency, CRM implementation, application development, data science, cloud migration, enterprise software">
+<meta name="author" content="Merlins Group">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://merlinsagency.co.uk/services">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://merlinsagency.co.uk/services">
+<meta property="og:title" content="Technology Services | Merlins Group">
+<meta property="og:description" content="AI, automation, CRM, application development, data science and migration. Full-spectrum technology infrastructure for ambitious businesses.">
+<meta property="og:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technology Services | Merlins Group">
+<meta name="twitter:description" content="AI, automation, CRM, application development, data science and migration. Full-spectrum technology infrastructure for ambitious businesses.">
+<meta name="twitter:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+
+<link rel="icon" type="image/png" href="merlinslogo.png">
+<link rel="apple-touch-icon" href="merlinslogo.png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-deep: #091220;
+  --gold: #2563eb;
+  --gold-light: #3b82f6;
+  --lavender: #60a5fa;
+  --lavender-light: #93c5fd;
+  --white: #fafafa;
+  --off-white: #f0eef5;
+  --text-dark: #0e0e1a;
+  --text-muted: #5a5a7a;
+  --gradient-hero: linear-gradient(135deg, #0d1b2a 0%, #162d50 40%, #0d1b2a 100%);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ============ NAVIGATION — floating pill (matches home) ============ */
+nav {
+  position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 1000;
+  padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  width: 94%; max-width: 1400px; border-radius: 60px;
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: rgba(13,27,42,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+nav.scrolled {
+  background: rgba(13,27,42,0.92); border-color: rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3); top: 0.6rem;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand img { height: 46px; width: 46px; object-fit: contain; background: #e0ecff; border-radius: 50%; padding: 4px; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content:''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  background: var(--gold) !important; color: var(--navy-deep) !important;
+  padding: 9px 24px; border-radius: 40px; font-weight: 700 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+.nav-cta::after { display: none !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.mobile-toggle span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+/* ============ PAGE HERO ============ */
+.page-hero {
+  min-height: 50vh;
+  background: var(--gradient-hero);
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(13,27,42,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(37,99,235,0.1) 0%, transparent 50%);
+}
+.page-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 6%;
+  text-align: center;
+  width: 100%;
+}
+.page-hero .section-tag {
+  justify-content: center;
+  color: var(--gold);
+}
+.page-hero .section-tag::before { background: var(--gold); }
+.page-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.page-hero h1 .gold { color: var(--gold); }
+.page-hero h1 .italic { font-style: italic; color: var(--lavender-light); }
+.page-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============ SHARED ============ */
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+
+/* ============ SERVICES OVERVIEW ============ */
+.services-overview {
+  padding: 8rem 6%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.services-overview-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.services-overview-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-top: 1rem;
+}
+.services-overview-header .section-tag { justify-content: center; }
+.services-overview-header .section-tag::before { display: none; }
+.services-overview-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.7;
+}
+
+/* ============ SERVICE DETAIL ROWS ============ */
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(13,27,42,0.06);
+}
+.service-detail:last-child { border-bottom: none; }
+.service-detail.reverse .service-detail-visual { order: 2; }
+.service-detail.reverse .service-detail-content { order: 1; }
+.service-detail-visual {
+  position: relative;
+}
+.service-visual-card {
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+.service-visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 320px;
+  border-radius: 24px;
+}
+.service-detail-content h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-bottom: 1rem;
+}
+.service-detail-content h3 .accent {
+  color: var(--gold);
+  font-style: italic;
+}
+.service-detail-content p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.service-features {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+.service-features li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.service-features li .check {
+  width: 24px; height: 24px;
+  background: rgba(13,27,42,0.1);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.service-video-card {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(13,27,42,0.08);
+  box-shadow: 0 20px 60px rgba(13,27,42,0.12);
+  background: var(--navy-deep);
+  transition: all 0.4s ease;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.service-video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(13,27,42,0.18);
+}
+.service-video-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border: none;
+}
+.service-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(13,27,42,0.05);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+/* ============ PROCESS SECTION ============ */
+.process-section {
+  padding: 8rem 6%;
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+}
+.process-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(13,27,42,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 90% 50%, rgba(37,99,235,0.06) 0%, transparent 50%);
+}
+.process-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.process-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.process-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-top: 1rem;
+}
+.process-header .section-tag { justify-content: center; color: var(--gold); }
+.process-header .section-tag::before { display: none; }
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.process-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+.process-card:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-6px);
+  border-color: rgba(37,99,235,0.15);
+}
+.process-step {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0.3;
+  margin-bottom: 1.5rem;
+}
+.process-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.process-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 8rem 6%;
+  text-align: center;
+}
+.cta-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta-inner h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--navy-deep);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.cta-inner h2 .accent { color: var(--gold); font-style: italic; }
+.cta-inner p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.cta-buttons { display: flex; justify-content: center; gap: 1rem; }
+.btn-dark {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--navy-deep);
+  color: var(--gold);
+  padding: 16px 38px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+.btn-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(13,27,42,0.25);
+}
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent;
+  color: var(--navy-deep);
+  padding: 16px 38px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid var(--navy-deep);
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: var(--navy-deep);
+  color: var(--gold);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--navy-deep);
+  padding: 5rem 6% 2rem;
+}
+.footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--gold);
+}
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .service-detail { grid-template-columns: 1fr; gap: 3rem; }
+  .service-detail.reverse .service-detail-visual { order: 1; }
+  .service-detail.reverse .service-detail-content { order: 2; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  nav { width: 96%; padding: 0.6rem 1.2rem; top: 0.5rem; }
+  .nav-links {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--navy); flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem; z-index: 999;
+    border-radius: 0;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+  .process-grid { grid-template-columns: 1fr; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+/* ============ WHATSAPP BUTTON ============ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 998;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="/" class="nav-brand">
+    <img src="merlinslogo.png" alt="Merlins Group">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="agency.html">Merlins Agency</a></li>
+    <li><a href="/#clients">Clients</a></li>
+    <li><a href="/#results">Results</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="section-tag">Our Services</div>
+    <h1>Full-Spectrum <span class="italic">Technology</span><br><span class="gold">Infrastructure</span></h1>
+    <p>We deliver end-to-end technology solutions engineered to transform your business. AI, automation, CRM, application development, data science, and migration services, all under one roof.</p>
+  </div>
+</section>
+
+<!-- SERVICES DETAIL -->
+<section class="services-overview">
+  <div class="services-overview-header reveal">
+    <div class="section-tag">What We Deliver</div>
+    <h2>Enterprise Solutions,<br>Boutique Attention</h2>
+    <p>Every service is built around your goals, not templates. Here's the full scope of what we bring to the table.</p>
+  </div>
+
+  <!-- Service 1 -->
+  <div class="service-detail reveal">
+    <div class="service-detail-visual">
+      <div class="service-visual-card">
+        <img src="clients/7.jpg" alt="Artificial Intelligence">
+      </div>
+    </div>
+    <div class="service-detail-content">
+      <div class="service-number">01</div>
+      <h3>Artificial <span class="accent">Intelligence</span></h3>
+      <p>Custom AI solutions, machine learning models, and intelligent automation that transform how your business operates. From predictive analytics to natural language processing, we build AI systems that deliver measurable ROI.</p>
+      <ul class="service-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Custom ML Model Development</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Natural Language Processing</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Computer Vision Solutions</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> AI-Powered Decision Systems</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Service 2 -->
+  <div class="service-detail reverse reveal">
+    <div class="service-detail-visual">
+      <div class="service-visual-card">
+        <img src="clients/3.jpeg" alt="Automation & Workflows">
+      </div>
+    </div>
+    <div class="service-detail-content">
+      <div class="service-number">02</div>
+      <h3>Automation & <span class="accent">Workflows</span></h3>
+      <p>End-to-end business process automation that eliminates manual work and scales operations. We design, build, and deploy intelligent workflows that connect your systems and free your team to focus on what matters.</p>
+      <ul class="service-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Business Process Automation (RPA)</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Workflow Design & Optimisation</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> System Integration & APIs</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Intelligent Document Processing</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Service 3 -->
+  <div class="service-detail reveal">
+    <div class="service-detail-visual">
+      <div class="service-visual-card">
+        <img src="clients/9.png" alt="CRM Solutions">
+      </div>
+    </div>
+    <div class="service-detail-content">
+      <div class="service-number">03</div>
+      <h3>CRM <span class="accent">Solutions</span></h3>
+      <p>Custom CRM implementations and optimisations that give you a 360-degree view of your customers. From Salesforce to HubSpot to bespoke builds, we engineer CRM systems that drive revenue and retention.</p>
+      <ul class="service-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Salesforce & HubSpot Implementation</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Custom CRM Development</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Pipeline & Lead Management</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> CRM Data Migration & Cleanup</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Service 4 -->
+  <div class="service-detail reverse reveal">
+    <div class="service-detail-visual">
+      <div class="service-visual-card">
+        <img src="clients/13.jpeg" alt="Application Development">
+      </div>
+    </div>
+    <div class="service-detail-content">
+      <div class="service-number">04</div>
+      <h3>Application <span class="accent">Development</span></h3>
+      <p>Custom software applications built for performance, scalability, and user experience. From web platforms to mobile apps to enterprise systems, we deliver production-ready solutions engineered for growth.</p>
+      <ul class="service-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Custom Web Application Development</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Mobile App Development (iOS & Android)</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> API Design & Development</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Enterprise Software Solutions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Service 5 -->
+  <div class="service-detail reveal">
+    <div class="service-detail-visual">
+      <div class="service-visual-card">
+        <img src="clients/3fx1.jpg" alt="Data Science & Analytics">
+      </div>
+    </div>
+    <div class="service-detail-content">
+      <div class="service-number">05</div>
+      <h3>Data Science & <span class="accent">Analytics</span></h3>
+      <p>Transform raw data into strategic advantage. Our data science team builds predictive models, BI dashboards, and data pipelines that give you the insights you need to make better decisions faster.</p>
+      <ul class="service-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Predictive Analytics & Modelling</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Business Intelligence Dashboards</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Data Pipeline Engineering</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Statistical Analysis & Reporting</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Service 6 -->
+  <div class="service-detail reverse reveal">
+    <div class="service-detail-visual">
+      <div class="service-visual-card">
+        <img src="clients/15.png" alt="Migration & Scaling">
+      </div>
+    </div>
+    <div class="service-detail-content">
+      <div class="service-number">06</div>
+      <h3>Migration & <span class="accent">Scaling</span></h3>
+      <p>Seamless cloud migrations, legacy system modernisation, and infrastructure scaling for enterprises ready to transform. We handle the complexity so you can focus on growth.</p>
+      <ul class="service-features">
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Cloud Migration (AWS, Azure, GCP)</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Legacy System Modernisation</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Infrastructure Scaling & Optimisation</li>
+        <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Database Migration & Management</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <div class="section-tag">How We Work</div>
+      <h2>Our Proven Process</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-step">01</div>
+        <h3>Discovery</h3>
+        <p>We analyse your systems, data, and processes to identify automation opportunities and technology gaps.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-step">02</div>
+        <h3>Strategy</h3>
+        <p>We architect a bespoke technology roadmap with clear milestones, integrations, and scalability plans.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-step">03</div>
+        <h3>Execution</h3>
+        <p>Our specialist teams build, test, and deploy solutions with agile methodology and continuous delivery.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-step">04</div>
+        <h3>Scale</h3>
+        <p>Once systems are live, we optimise performance and scale infrastructure to match your growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="section-tag" style="justify-content: center;">Ready to Start?</div>
+    <h2>Let's Build Your <span class="accent">Technology Stack</span></h2>
+    <p>Book a no-obligation consultation and we'll show you exactly how we can transform your business with technology.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="/" class="btn-outline">Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span>Merlins Group</span>
+        <p>Enterprise technology solutions for businesses that demand results. AI, automation, development, and data science, all under one roof.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html">AI</a>
+        <a href="services.html">Automation</a>
+        <a href="services.html">CRM Solutions</a>
+        <a href="services.html">App Development</a>
+        <a href="services.html">Data Science</a>
+        <a href="services.html">Migration & Scaling</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="agency.html">Merlins Agency</a>
+        <a href="/#clients">Our Clients</a>
+        <a href="/#results">Case Studies</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/447388539987">07388539987 - WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Merlins Group. All rights reserved.</span>
+      <span>Privacy Policy &middot; Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/447388539987" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.908 15.908 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.35 22.606c-.39 1.1-1.932 2.014-3.17 2.28-.846.18-1.95.324-5.67-1.218-4.762-1.97-7.826-6.798-8.064-7.114-.23-.316-1.928-2.568-1.928-4.898 0-2.33 1.22-3.474 1.654-3.95.434-.476.948-.596 1.264-.596.316 0 .632.004.908.016.292.014.682-.11 1.068.814.39.94 1.33 3.27 1.448 3.506.118.238.196.514.038.83-.158.316-.238.514-.474.79-.238.278-.498.62-.712.832-.236.238-.484.496-.208.972.278.476 1.232 2.032 2.646 3.292 1.818 1.62 3.35 2.122 3.828 2.36.476.238.754.198 1.032-.118.278-.318 1.194-1.39 1.512-1.868.316-.476.634-.396 1.07-.236.434.158 2.762 1.302 3.236 1.54.476.236.792.356.91.554.118.198.118 1.148-.274 2.248z"/></svg>
+</a>
+
+<script>
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.querySelector('.nav-links');
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('active');
+      }, index * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

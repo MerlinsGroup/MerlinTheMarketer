@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(ls \"c:/Users/sssar/Documents/GitHub/MerlinTheMarketer/\"*.png \"c:/Users/sssar/Documents/GitHub/MerlinTheMarketer/\"*.jpg \"c:/Users/sssar/Documents/GitHub/MerlinTheMarketer/\"*.jpeg)",
-      "Bash(wc -l /c/Users/sssar/Documents/GitHub/MerlinTheMarketer/*.html)"
+      "Bash(wc -l /c/Users/sssar/Documents/GitHub/MerlinTheMarketer/*.html)",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(echo \"Updated $f\")",
+      "Bash(done)"
     ]
   }
 }

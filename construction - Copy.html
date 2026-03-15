@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Construction & Property | Merlins Group</title>
+<meta name="description" content="Merlins Group delivers end-to-end technology, marketing, and automation solutions for the construction and property sector. Trusted by BordoDesign, BordoGlass, and more.">
+<meta name="keywords" content="construction technology, property marketing, construction automation, CRM construction, BordoDesign, BordoGlass, Merlins Group">
+<meta name="author" content="Merlins Group">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="icon" href="favicon_io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-deep: #091220;
+  --gold: #2563eb;
+  --gold-light: #3b82f6;
+  --lavender: #60a5fa;
+  --lavender-light: #93c5fd;
+  --white: #fafafa;
+  --off-white: #f0eef5;
+  --text-dark: #0e0e1a;
+  --text-muted: #5a5a7a;
+  --gradient-hero: linear-gradient(135deg, #0d1b2a 0%, #162d50 40%, #0d1b2a 100%);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background: var(--navy);
+  overflow-x: hidden;
+}
+
+/* ============ SCROLL PROGRESS ============ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: var(--gold);
+  z-index: 10001; width: 0%; pointer-events: none;
+}
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 1000;
+  padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  width: 94%; max-width: 1400px; border-radius: 60px;
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: rgba(13,27,42,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+nav.scrolled {
+  background: rgba(13,27,42,0.92); border-color: rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3); top: 0.6rem;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand img { height: 46px; width: 46px; object-fit: contain; background: #e0ecff; border-radius: 50%; padding: 4px; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content:''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  background: var(--gold) !important; color: var(--navy-deep) !important;
+  padding: 9px 24px; border-radius: 40px; font-weight: 700 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+.nav-cta::after { display: none !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.mobile-toggle span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+
+/* ============ PAGE HERO ============ */
+.page-hero {
+  height: 100vh;
+  max-height: 100vh;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-video-bg {
+  position: absolute; inset: -5%; width: 110%; height: 110%;
+  z-index: 0; pointer-events: none;
+  opacity: 0; transform: scale(1.15);
+  animation: heroVideoIn 2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+}
+@keyframes heroVideoIn {
+  to { opacity: 1; transform: scale(1); }
+}
+.hero-video-bg iframe {
+  width: 100%; height: 100%; border: none;
+  object-fit: cover;
+}
+.hero-video-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(9,18,32,0.6) 0%,
+    rgba(24,0,173,0.3) 30%,
+    rgba(37,99,235,0.2) 50%,
+    rgba(9,18,32,0.5) 70%,
+    rgba(9,18,32,0.95) 100%
+  );
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 6% 3rem;
+  text-align: center;
+  width: 100%;
+  opacity: 0; transform: translateY(40px) scale(0.96);
+  animation: heroContentIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+}
+@keyframes heroContentIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.page-hero .section-tag {
+  justify-content: center;
+  color: var(--gold);
+}
+.page-hero .section-tag::before { background: var(--gold); }
+.page-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+}
+.page-hero h1 .gold { color: #3b82f6; }
+.page-hero h1 .italic { font-style: italic; color: var(--lavender-light); }
+.page-hero p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 600px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.6;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.hero-stats {
+  display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+  margin-top: 0.5rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat-item { text-align: center; }
+.hero-stat-item .num {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 900;
+  color: var(--gold); line-height: 1;
+}
+.hero-stat-item .lbl {
+  font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.4rem;
+  letter-spacing: 0.5px;
+}
+.hero-scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.hero-scroll-hint span {
+  font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 2px;
+  text-transform: uppercase; font-family: 'Space Mono', monospace;
+}
+.hero-scroll-hint .scroll-line {
+  width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(37,99,235,0.6), transparent);
+  animation: scrollPulse 2s infinite;
+}
+@keyframes scrollPulse {
+  0% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.3; transform: scaleY(0.5); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ============ INTRO STRIP ============ */
+.intro-strip {
+  padding: 6rem 6%;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.intro-strip-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+}
+.intro-card {
+  text-align: center; padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.4s;
+}
+.intro-card:hover {
+  border-color: rgba(37,99,235,0.2);
+  background: rgba(37,99,235,0.08);
+  transform: translateY(-4px);
+}
+.intro-card-icon {
+  font-size: 2rem; margin-bottom: 1rem;
+}
+.intro-card h3 {
+  font-family: 'Outfit', sans-serif; font-size: 1.2rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.8rem;
+}
+.intro-card p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.intro-card a {
+  font-size: 0.8rem; color: var(--gold); text-decoration: none;
+  font-weight: 600; transition: gap 0.3s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.intro-card a:hover { gap: 12px; }
+.intro-card a svg {
+  width: 14px; height: 14px; fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ============ WHY CHOOSE US ============ */
+.trust-section {
+  padding: 6rem 6%;
+  background: linear-gradient(135deg, #091220 0%, #0f1a3d 30%, #130d2e 60%, #091220 100%);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.trust-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.trust-header {
+  text-align: center; margin-bottom: 4rem;
+}
+.trust-header h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900; color: var(--white); margin-top: 0.8rem;
+}
+.trust-header h2 .accent { color: var(--gold); }
+.trust-header p {
+  font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 600px;
+  margin: 1rem auto 0; line-height: 1.7;
+}
+.trust-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  margin-bottom: 4rem;
+  opacity: 0; transform: scale(0.88); will-change: transform, opacity;
+}
+.trust-card {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.4s;
+  text-align: center;
+}
+.trust-card:hover {
+  border-color: rgba(37,99,235,0.25);
+  background: rgba(37,99,235,0.05);
+  transform: translateY(-4px);
+}
+.trust-card-num {
+  font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900;
+  color: var(--gold); line-height: 1; margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+.trust-card h3 {
+  font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
+}
+.trust-card p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7;
+}
+.trust-reasons {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  opacity: 0; transform: scale(0.88); will-change: transform, opacity;
+}
+.trust-reason {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.trust-reason:hover {
+  border-color: rgba(37,99,235,0.2);
+}
+.trust-reason-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.trust-reason h4 {
+  font-family: 'Outfit', sans-serif; font-size: 1rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.4rem;
+}
+.trust-reason p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.6;
+}
+.trust-cta {
+  text-align: center; margin-top: 3.5rem;
+}
+
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold); color: white; padding: 16px 36px;
+  font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.btn-primary:hover { background: var(--gold-light); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--white); padding: 16px 36px;
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ============ SERVICES (alternating rows) ============ */
+.services-section { padding: 4rem 6%; max-width: 1400px; margin: 0 auto; }
+.services-header {
+  text-align: center; margin-bottom: 4rem;
+}
+.services-header h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900; color: var(--white); margin-top: 0.8rem;
+}
+.services-header h2 .accent { color: var(--gold); }
+.services-header p {
+  font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 550px;
+  margin: 1rem auto 0; line-height: 1.7;
+}
+
+.service-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  height: 600px;
+  opacity: 0; transform: scale(0.88);
+  will-change: transform, opacity;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.service-row:last-child { margin-bottom: 0; }
+.service-row.reverse .service-text { order: 2; }
+.service-row.reverse .service-media { order: 1; }
+
+.service-text {
+  padding: 3.5rem 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center;
+  background: rgba(37,99,235,0.03);
+}
+.service-num {
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+  opacity: 0.7;
+}
+.service-text h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+.service-text h2 .accent { color: var(--gold); }
+.service-text p {
+  font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.8;
+  margin-bottom: 1.5rem; max-width: 440px;
+}
+.service-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+  margin-bottom: 1.5rem; width: 100%; max-width: 440px;
+}
+.service-feature {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.82rem; color: rgba(255,255,255,0.65);
+}
+.service-feature .dot {
+  width: 6px; height: 6px; background: var(--gold); flex-shrink: 0;
+}
+.service-stat {
+  display: inline-flex; align-items: baseline; gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem 2rem;
+  background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15);
+}
+.service-stat .stat-number {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 900;
+  color: var(--gold); line-height: 1;
+}
+.service-stat .stat-label {
+  font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.4;
+}
+.service-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--navy-deep); background: var(--gold);
+  font-size: 0.85rem; font-weight: 700; text-decoration: none;
+  padding: 14px 32px; transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.service-cta:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.3); }
+.service-cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.service-media {
+  position: relative; overflow: hidden;
+  background: var(--navy-deep);
+}
+.service-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 6s cubic-bezier(0.22,1,0.36,1);
+}
+.service-row:hover .service-media img { transform: scale(1.05); }
+.service-media .video-container {
+  position: absolute; inset: 0;
+}
+.service-media .video-container iframe {
+  width: 100%; height: 100%; border: none;
+}
+
+/* ============ CLIENTS STRIP ============ */
+.clients-strip {
+  padding: 5rem 6%;
+  background: rgba(37,99,235,0.03);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.clients-strip-inner {
+  max-width: 1200px; margin: 0 auto;
+  text-align: center;
+}
+.clients-strip h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800; margin-bottom: 3rem;
+}
+.clients-strip h2 .accent { color: var(--gold); }
+.clients-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+}
+.client-cell {
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: background 0.3s;
+}
+.client-cell:hover { background: rgba(37,99,235,0.04); }
+.client-cell h3 {
+  font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.client-cell p {
+  font-size: 0.75rem; color: rgba(255,255,255,0.35); line-height: 1.5;
+}
+.client-cell.coming h3 { color: rgba(255,255,255,0.3); }
+.client-cell.coming p { color: rgba(255,255,255,0.2); }
+
+/* ============ PARTNER ============ */
+.partner-section {
+  display: grid; grid-template-columns: 1fr 400px;
+  min-height: 600px;
+}
+.partner-text {
+  padding: 5rem 6%;
+  display: flex; flex-direction: column; justify-content: center;
+  background: rgba(9,18,32,0.5);
+}
+.partner-text h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800; margin-bottom: 1rem; line-height: 1.15;
+}
+.partner-text h2 .accent { color: var(--gold); }
+.partner-text p {
+  font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1.5rem;
+  max-width: 520px;
+}
+.partner-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.partner-tags span {
+  font-size: 0.7rem; padding: 6px 14px;
+  background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15);
+  color: var(--lavender); font-weight: 500;
+}
+.partner-video {
+  position: relative; overflow: hidden;
+  background: var(--navy-deep);
+}
+.partner-video iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 7rem 6%;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.cta-section h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; margin-bottom: 1rem;
+}
+.cta-section h2 .accent { color: var(--gold); }
+.cta-section p {
+  font-size: 1rem; color: rgba(255,255,255,0.4); line-height: 1.7;
+  max-width: 500px; margin: 0 auto 2.5rem;
+}
+.cta-actions { display: flex; gap: 0; justify-content: center; }
+
+/* ============ FOOTER ============ */
+footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1300px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+  padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand span { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--gold); }
+.footer-brand p { margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 320px; }
+.footer-col h4 {
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+}
+.footer-col a {
+  display: block; color: rgba(255,255,255,0.45); text-decoration: none;
+  font-size: 0.9rem; padding: 0.4rem 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.25);
+}
+
+/* ============ WHATSAPP ============ */
+.whatsapp-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 998;
+  width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s; text-decoration: none;
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+.whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+/* ============ SCROLL REVEAL ============ */
+.sr {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.sr.visible { opacity: 1; transform: translateY(0); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .service-row { grid-template-columns: 1fr 1fr; height: 550px; }
+  .clients-grid { grid-template-columns: repeat(3, 1fr); }
+  .partner-section { grid-template-columns: 1fr 320px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  nav { width: 96%; padding: 0.6rem 1.2rem; top: 0.5rem; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--navy); flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+
+  .page-hero { height: auto; min-height: 100vh; max-height: none; }
+  .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat-item .num { font-size: 1.5rem; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .intro-strip-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-scroll-hint { display: none; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .trust-reasons { grid-template-columns: 1fr; }
+
+  .service-row { grid-template-columns: 1fr; height: auto; }
+  .service-features { grid-template-columns: 1fr; }
+  .service-row.reverse .service-text { order: 1; }
+  .service-row.reverse .service-media { order: 2; }
+  .service-text { padding: 3rem 5%; }
+  .service-media { min-height: 300px; }
+
+  .clients-grid { grid-template-columns: repeat(2, 1fr); }
+  .client-cell { padding: 1.5rem 1rem; }
+
+  .partner-section { grid-template-columns: 1fr; }
+  .partner-text { padding: 3rem 5%; }
+  .partner-video { min-height: 500px; }
+
+  .cta-section { padding: 4rem 5%; }
+  .cta-actions { flex-direction: column; align-items: center; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-brand p { display: none; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  .whatsapp-float { width: 50px; height: 50px; bottom: 1.2rem; right: 1.2rem; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem; }
+  .clients-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="agency.html">Merlins Agency</a></li>
+    <li><a href="construction.html" class="active">Construction</a></li>
+    <li><a href="cic.html">CIC</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-video-bg">
+    <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F74a7b7f85b59015bb9f8335c39e29b78%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="hero-video-overlay"></div>
+  <div class="page-hero-content">
+    <div class="section-tag">Construction & Property</div>
+    <h1>We Build the <span class="italic">Systems</span><br><span class="gold">That Build Your Business</span></h1>
+    <p>Marketing, automation, booking systems, databases, video production &mdash; full-scale technology for construction and property businesses.</p>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Book a Strategy Call</a>
+      <a href="#why-us" class="btn-outline">Why Choose Us</a>
+      <a href="https://wa.me/447424053868" class="btn-outline" target="_blank">Chat on WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item"><div class="num">SiteLedgers</div><div class="lbl">Custom App Built</div></div>
+      <div class="hero-stat-item"><div class="num">BordoDesign</div><div class="lbl">Full-Scale Partnership</div></div>
+      <div class="hero-stat-item"><div class="num">Monday.com</div><div class="lbl">CRM Implementations</div></div>
+      <div class="hero-stat-item"><div class="num">Karak Chai</div><div class="lbl">Ad Campaign with Bordo</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<section class="intro-strip sr">
+  <div class="intro-strip-inner">
+    <div class="intro-card">
+      <div class="intro-card-icon">&#9881;</div>
+      <h3>Systems & Automation</h3>
+      <p>Booking platforms, CRMs, automated workflows, invoicing &mdash; we build the infrastructure that runs your business 24/7.</p>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Automate Your Business <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-icon">&#9883;</div>
+      <h3>Marketing & Ads</h3>
+      <p>Google Ads, Meta campaigns, social media, and lead generation built specifically for construction and property audiences.</p>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Grow Your Pipeline <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-icon">&#9879;</div>
+      <h3>Video & Content</h3>
+      <p>Project showcases, drone footage, promotional films, and social content that sells your work before you say a word.</p>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Get a Video Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="trust-section" id="why-us">
+  <div class="trust-inner">
+    <div class="trust-header sr">
+      <div class="section-tag" style="justify-content:center;">Why Choose Us</div>
+      <h2>Built for Construction.<br><span class="accent">Proven by Results.</span></h2>
+      <p>We don't just understand marketing. We understand your industry &mdash; the margins, the timelines, the clients, and what actually moves the needle.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-card-num">SiteLedgers</div>
+        <h3>Custom Application</h3>
+        <p>We developed SiteLedgers &mdash; a full construction management application for tracking jobs, materials, and project timelines in one place.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-num">Monday.com</div>
+        <h3>CRM for BordoDesign</h3>
+        <p>Set up and configured Monday.com as a full CRM &mdash; pipeline tracking, automated follow-ups, and job management across their entire operation.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-num">Karak Chai</div>
+        <h3>Ad Campaign with Bordo</h3>
+        <p>Ran targeted ad campaigns for BordoDesign's partnership with Karak Chai &mdash; driving footfall and brand awareness for the venue launch.</p>
+      </div>
+    </div>
+    <div class="trust-reasons">
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#9881;</div>
+        <div>
+          <h4>We Build Everything In-House</h4>
+          <p>From SiteLedgers to Monday.com CRM setups to full ad campaigns &mdash; we build, configure, and manage the systems ourselves. No outsourcing.</p>
+        </div>
+      </div>
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#9879;</div>
+        <div>
+          <h4>We Know Construction</h4>
+          <p>BordoDesign, BordoGlass, Porcelanosa, Oxford College &mdash; we've worked hands-on with construction and property businesses and understand how they operate.</p>
+        </div>
+      </div>
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#9883;</div>
+        <div>
+          <h4>Systems That Actually Get Used</h4>
+          <p>We don't just set up tools and leave. The Monday.com CRM we built for BordoDesign is used every day &mdash; quoting, scheduling, tracking every job.</p>
+        </div>
+      </div>
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#10003;</div>
+        <div>
+          <h4>Marketing That Drives Real Work</h4>
+          <p>Our ads for BordoDesign brought in real enquiries that turned into real jobs &mdash; glass installations, shopfronts, and commercial contracts.</p>
+        </div>
+      </div>
+    </div>
+    <div class="trust-cta">
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Book a Free Strategy Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+
+  <div class="services-header sr">
+    <div class="section-tag" style="justify-content:center;">What We Deliver</div>
+    <h2>Full-Scale Technology for<br><span class="accent">Construction & Property</span></h2>
+    <p>From marketing to automation, every service is built to drive measurable results for your business.</p>
+  </div>
+
+  <!-- 1. Marketing & Ads -->
+  <div class="service-row">
+    <div class="service-text">
+      <div class="service-num">01 — Marketing</div>
+      <h2>Marketing & <span class="accent">Ads</span></h2>
+      <p>Paid advertising, social media strategy, and brand positioning built for construction and property audiences.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Google & Meta Ads</div>
+        <div class="service-feature"><span class="dot"></span>Social Strategy</div>
+        <div class="service-feature"><span class="dot"></span>Brand Positioning</div>
+        <div class="service-feature"><span class="dot"></span>Lead Gen Funnels</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Karak Chai</span>
+        <span class="stat-label">Ran ad campaigns for BordoDesign's<br>partnership with Karak Chai</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Discuss Your Ads Strategy <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/fddef569-dd82-4f3a-ebcc-9a439e70e700/public" alt="Porcelanosa showroom" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 2. Video Production -->
+  <div class="service-row reverse">
+    <div class="service-text">
+      <div class="service-num">02 — Production</div>
+      <h2>Video <span class="accent">Production</span></h2>
+      <p>Showcase builds, venues, and craftsmanship with professional video. Project walkthroughs, promotional films, and social content.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Showcase Videos</div>
+        <div class="service-feature"><span class="dot"></span>Event Coverage</div>
+        <div class="service-feature"><span class="dot"></span>Social Content</div>
+        <div class="service-feature"><span class="dot"></span>Drone Footage</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">BordoDesign</span>
+        <span class="stat-label">Full video production &mdash; showroom<br>walkthroughs, project showcases, socials</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Get a Video Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <div class="video-container">
+        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/03a18608b6e8ee6b146caf5de20499fe/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F03a18608b6e8ee6b146caf5de20499fe%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D5s%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Booking Systems & CRM -->
+  <div class="service-row">
+    <div class="service-text">
+      <div class="service-num">03 — Systems</div>
+      <h2>Booking Systems & <span class="accent">CRM</span></h2>
+      <p>Custom booking platforms, client portals, and CRM implementations. Track every enquiry and never lose a lead again.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Booking Systems</div>
+        <div class="service-feature"><span class="dot"></span>CRM Setup</div>
+        <div class="service-feature"><span class="dot"></span>Client Portals</div>
+        <div class="service-feature"><span class="dot"></span>Lead Nurture</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Monday.com</span>
+        <span class="stat-label">Full CRM setup for BordoDesign &mdash;<br>pipeline, quoting, job tracking</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Build Your CRM <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/6cfe8aba-f06f-43ae-a43d-fb01005afb00/public" alt="Construction interior" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 4. Automation & Workflows -->
+  <div class="service-row reverse">
+    <div class="service-text">
+      <div class="service-num">04 — Automation</div>
+      <h2>Automation & <span class="accent">Workflows</span></h2>
+      <p>Eliminate manual processes. Automated quoting, invoicing, reminders, and notifications running 24/7.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Process Automation</div>
+        <div class="service-feature"><span class="dot"></span>Auto Invoicing</div>
+        <div class="service-feature"><span class="dot"></span>Review Collection</div>
+        <div class="service-feature"><span class="dot"></span>Workflow Orchestration</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">BordoDesign</span>
+        <span class="stat-label">Automated quoting, follow-ups &<br>review requests via Monday.com</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Automate Your Business <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <div class="video-container">
+        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/0a2616d4ab8bc2b0d35702252e55179f/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F0a2616d4ab8bc2b0d35702252e55179f%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Databases & Data Science -->
+  <div class="service-row">
+    <div class="service-text">
+      <div class="service-num">05 — Data</div>
+      <h2>Databases & <span class="accent">Data Science</span></h2>
+      <p>Centralised databases, reporting dashboards, and data-driven insights for complete clarity on your pipeline and ROI.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Database Design</div>
+        <div class="service-feature"><span class="dot"></span>Power BI / Tableau</div>
+        <div class="service-feature"><span class="dot"></span>Performance Analytics</div>
+        <div class="service-feature"><span class="dot"></span>Predictive Models</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">BordoGlass</span>
+        <span class="stat-label">Live dashboards replacing manual<br>spreadsheets for job & sales tracking</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Unlock Your Data <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/16f2d97a-b97a-4261-edc6-924e7fec5e00/public" alt="Porcelanosa tiles" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 6. Web & App Development -->
+  <div class="service-row reverse">
+    <div class="service-text">
+      <div class="service-num">06 — Development</div>
+      <h2>Web & App <span class="accent">Development</span></h2>
+      <p>High-performance websites, project management tools, and client-facing applications built for the construction sector.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Company Websites</div>
+        <div class="service-feature"><span class="dot"></span>Project Management</div>
+        <div class="service-feature"><span class="dot"></span>Client Portals</div>
+        <div class="service-feature"><span class="dot"></span>Mobile-First Builds</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">SiteLedgers</span>
+        <span class="stat-label">Custom construction management<br>app &mdash; jobs, materials, timelines</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Start Your Build <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="NEC - Sugarcane.HEIC" alt="NEC Exhibition" loading="lazy">
+    </div>
+  </div>
+
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-strip sr">
+  <div class="clients-strip-inner">
+    <div class="section-tag" style="justify-content:center;">Who We Work With</div>
+    <h2>Trusted by <span class="accent">Construction & Property</span> Businesses</h2>
+    <div class="clients-grid">
+      <div class="client-cell">
+        <h3>BordoDesign</h3>
+        <p>Brand, Web, Video, Automation</p>
+      </div>
+      <div class="client-cell">
+        <h3>BordoGlass</h3>
+        <p>Marketing, Video, CRM</p>
+      </div>
+      <div class="client-cell">
+        <h3>Porcelanosa</h3>
+        <p>Photography, Content</p>
+      </div>
+      <div class="client-cell">
+        <h3>NEC Sugarcane</h3>
+        <p>Video, Event Coverage</p>
+      </div>
+      <div class="client-cell">
+        <h3>Oxford College</h3>
+        <p>Video Production</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER: BORDODESIGN -->
+<section class="partner-section sr">
+  <div class="partner-text">
+    <div class="section-tag">Strategic Partnership</div>
+    <h2>Partnered with <span class="accent">BordoDesign</span></h2>
+    <p>We've worked alongside BordoDesign from the ground up &mdash; brand identity, website, video production, lead generation, CRM, and full business automation. Hear directly from them on how we've helped scale their business.</p>
+    <div class="partner-tags">
+      <span>Brand Identity</span>
+      <span>Website</span>
+      <span>Video</span>
+      <span>Social Media</span>
+      <span>Lead Gen</span>
+      <span>Automation</span>
+      <span>CRM</span>
+    </div>
+  </div>
+  <div class="partner-video">
+    <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/afef6a1b5c447afaf1b0758be52c84b9/iframe?poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fafef6a1b5c447afaf1b0758be52c84b9%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section sr">
+  <div class="section-tag" style="justify-content:center;">Get In Touch</div>
+  <h2>Ready to Scale Your<br><span class="accent">Construction Business?</span></h2>
+  <p>Book a consultation to discuss systems, automation, and growth for your business.</p>
+  <div class="cta-actions">
+    <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Book a Strategy Call</a>
+    <a href="https://wa.me/447424053868" class="btn-outline" target="_blank">Chat on WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><span>Merlins Group</span><p>Enterprise technology solutions for businesses that demand results. AI, automation, and scalable infrastructure, all under one roof.</p></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html">Artificial Intelligence</a><a href="services.html">Automation & Workflows</a><a href="services.html">CRM Solutions</a><a href="services.html">Application Development</a><a href="services.html">Data Science & Analytics</a><a href="services.html">Migration & Scaling</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agency.html">Merlins Agency</a><a href="construction.html">Construction</a><a href="#">Careers</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/447424053868">WhatsApp</a><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Book a Call</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Merlins Group. All rights reserved.</span><span>Privacy Policy &middot; Terms of Service</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/447424053868" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.908 15.908 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.35 22.606c-.39 1.1-1.932 2.014-3.17 2.28-.846.18-1.95.324-5.67-1.218-4.762-1.97-7.826-6.798-8.064-7.114-.23-.316-1.928-2.568-1.928-4.898 0-2.33 1.22-3.474 1.654-3.95.434-.476.948-.596 1.264-.596.316 0 .632.004.908.016.292.014.682-.11 1.068.814.39.94 1.33 3.27 1.448 3.506.118.238.196.514.038.83-.158.316-.238.514-.474.79-.238.278-.498.62-.712.832-.236.238-.484.496-.208.972.278.476 1.232 2.032 2.646 3.292 1.818 1.62 3.35 2.122 3.828 2.36.476.238.754.198 1.032-.118.278-.318 1.194-1.39 1.512-1.868.316-.476.634-.396 1.07-.236.434.158 2.762 1.302 3.236 1.54.476.236.792.356.91.554.118.198.118 1.148-.274 2.248z"/></svg>
+</a>
+
+<script>
+document.getElementById('mobileToggle').addEventListener('click', function() {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('active');
+  });
+});
+
+var navbar = document.getElementById('navbar');
+var scrollProgress = document.getElementById('scrollProgress');
+var ticking = false;
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      var scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 60) { navbar.classList.add('scrolled'); }
+      else { navbar.classList.remove('scrolled'); }
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + '%';
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// Scroll-reveal for non-service elements
+var srElements = document.querySelectorAll('.sr');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.15 });
+srElements.forEach(function(el) { observer.observe(el); });
+
+// Scroll-driven parallax for service rows AND trust section (scale + fade like index.html)
+var parallaxEls = document.querySelectorAll('.service-row, .trust-grid, .trust-reasons');
+var parallaxTicking = false;
+window.addEventListener('scroll', function() {
+  if (!parallaxTicking) {
+    window.requestAnimationFrame(function() {
+      var winH = window.innerHeight;
+      parallaxEls.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        var progress = 1 - (rect.top / (winH * 0.8));
+        progress = Math.max(0, Math.min(1, progress));
+        var eased = progress * progress * (3 - 2 * progress);
+        var scale = 0.88 + eased * 0.12;
+        var opacity = eased;
+        el.style.transform = 'scale(' + scale + ')';
+        el.style.opacity = opacity;
+      });
+      parallaxTicking = false;
+    });
+    parallaxTicking = true;
+  }
+});
+</script>
+</body>
+</html>

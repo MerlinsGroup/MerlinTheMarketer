@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Workflows | Merlins Group | AI, Data & Automation Consultancy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2744;
+            --navy-light: #2d4a6f;
+            --navy-dark: #111c30;
+            --ink: #1a1a1a;
+            --ink-light: #4a4a4a;
+            --ink-muted: #767676;
+            --cream: #f8f9fb;
+            --white: #ffffff;
+            --accent: #1a2744;
+            --accent-light: #e8edf4;
+            --border: #e5e5e5;
+            --border-dark: #d0d0d0;
+            --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-green: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --gradient-orange: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+            --gradient-blue: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+            --gradient-pink: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: var(--ink-light);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--navy);
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--navy-light);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 160px 0 100px;
+            background: var(--navy-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(102, 126, 234, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        .breadcrumb span {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .breadcrumb .current {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(42px, 5vw, 56px);
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .page-hero h1 span {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 19px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        /* Animated Workflow Diagram */
+        .workflow-diagram {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .workflow-nodes {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .workflow-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .workflow-node {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            transition: all 0.3s;
+        }
+
+        .workflow-node:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(4px);
+        }
+
+        .workflow-node.trigger {
+            border-color: rgba(102, 126, 234, 0.5);
+            background: rgba(102, 126, 234, 0.15);
+        }
+
+        .workflow-node.action {
+            border-color: rgba(17, 153, 142, 0.5);
+            background: rgba(17, 153, 142, 0.15);
+        }
+
+        .workflow-node.output {
+            border-color: rgba(247, 183, 51, 0.5);
+            background: rgba(247, 183, 51, 0.15);
+        }
+
+        .node-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .node-icon.purple { background: var(--gradient-purple); }
+        .node-icon.green { background: var(--gradient-green); }
+        .node-icon.orange { background: var(--gradient-orange); }
+        .node-icon.blue { background: var(--gradient-blue); }
+
+        .node-content {
+            flex: 1;
+        }
+
+        .node-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2px;
+        }
+
+        .node-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .workflow-arrow {
+            color: rgba(255,255,255,0.3);
+            display: flex;
+            justify-content: center;
+            padding: 8px 0;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px;
+            background: var(--cream);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(26, 39, 68, 0.08);
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+        }
+
+        .stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: 42px;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: var(--ink-muted);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--navy);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 4vw, 44px);
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--ink-light);
+        }
+
+        /* What We Automate */
+        .automate-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .automate-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .automate-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+
+        .automate-card:hover {
+            border-color: var(--navy);
+            box-shadow: 0 16px 48px rgba(26, 39, 68, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .automate-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .automate-card h3 {
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .automate-card > p {
+            font-size: 15px;
+            color: var(--ink-light);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .automate-list {
+            list-style: none;
+        }
+
+        .automate-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--ink);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .automate-list li:last-child {
+            border-bottom: none;
+        }
+
+        .automate-list li svg {
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        /* Case Studies */
+        .cases-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .case-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 48px;
+            transition: all 0.3s;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 20px 48px rgba(26, 39, 68, 0.1);
+        }
+
+        .case-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .case-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .case-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            position: relative;
+        }
+
+        .case-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .case-mockup {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .mockup-dot.red { background: #ff5f57; }
+        .mockup-dot.yellow { background: #ffbd2e; }
+        .mockup-dot.green { background: #28ca42; }
+
+        .mockup-title {
+            font-size: 13px;
+            color: var(--ink-muted);
+            margin-left: 12px;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--cream);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .workflow-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        .step-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--ink-muted);
+        }
+
+        .step-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .step-arrow {
+            color: var(--ink-muted);
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        .case-content {
+            padding: 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-light);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .case-content h3 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .case-content > p {
+            font-size: 16px;
+            color: var(--ink-light);
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        .result-item {
+            text-align: left;
+        }
+
+        .result-number {
+            font-family: 'Fraunces', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .result-label {
+            font-size: 13px;
+            color: var(--ink-muted);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 100px 0;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .tools-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+        }
+
+        .tools-header .section-label {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .tools-header h2 {
+            color: var(--white);
+        }
+
+        .tools-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-4px);
+        }
+
+        .tool-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .tool-card h4 {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .tool-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .process-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-card::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -16px;
+            width: 32px;
+            height: 2px;
+            background: var(--border-dark);
+        }
+
+        .process-card:last-child::after {
+            display: none;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: 'Fraunces', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--white);
+            background: var(--navy);
+        }
+
+        .process-card h4 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .process-card p {
+            font-size: 15px;
+            color: var(--ink-light);
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 120px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(36px, 4vw, 52px);
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: var(--ink-light);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-light);
+            box-shadow: 0 8px 24px rgba(26, 39, 68, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 16px;
+            border: 1px solid var(--border-dark);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--navy);
+            background: var(--cream);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 500;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social-links a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            transition: all 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .automate-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-card {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-card::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .page-hero {
+                padding: 120px 0 80px;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .workflow-diagram {
+                padding: 24px;
+            }
+
+            .stats-section {
+                padding: 60px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            .stat-card {
+                padding: 24px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .automate-section {
+                padding: 60px 0;
+            }
+
+            .automate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cases-section {
+                padding: 60px 0;
+            }
+
+            .case-content {
+                padding: 32px;
+            }
+
+            .case-results {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .tools-section {
+                padding: 60px 0;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-section {
+                padding: 60px 0;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta {
+                padding: 80px 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="logo">
+                <img src="merlinsgrouplogo.png" alt="Merlin's Group">
+            </a>
+            <ul class="nav-links">
+                <li><a href="services">Services</a></li>
+                <li><a href="automatedworkflows" class="active">Automated Workflows</a></li>
+                <li><a href="AI_Development">AI Development</a></li>
+                <li><a href="packages">Packages</a></li>
+                <li><a href="aboutus">About Us</a></li>
+                <li><a href="contact?type=automation" class="nav-cta">Automate Your Business</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content fade-up">
+                    <div class="breadcrumb">
+                        <a href="/">Home</a>
+                        <span>/</span>
+                        <a href="/services">Services</a>
+                        <span>/</span>
+                        <span class="current">Automated Workflows</span>
+                    </div>
+                    <h1>Merlins Group Limited - Stop doing tasks. <span>Automate them.</span></h1>
+                    <p>We build intelligent automation systems that eliminate repetitive work, reduce errors, and let your team focus on what actually matters—growing your business.</p>
+                    <a href="/contact" class="hero-cta">
+                        Get a Free Automation Audit
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-visual fade-up">
+                    <div class="workflow-diagram">
+                        <div class="workflow-nodes">
+                            <div class="workflow-row">
+                                <div class="workflow-node trigger">
+                                    <div class="node-icon purple">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-content">
+                                        <div class="node-label">Trigger</div>
+                                        <div class="node-title">New Form Submission</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                                </svg>
+                            </div>
+                            <div class="workflow-row">
+                                <div class="workflow-node action">
+                                    <div class="node-icon green">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-content">
+                                        <div class="node-label">Action</div>
+                                        <div class="node-title">Create CRM Contact</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                                </svg>
+                            </div>
+                            <div class="workflow-row">
+                                <div class="workflow-node action">
+                                    <div class="node-icon blue">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                            <polyline points="22,6 12,13 2,6"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-content">
+                                        <div class="node-label">Action</div>
+                                        <div class="node-title">Send Welcome Email</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                                </svg>
+                            </div>
+                            <div class="workflow-row">
+                                <div class="workflow-node output">
+                                    <div class="node-icon orange">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                            <polyline points="22 4 12 14.01 9 11.01"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-content">
+                                        <div class="node-label">Output</div>
+                                        <div class="node-title">Notify Sales Team</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card fade-up">
+                    <div class="stat-icon" style="background: var(--gradient-purple);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Hours Saved Monthly</div>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-icon" style="background: var(--gradient-green);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Workflows Deployed</div>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-icon" style="background: var(--gradient-orange);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime Reliability</div>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-icon" style="background: var(--gradient-blue);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">£500K+</div>
+                    <div class="stat-label">Client Savings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Automate -->
+    <section class="automate-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-label">What We Automate</p>
+                <h2>From tedious tasks to intelligent workflows</h2>
+                <p>We identify bottlenecks in your operations and build custom automations that run 24/7.</p>
+            </div>
+            <div class="automate-grid">
+                <div class="automate-card fade-up">
+                    <div class="automate-icon" style="background: var(--gradient-blue);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Lead Management</h3>
+                    <p>Capture, qualify, and route leads automatically so your sales team only talks to ready buyers.</p>
+                    <ul class="automate-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Form submission → CRM
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Lead scoring & routing
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Automated follow-ups
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="automate-card fade-up">
+                    <div class="automate-icon" style="background: var(--gradient-purple);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18"/>
+                            <path d="M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h3>Project Management</h3>
+                    <p>Keep projects on track with automated task creation, assignments, and status updates.</p>
+                    <ul class="automate-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Template-based projects
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Deadline notifications
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Resource allocation
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="automate-card fade-up">
+                    <div class="automate-icon" style="background: var(--gradient-green);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3>Email & Communications</h3>
+                    <p>Send the right message at the right time without lifting a finger.</p>
+                    <ul class="automate-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Welcome sequences
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Appointment reminders
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Invoice notifications
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="automate-card fade-up">
+                    <div class="automate-icon" style="background: var(--gradient-orange);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>Document Processing</h3>
+                    <p>Extract data, generate documents, and manage approvals automatically.</p>
+                    <ul class="automate-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Contract generation
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Invoice processing
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Approval workflows
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="automate-card fade-up">
+                    <div class="automate-icon" style="background: var(--gradient-pink);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18 17V9"/>
+                            <path d="M13 17V5"/>
+                            <path d="M8 17v-3"/>
+                        </svg>
+                    </div>
+                    <h3>Reporting & Analytics</h3>
+                    <p>Get insights delivered to your inbox without pulling data manually.</p>
+                    <ul class="automate-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Scheduled reports
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            KPI dashboards
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Anomaly alerts
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="automate-card fade-up">
+                    <div class="automate-icon" style="background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2"/>
+                            <rect x="2" y="14" width="20" height="8" rx="2"/>
+                            <line x1="6" y1="6" x2="6.01" y2="6"/>
+                            <line x1="6" y1="18" x2="6.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3>Data Synchronisation</h3>
+                    <p>Keep your systems in sync so everyone works from the same source of truth.</p>
+                    <ul class="automate-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Multi-platform sync
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Real-time updates
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Conflict resolution
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="cases-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-label">Case Studies</p>
+                <h2>Automation in action</h2>
+                <p>Real results from real businesses that trusted us to streamline their operations.</p>
+            </div>
+
+            <!-- BordoDesign -->
+            <div class="case-card fade-up">
+                <div class="case-visual" style="background: var(--gradient-purple);">
+                    <div class="case-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span class="mockup-dot red"></span>
+                                <span class="mockup-dot yellow"></span>
+                                <span class="mockup-dot green"></span>
+                            </div>
+                            <span class="mockup-title">monday.com — BordoDesign</span>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-purple);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Trigger</div>
+                                <div class="step-title">New client signed</div>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-green);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <path d="M3 9h18"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Action</div>
+                                <div class="step-title">Create project board</div>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-orange);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Action</div>
+                                <div class="step-title">Assign team members</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <span class="case-badge">Monday.com Integration</span>
+                    <h3>BordoDesign</h3>
+                    <p>A creative design agency drowning in project management chaos. We implemented a custom Monday.com system with automated project creation, client portals, deadline tracking, and resource management—turning chaos into clarity.</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-number">+40%</div>
+                            <div class="result-label">Productivity</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">0</div>
+                            <div class="result-label">Missed Deadlines</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">15hrs</div>
+                            <div class="result-label">Saved Weekly</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Easy2Recruit -->
+            <div class="case-card fade-up">
+                <div class="case-visual" style="background: var(--gradient-green);">
+                    <div class="case-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span class="mockup-dot red"></span>
+                                <span class="mockup-dot yellow"></span>
+                                <span class="mockup-dot green"></span>
+                            </div>
+                            <span class="mockup-title">Recruitment Automation</span>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-blue);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Trigger</div>
+                                <div class="step-title">CV received</div>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-purple);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Action</div>
+                                <div class="step-title">Screen & score candidate</div>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-green);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Action</div>
+                                <div class="step-title">Schedule interview</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <span class="case-badge">Full Automation</span>
+                    <h3>Easy2Recruit</h3>
+                    <p>A recruitment agency spending 80% of their time on admin instead of finding great candidates. We built an end-to-end automation system handling CV screening, candidate communication, interview scheduling, and reporting.</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-number">-60%</div>
+                            <div class="result-label">Admin Time</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">3x</div>
+                            <div class="result-label">Candidate Volume</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">85%</div>
+                            <div class="result-label">Time Saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Woodside Motor Services -->
+            <div class="case-card fade-up">
+                <div class="case-visual" style="background: var(--gradient-orange);">
+                    <div class="case-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span class="mockup-dot red"></span>
+                                <span class="mockup-dot yellow"></span>
+                                <span class="mockup-dot green"></span>
+                            </div>
+                            <span class="mockup-title">Analytics Automation</span>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-orange);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Schedule</div>
+                                <div class="step-title">Every Monday 9am</div>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-blue);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18 17V9"/>
+                                    <path d="M13 17V5"/>
+                                    <path d="M8 17v-3"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Action</div>
+                                <div class="step-title">Generate weekly report</div>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="workflow-step">
+                            <div class="step-icon" style="background: var(--gradient-green);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Output</div>
+                                <div class="step-title">Email to management</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <span class="case-badge">Reporting Automation</span>
+                    <h3>Woodside Motor Services</h3>
+                    <p>A busy service centre with no visibility into their performance. We built automated reporting dashboards, pricing intelligence alerts, and customer behaviour tracking—turning gut feelings into data-driven decisions.</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-number">+35%</div>
+                            <div class="result-label">Revenue</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">Real-time</div>
+                            <div class="result-label">Insights</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">£500</div>
+                            <div class="result-label">Monthly Value</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-header fade-up">
+                <p class="section-label">Tools We Use</p>
+                <h2>Built on platforms you trust</h2>
+                <p>We work with industry-leading automation tools to build reliable, scalable workflows.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card fade-up">
+                    <div class="tool-icon" style="background: linear-gradient(90deg, #ff3d57 0%, #ffcb00 50%, #00d647 100%);">
+                        M
+                    </div>
+                    <h4>Monday.com</h4>
+                    <p>Project & workflow management</p>
+                </div>
+                <div class="tool-card fade-up">
+                    <div class="tool-icon" style="background: #ff4a00;">
+                        Z
+                    </div>
+                    <h4>Zapier</h4>
+                    <p>App integrations</p>
+                </div>
+                <div class="tool-card fade-up">
+                    <div class="tool-icon" style="background: #6d3bd1;">
+                        M
+                    </div>
+                    <h4>Make</h4>
+                    <p>Complex automations</p>
+                </div>
+                <div class="tool-card fade-up">
+                    <div class="tool-icon" style="background: #4353ff;">
+                        A
+                    </div>
+                    <h4>Airtable</h4>
+                    <p>Database & workflows</p>
+                </div>
+                <div class="tool-card fade-up">
+                    <div class="tool-icon" style="background: #0066ff;">
+                        n8n
+                    </div>
+                    <h4>n8n</h4>
+                    <p>Self-hosted automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-label">Our Process</p>
+                <h2>How we build your automations</h2>
+                <p>A proven approach that delivers reliable results.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card fade-up">
+                    <div class="process-number">1</div>
+                    <h4>Audit</h4>
+                    <p>We map your current workflows, identify bottlenecks, and find automation opportunities that deliver the highest ROI.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="process-number">2</div>
+                    <h4>Design</h4>
+                    <p>We design custom workflows with clear triggers, actions, and outputs—documented so your team understands exactly what's happening.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="process-number">3</div>
+                    <h4>Build</h4>
+                    <p>We build and test your automations thoroughly, handling edge cases and ensuring reliability before anything goes live.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="process-number">4</div>
+                    <h4>Optimise</h4>
+                    <p>We monitor performance, gather feedback, and continuously improve your workflows as your business evolves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-inner fade-up">
+                <h2>Ready to automate?</h2>
+                <p>Get a free automation audit and discover how much time and money you could save with intelligent workflows.</p>
+                <div class="cta-buttons">
+                    <a href="/contact" class="btn-primary">Get Free Audit</a>
+                    <a href="/portfolio" class="btn-secondary">See More Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <img src="merlinsgrouplogo.png" alt="Merlin's Group" style="filter: brightness(0) invert(1); height: 40px;">
+                    </a>
+                    <p>A data-driven digital agency helping ambitious businesses scale through intelligent technology and performance marketing.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services#websites">Web Development</a></li>
+                        <li><a href="/services#apps">App Development</a></li>
+                        <li><a href="/automated-workflows">Automation</a></li>
+                        <li><a href="/services#data">Data & Analytics</a></li>
+                        <li><a href="/ai-development">AI & Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/portfolio">Portfolio</a></li>
+                        <li><a href="/packages">Pricing</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@merlinsgroup.co.uk">hello@merlinsgroup.co.uk</a></li>
+                        <li><a href="#">London, UK</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Merlins Group Limited. All rights reserved.</p>
+                <p style="font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px;">Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom</p>
+                <div class="footer-social-links">
+                    <a href="https://www.instagram.com/merlins_group" target="_blank" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/merlins-group" target="_blank" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Mobile menu
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Merlins Group - Building intelligent systems and scale-ready platforms for growing businesses.">
+    <title>About Us | Merlins Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--primary-blue:#2563EB;--secondary-orange:#F97316;--success-green:#10B981;--dark-slate:#1E293B;--light-bg:#F8FAFC;--white:#fff}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{overflow-x:hidden;max-width:100%}
+        html{scroll-behavior:smooth}
+        body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--white);color:var(--dark-slate);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:70px}
+        .grid-bg{background-image:linear-gradient(to right,rgba(30,41,59,0.1) 1px,transparent 1px),linear-gradient(to bottom,rgba(30,41,59,0.1) 1px,transparent 1px);background-size:40px 40px}
+        .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,41,59,0.1)}
+        .nav-container{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+        .logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--dark-slate);font-weight:700;font-size:1.25rem}
+        .logo-icon{width:36px;height:36px;background:var(--primary-blue);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:1rem}
+        .logo-img{height:55px;width:auto;object-fit:contain}
+        .logo-text{font-size:1.5rem;font-weight:800;color:var(--dark-slate)}
+        .nav-toggle{display:block;background:none;border:none;cursor:pointer;padding:0.5rem;z-index:10000;position:relative}
+        .nav-toggle span{display:block;width:24px;height:2px;background:var(--dark-slate);margin:5px 0;transition:0.3s}
+        .nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .nav-toggle.active span:nth-child(2){opacity:0}
+        .nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        .nav-links{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;min-height:100vh;background-color:#ffffff;flex-direction:column;justify-content:center;align-items:center;padding:2rem;margin:0;list-style:none;gap:0;z-index:9999;display:none;overflow:hidden}
+        .nav-links.active{display:flex}
+        .nav-links li{width:100%;max-width:400px;text-align:center}
+        .nav-links a{text-decoration:none;color:var(--dark-slate);font-weight:700;font-size:2rem;transition:color 0.2s,transform 0.2s;display:block;padding:1.25rem 0;border-bottom:1px solid rgba(30,41,59,0.1)}
+        .nav-links a:hover{color:var(--primary-blue);transform:scale(1.05)}
+        .nav-links li:last-child a{border-bottom:none}
+        body.menu-open{overflow:hidden}
+        .breadcrumb{padding:6rem 1.5rem 1rem;max-width:1200px;margin:0 auto}
+        .breadcrumb a{color:rgba(30,41,59,0.6);text-decoration:none;font-size:0.9rem}
+        .breadcrumb a:hover{color:var(--primary-blue)}
+        .breadcrumb span{color:rgba(30,41,59,0.4);margin:0 0.5rem}
+        section{padding:4rem 1.5rem}
+        .container{max-width:1200px;margin:0 auto}
+        .section-eyebrow{color:var(--primary-blue);font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem}
+        .section-title{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:800;color:var(--dark-slate);margin-bottom:1rem}
+        .section-subtitle{font-size:1.1rem;color:rgba(30,41,59,0.7);max-width:600px;margin-bottom:2rem;line-height:1.7}
+        .page-hero{padding:2rem 1.5rem 4rem;max-width:1200px;margin:0 auto}
+        .page-hero h1{font-size:clamp(2.25rem,5vw,3.5rem);font-weight:800;line-height:1.15;color:var(--dark-slate);margin-bottom:1.5rem;max-width:800px}
+        .page-hero h1 em{color:var(--primary-blue);font-style:normal}
+        .page-hero-intro{font-size:1.125rem;color:rgba(30,41,59,0.7);max-width:700px;line-height:1.8}
+        .page-hero-intro p{margin-bottom:1rem}
+
+        /* Parliament Section */
+        .parliament-section{background:var(--dark-slate);color:var(--white)}
+        .parliament-section .section-eyebrow{color:var(--secondary-orange)}
+        .parliament-section .section-title{color:var(--white)}
+        .parliament-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+        .parliament-text p{color:var(--light-bg);font-size:1rem;line-height:1.8;margin-bottom:1.5rem}
+        .parliament-text strong{color:var(--white)}
+        .parliament-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+        .parliament-gallery img{width:100%;height:180px;object-fit:cover;border-radius:8px;transition:transform 0.3s}
+        .parliament-gallery img:hover{transform:scale(1.02)}
+
+        /* Products Section */
+        .products-section{background:var(--light-bg)}
+        .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem}
+        .product-card{background:var(--white);border-radius:12px;overflow:hidden;border:1px solid rgba(30,41,59,0.1);transition:all 0.3s}
+        .product-card:hover{border-color:var(--primary-blue);transform:translateY(-4px);box-shadow:0 10px 30px rgba(37,99,235,0.1)}
+        .product-header{padding:1.5rem;border-bottom:1px solid rgba(30,41,59,0.1);display:flex;align-items:center;gap:1rem}
+        .product-logo{width:60px;height:60px;border-radius:12px;object-fit:contain;background:var(--light-bg);padding:0.5rem}
+        .product-badge{background:var(--success-green);color:white;font-size:0.7rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:100px;text-transform:uppercase}
+        .product-info{padding:1.5rem}
+        .product-info h3{font-size:1.25rem;font-weight:700;color:var(--dark-slate);margin-bottom:0.5rem}
+        .product-info p{color:rgba(30,41,59,0.7);font-size:0.95rem;margin-bottom:1.25rem;line-height:1.7}
+        .product-features{list-style:none;margin-bottom:1.5rem}
+        .product-features li{padding:0.5rem 0;color:var(--dark-slate);font-size:0.9rem;display:flex;align-items:center;gap:0.75rem}
+        .product-features li::before{content:'✓';color:var(--success-green);font-weight:700}
+        .product-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+        .product-tag{background:var(--light-bg);color:var(--dark-slate);font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:100px;font-weight:500}
+        .product-link{display:inline-flex;align-items:center;gap:0.5rem;color:var(--primary-blue);font-weight:600;font-size:0.9rem;text-decoration:none;transition:gap 0.2s}
+        .product-link:hover{gap:0.75rem}
+
+        /* Websites Section */
+        .websites-section{background:var(--white)}
+        .websites-cta{background:var(--light-bg);border-radius:12px;padding:3rem;text-align:center;border:1px solid rgba(30,41,59,0.1)}
+        .websites-cta h3{font-size:1.5rem;font-weight:800;color:var(--dark-slate);margin-bottom:1rem}
+        .websites-cta p{color:rgba(30,41,59,0.7);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+        .btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;font-size:1rem;font-weight:600;border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
+        .btn-primary{background:var(--primary-blue);color:white}
+        .btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
+
+        /* CTA Section */
+        .cta-section{background:var(--primary-blue);color:var(--white);text-align:center}
+        .cta-section .section-title{color:var(--white);max-width:600px;margin:0 auto 1rem}
+        .cta-section p{color:rgba(255,255,255,0.8);max-width:500px;margin:0 auto 2rem}
+        .cta-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+        .btn-white{background:var(--white);color:var(--primary-blue)}
+        .btn-white:hover{background:var(--light-bg)}
+        .btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3)}
+        .btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+        /* Footer */
+        footer{background:var(--dark-slate);color:var(--light-bg);padding:3rem 1.5rem 2rem}
+        .footer-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-logo{display:flex;align-items:center;gap:0.75rem;color:var(--white);font-weight:700}
+        .footer-links{display:flex;gap:2rem;list-style:none}
+        .footer-links a{color:var(--light-bg);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+        .footer-links a:hover{color:var(--white)}
+        .footer-copyright{font-size:0.85rem}
+
+        /* Bottom Nav */
+        .bottom-nav{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid rgba(30,41,59,0.1);padding:0.75rem 1rem;z-index:1000}
+        .bottom-nav ul{display:flex;justify-content:space-around;list-style:none}
+        .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:0.25rem;text-decoration:none;color:var(--dark-slate);font-size:0.75rem;font-weight:500;transition:color 0.2s}
+        .bottom-nav a.active{color:var(--primary-blue)}
+        .bottom-nav svg{width:24px;height:24px}
+
+        /* Animations */
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes fadeInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.4)}50%{box-shadow:0 0 0 15px rgba(37,99,235,0)}}
+
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+        .reveal.active{opacity:1;transform:translateY(0)}
+        .reveal-left{opacity:0;transform:translateX(-30px);transition:opacity 0.8s ease,transform 0.8s ease}
+        .reveal-left.active{opacity:1;transform:translateX(0)}
+        .reveal-right{opacity:0;transform:translateX(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+        .reveal-right.active{opacity:1;transform:translateX(0)}
+
+        .page-hero h1{animation:fadeInUp 0.6s ease-out 0.1s both}
+        .page-hero-intro{animation:fadeInUp 0.6s ease-out 0.2s both}
+
+        .btn-primary{animation:pulse 2s infinite}
+        .btn-primary:hover{animation:none}
+        .btn-white{animation:pulse 2s infinite}
+        .btn-white:hover{animation:none}
+
+        .product-card{transition:transform 0.3s ease,box-shadow 0.3s ease}
+        .product-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(30,41,59,0.15)}
+
+        .parliament-gallery img{transition:transform 0.5s ease,box-shadow 0.3s ease}
+        .parliament-gallery img:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+
+        @media(max-width:768px){
+            .parliament-content{grid-template-columns:1fr;gap:2rem}
+            .parliament-gallery{grid-template-columns:repeat(2,1fr)}
+            .parliament-gallery img{height:140px}
+            .products-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body class="grid-bg">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="merlinsgrouplogo.png" alt="Merlins Group" class="logo-img"><span class="logo-text">Merlins Group</span></a>
+            <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#what-we-build">Stack</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="https://merlinsgroup.co.uk/merlinsportfolio.pdf" target="_blank">Live Builds (In Progress) - 2026</a></li>
+                <li><a href="index.html#contact">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>About Us</div>
+
+    <section class="page-hero">
+        <h1>Built by <em>entrepreneurs</em>, for entrepreneurs</h1>
+        <div class="page-hero-intro">
+            <p>We started with a simple belief: growing businesses deserve access to the same intelligent systems and digital infrastructure that big corporations have—without the enterprise price tag.</p>
+            <p>Our team has been in your shoes. We've grown businesses, made tough decisions with limited information, and wondered if there was a better way. That's exactly why Merlin's Group exists.</p>
+        </div>
+    </section>
+
+    <section class="parliament-section">
+        <div class="container">
+            <div class="parliament-content">
+                <div class="parliament-text">
+                    <div class="section-eyebrow">Recent News</div>
+                    <h2 class="section-title">Merlins Attended Parliament</h2>
+                    <p>Our co-founders had the privilege of attending a commemoration at <strong>British Parliament</strong>, recognising the courage and contribution of Commonwealth soldiers during the World Wars.</p>
+                    <p>Hosted by <strong>Rt. Hon. Bob Blackman CBE MP</strong> and <strong>The Memorial Gates Foundation</strong>, the event brought together leaders including Lord Rami Ranger, senior British Army members, and community representatives sharing reflections on heritage, unity, and service.</p>
+                    <p>It was a powerful reminder of the shared history that shapes our society—and a real pleasure connecting with like-minded individuals passionate about making an impact.</p>
+                </div>
+                <div class="parliament-gallery">
+                    <img src="https://merlinsgroup.co.uk/parliament1.jpg" alt="Parliament Visit">
+                    <img src="https://merlinsgroup.co.uk/parliament2.jpg" alt="Parliament Event">
+                    <img src="https://merlinsgroup.co.uk/parliament3.jpg" alt="Parliament Ceremony">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="section-eyebrow">What We're Building</div>
+            <h2 class="section-title">Products in Development</h2>
+            <p class="section-subtitle">Intelligent systems designed to solve real problems for real businesses. We don't just consult—we build.</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <img src="https://merlinsgroup.co.uk/logos/anytax.jpeg" alt="AnyTax" class="product-logo">
+                        <span class="product-badge">In Development</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>AnyTax</h3>
+                        <p>Making Tax Digital compliance shouldn't be complicated. AnyTax is our intelligent tax management platform designed for UK businesses navigating HMRC's digital requirements.</p>
+                        <ul class="product-features">
+                            <li>Automated MTD VAT submissions</li>
+                            <li>Real-time compliance monitoring</li>
+                            <li>Integration with accounting software</li>
+                            <li>AI-powered error detection</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="product-tag">Python</span>
+                            <span class="product-tag">HMRC API</span>
+                            <span class="product-tag">Machine Learning</span>
+                        </div>
+                        <span class="product-link" style="cursor: default;">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <img src="https://merlinsgroup.co.uk/logos/hirely.png" alt="Hirely" class="product-logo">
+                        <span class="product-badge">In Development</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hirely</h3>
+                        <p>Recruitment is broken. Too much time spent on admin, not enough on finding the right people. Hirely uses AI to automate the tedious parts so recruiters can focus on human connection.</p>
+                        <ul class="product-features">
+                            <li>Intelligent candidate matching</li>
+                            <li>Automated CV screening & ranking</li>
+                            <li>Interview scheduling automation</li>
+                            <li>Skills gap analysis & insights</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="product-tag">NLP</span>
+                            <span class="product-tag">Node.js</span>
+                            <span class="product-tag">GPT Integration</span>
+                        </div>
+                        <a href="https://merlinsgroup.github.io/hirely/" target="_blank" class="product-link">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <img src="https://merlinsgroup.co.uk/logos/6.png" alt="Client Portal" class="product-logo">
+                        <span class="product-badge">Live</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Client Portal System</h3>
+                        <p>A comprehensive client portal solution powering businesses like 3FX. Real-time dashboards, automated workflows, and complete client management in one place.</p>
+                        <ul class="product-features">
+                            <li>Real-time data dashboards</li>
+                            <li>Automated transaction processing</li>
+                            <li>Client account management</li>
+                            <li>Detailed reporting & analytics</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="product-tag">React</span>
+                            <span class="product-tag">PostgreSQL</span>
+                            <span class="product-tag">API Integration</span>
+                        </div>
+                        <span class="product-link" style="cursor: default;">Client Access Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="websites-section">
+        <div class="container">
+            <div class="section-eyebrow">Our Work</div>
+            <h2 class="section-title">Scale-Ready Websites</h2>
+            <p class="section-subtitle">We've built structured web platforms for businesses across retail, automotive, finance, and recruitment sectors.</p>
+            
+            <div class="websites-cta">
+                <h3>View Our Website Portfolio</h3>
+                <p>See the live websites we've built for clients including IceBank Jewellery, Binley Woods Service Centre, BordoDesign, Easy2Recruit, and more.</p>
+                <a href="https://merlinsgroup.co.uk/merlinsportfolio.pdf" target="_blank" class="btn btn-primary">View Websites →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to work together?</h2>
+            <p>Whether you need a custom platform, AI solution, or want to discuss partnership opportunities, we'd love to hear from you.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn btn-white">Book a Call</a>
+                <a href="mailto:teams@merlinsgroup.co.uk" class="btn btn-outline">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo"><img src="merlinsgrouplogo.png" alt="Merlins Group" class="logo-img" style="height:45px"><span class="logo-text" style="color:var(--white)">Merlins Group</span></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="mailto:teams@merlinsgroup.co.uk">Contact</a></li>
+            </ul>
+            <p class="footer-copyright">© 2025 Merlins Group Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>HOME</a></li>
+            <li><a href="index.html#what-we-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>STACK</a></li>
+            <li><a href="aboutus.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>WORK</a></li>
+            <li><a href="index.html#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>CONNECT</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleNav(){
+            document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.nav-toggle').classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+        document.querySelectorAll('.nav-links a').forEach(link=>{
+            link.addEventListener('click',()=>{
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.nav-toggle').classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Add reveal classes FIRST
+        document.querySelectorAll('.section-title').forEach(el => el.classList.add('reveal'));
+        document.querySelectorAll('.section-subtitle').forEach(el => el.classList.add('reveal'));
+        document.querySelectorAll('.product-card').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${i * 0.15}s`;
+        });
+        document.querySelectorAll('.pillar-card, .audit-deliverables, .audit-outcome').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${i * 0.1}s`;
+        });
+
+        // THEN query for all reveal elements
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>

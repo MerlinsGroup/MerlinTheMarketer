@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""
+Script to update all .html links in your HTML files for clean URLs
+This will help prepare your site for GitHub Pages with Jekyll
+"""
+
+import os
+import re
+from pathlib import Path
+
+def update_html_links(file_path):
+    """Update all HTML links in a file to remove .html extensions"""
+    
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    
+    # Patterns to replace
+    replacements = [
+        # Update href links to .html files
+        (r'href="([^"]*?)\.html"', r'href="\1"'),
+        (r"href='([^']*?)\.html'", r"href='\1'"),
+        
+        # Special case for index.html -> /
+        (r'href="index"', r'href="/"'),
+        (r"href='index'", r"href='/'"),
+        
+        # Update any .html# anchors
+        (r'href="([^"]*?)\.html#([^"]*?)"', r'href="\1#\2"'),
+        (r"href='([^']*?)\.html#([^']*?)'", r"href='\1#\2'"),
+        
+        # Fix double slashes that might occur
+        (r'href="//"', r'href="/"'),
+    ]
+    
+    original_content = content
+    changes_made = []
+    
+    for pattern, replacement in replacements:
+        new_content = re.sub(pattern, replacement, content)
+        if new_content != content:
+            # Find what was changed
+            matches = re.finditer(pattern, content)
+            for match in matches:
+                changes_made.append(f"  - {match.group(0)} -> {re.sub(pattern, replacement, match.group(0))}")
+        content = new_content
+    
+    # Save the updated content
+    if content != original_content:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(content)
+        print(f"\n✅ Updated: {file_path}")
+        if changes_made:
+            print("Changes made:")
+            for change in changes_made[:10]:  # Show first 10 changes
+                print(change)
+            if len(changes_made) > 10:
+                print(f"  ... and {len(changes_made) - 10} more changes")
+    else:
+        print(f"ℹ️  No changes needed: {file_path}")
+    
+    return len(changes_made)
+
+def update_all_html_files(directory='.'):
+    """Update all HTML files in the directory"""
+    
+    print("🔍 Searching for HTML files...")
+    html_files = list(Path(directory).glob('**/*.html'))
+    
+    if not html_files:
+        print("❌ No HTML files found!")
+        return
+    
+    print(f"📁 Found {len(html_files)} HTML files\n")
+    
+    total_changes = 0
+    for html_file in html_files:
+        # Skip files in .git, node_modules, etc.
+        if any(part.startswith('.') or part == 'node_modules' for part in html_file.parts):
+            continue
+        
+        changes = update_html_links(html_file)
+        total_changes += changes
+    
+    print(f"\n✨ Complete! Made {total_changes} total link updates.")
+    print("\n📝 Next steps:")
+    print("1. Add the _config.yml file to your repository")
+    print("2. Commit and push all changes")
+    print("3. GitHub Pages will now serve your pages without .html extensions")
+    print("\nNote: It may take a few minutes for GitHub Pages to rebuild your site.")
+
+def create_config_yml():
+    """Create the _config.yml file for Jekyll"""
+    
+    config_content = """# GitHub Pages / Jekyll Configuration
+# This enables clean URLs (no .html extensions)
+
+permalink: pretty
+
+# Optional: Add your site information
+title: Merlin's Group
+description: Enterprise Digital Transformation Solutions
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .gitignore
+  - update_links.py
+
+# Enable optional front matter
+plugins:
+  - jekyll-optional-front-matter
+
+optional_front_matter:
+  remove_originals: false
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null
+"""
+    
+    config_path = Path('_config.yml')
+    
+    if config_path.exists():
+        print("⚠️  _config.yml already exists. Skipping creation.")
+        print("   Please review it to ensure it has the correct settings.")
+    else:
+        with open(config_path, 'w') as f:
+            f.write(config_content)
+        print("✅ Created _config.yml file")
+
+if __name__ == "__main__":
+    print("=" * 50)
+    print("GitHub Pages Clean URL Setup Script")
+    print("=" * 50)
+    
+    # Create Jekyll config
+    create_config_yml()
+    print()
+    
+    # Update all HTML files
+    update_all_html_files()
+    
+    print("\n" + "=" * 50)
+    print("🎉 Setup complete!")
+    print("=" * 50)

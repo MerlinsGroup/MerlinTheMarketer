@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIC & Charity Programme | Merlins Group</title>
+<meta name="description" content="Merlins Group CIC & Charity Programme. Enterprise-grade marketing, automation and digital services for verified Community Interest Companies from just £700/month.">
+<meta name="keywords" content="CIC services, charity marketing, community interest company, affordable digital services, charity automation, Sanitopia, Merlins Group CIC">
+<meta name="author" content="Merlins Group">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://merlinsagency.co.uk/cic">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://merlinsagency.co.uk/cic">
+<meta property="og:title" content="CIC & Charity Programme | Merlins Group">
+<meta property="og:description" content="Enterprise-grade services for verified Community Interest Companies from just £700/month. Apply now.">
+<meta property="og:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CIC & Charity Programme | Merlins Group">
+<meta name="twitter:description" content="Enterprise-grade services for verified Community Interest Companies from just £700/month. Apply now.">
+<meta name="twitter:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="icon" href="favicon_io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-deep: #091220;
+  --gold: #2563eb;
+  --gold-light: #3b82f6;
+  --lavender: #60a5fa;
+  --lavender-light: #93c5fd;
+  --white: #fafafa;
+  --off-white: #f0eef5;
+  --text-dark: #0e0e1a;
+  --text-muted: #5a5a7a;
+  --gradient-hero: linear-gradient(135deg, #0d1b2a 0%, #162d50 40%, #0d1b2a 100%);
+  --teal: #0d9488;
+  --teal-light: #14b8a6;
+  --green: #10b981;
+  --purple: #8b5cf6;
+  --pink: #ec4899;
+  --amber: #f59e0b;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background: linear-gradient(180deg, #0d1b2a 0%, #0f2027 20%, #0d1b2a 40%, #1a0d2e 60%, #0d1b2a 80%, #091220 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ============ SCROLL PROGRESS ============ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--green), var(--gold), var(--purple), var(--pink));
+  z-index: 10001; width: 0%; pointer-events: none;
+}
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 1000;
+  padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  width: 94%; max-width: 1400px; border-radius: 60px;
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: rgba(13,27,42,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+nav.scrolled {
+  background: rgba(13,27,42,0.92); border-color: rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3); top: 0.6rem;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand img { height: 46px; width: 46px; object-fit: contain; background: #e0ecff; border-radius: 50%; padding: 4px; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content:''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  background: var(--gold) !important; color: var(--navy-deep) !important;
+  padding: 9px 24px; border-radius: 40px; font-weight: 700 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+.nav-cta::after { display: none !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.mobile-toggle span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+
+/* ============ PAGE HERO ============ */
+.page-hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-video-bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+  background: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80') center/cover no-repeat;
+  opacity: 0; transform: scale(1.15);
+  animation: heroVideoIn 2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+}
+@keyframes heroVideoIn {
+  to { opacity: 1; transform: scale(1); }
+}
+.hero-video-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(9,18,32,0.92) 0%,
+    rgba(9,18,32,0.7) 15%,
+    rgba(13,148,136,0.4) 30%,
+    rgba(139,92,246,0.35) 50%,
+    rgba(9,18,32,0.7) 70%,
+    rgba(9,18,32,0.95) 100%
+  );
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8rem 6% 5rem;
+  text-align: center;
+  width: 100%;
+  opacity: 0; transform: translateY(40px) scale(0.96);
+  animation: heroContentIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+}
+@keyframes heroContentIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.page-hero .section-tag {
+  justify-content: center;
+  color: var(--gold);
+}
+.page-hero .section-tag::before { background: var(--gold); }
+.page-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+}
+.page-hero h1 .gold { color: var(--teal-light); }
+.page-hero h1 .italic { font-style: italic; color: var(--purple); }
+.page-hero p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.hero-stats {
+  display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+  margin-top: 1rem; padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat-item { text-align: center; }
+.hero-stat-item .num {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 900;
+  color: var(--teal-light); line-height: 1;
+}
+.hero-stat-item .lbl {
+  font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.4rem;
+  letter-spacing: 0.5px;
+}
+.hero-scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.hero-scroll-hint span {
+  font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 2px;
+  text-transform: uppercase; font-family: 'Space Mono', monospace;
+}
+.hero-scroll-hint .scroll-line {
+  width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(13,148,136,0.6), transparent);
+  animation: scrollPulse 2s infinite;
+}
+@keyframes scrollPulse {
+  0% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.3; transform: scaleY(0.5); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ============ INTRO STRIP ============ */
+.intro-strip {
+  padding: 6rem 6%;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.intro-strip-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+}
+.intro-card {
+  text-align: center; padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.4s;
+  border-top: 3px solid transparent;
+}
+.intro-card:nth-child(1) { border-top-color: var(--teal); }
+.intro-card:nth-child(2) { border-top-color: var(--purple); }
+.intro-card:nth-child(3) { border-top-color: var(--pink); }
+.intro-card:hover {
+  transform: translateY(-4px);
+}
+.intro-card:nth-child(1):hover { border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.08); }
+.intro-card:nth-child(2):hover { border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.08); }
+.intro-card:nth-child(3):hover { border-color: rgba(236,72,153,0.3); background: rgba(236,72,153,0.08); }
+.intro-card-icon {
+  font-size: 2rem; margin-bottom: 1rem;
+}
+.intro-card:nth-child(1) .intro-card-icon { color: var(--teal-light); }
+.intro-card:nth-child(2) .intro-card-icon { color: var(--purple); }
+.intro-card:nth-child(3) .intro-card-icon { color: var(--pink); }
+.intro-card h3 {
+  font-family: 'Outfit', sans-serif; font-size: 1.2rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.8rem;
+}
+.intro-card p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.intro-card a {
+  font-size: 0.8rem; color: var(--teal-light); text-decoration: none;
+  font-weight: 600; transition: gap 0.3s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.intro-card:nth-child(2) a { color: var(--purple); }
+.intro-card:nth-child(3) a { color: var(--pink); }
+.intro-card a:hover { gap: 12px; }
+.intro-card a svg {
+  width: 14px; height: 14px; fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ============ WHY CHOOSE US ============ */
+.trust-section {
+  padding: 6rem 6%;
+  background: linear-gradient(135deg, #0a1628 0%, #0d2a2a 25%, #1a0d3a 50%, #2a0d2a 75%, #0a1628 100%);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.trust-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.trust-header {
+  text-align: center; margin-bottom: 4rem;
+}
+.trust-header h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900; color: var(--white); margin-top: 0.8rem;
+}
+.trust-header h2 .accent { color: var(--green); }
+.trust-header p {
+  font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 600px;
+  margin: 1rem auto 0; line-height: 1.7;
+}
+.trust-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  margin-bottom: 4rem;
+}
+.trust-card {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.4s;
+  text-align: center;
+}
+.trust-card:hover {
+  border-color: rgba(13,148,136,0.25);
+  background: rgba(13,148,136,0.05);
+  transform: translateY(-4px);
+}
+.trust-card:nth-child(2):hover { border-color: rgba(16,185,129,0.25); background: rgba(16,185,129,0.05); }
+.trust-card:nth-child(3):hover { border-color: rgba(139,92,246,0.25); background: rgba(139,92,246,0.05); }
+.trust-card-num {
+  font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900;
+  color: var(--teal-light); line-height: 1; margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+.trust-card:nth-child(2) .trust-card-num { color: var(--green); }
+.trust-card:nth-child(3) .trust-card-num { color: var(--purple); }
+.trust-card h3 {
+  font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
+}
+.trust-card p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7;
+}
+.trust-reasons {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+.trust-reason {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.trust-reason:nth-child(1):hover { border-color: rgba(13,148,136,0.2); }
+.trust-reason:nth-child(2):hover { border-color: rgba(236,72,153,0.2); }
+.trust-reason:nth-child(3):hover { border-color: rgba(139,92,246,0.2); }
+.trust-reason:nth-child(4):hover { border-color: rgba(245,158,11,0.2); }
+.trust-reason-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.trust-reason:nth-child(1) .trust-reason-icon { background: rgba(13,148,136,0.12); border: 1px solid rgba(13,148,136,0.25); color: var(--teal-light); }
+.trust-reason:nth-child(2) .trust-reason-icon { background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.25); color: var(--pink); }
+.trust-reason:nth-child(3) .trust-reason-icon { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); color: var(--purple); }
+.trust-reason:nth-child(4) .trust-reason-icon { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); color: var(--amber); }
+.trust-reason h4 {
+  font-family: 'Outfit', sans-serif; font-size: 1rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.4rem;
+}
+.trust-reason p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.6;
+}
+.trust-cta {
+  text-align: center; margin-top: 3.5rem;
+}
+
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--teal-light);
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--teal); color: white; padding: 16px 36px;
+  font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.btn-primary:hover { background: var(--teal-light); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--white); padding: 16px 36px;
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+/* ============ SERVICES (alternating rows) ============ */
+.services-section { padding: 4rem 6%; max-width: 1400px; margin: 0 auto; background: transparent; }
+.services-header {
+  text-align: center; margin-bottom: 4rem;
+}
+.services-header h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900; color: var(--white); margin-top: 0.8rem;
+}
+.services-header h2 .accent { color: var(--teal-light); }
+.services-header p {
+  font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 550px;
+  margin: 1rem auto 0; line-height: 1.7;
+}
+
+.service-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  height: 600px;
+  opacity: 0; transform: scale(0.88);
+  will-change: transform, opacity;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.service-row:last-child { margin-bottom: 0; }
+.service-row:nth-child(1) { border-color: rgba(13,148,136,0.15); }
+.service-row:nth-child(2) { border-color: rgba(139,92,246,0.15); }
+.service-row:nth-child(3) { border-color: rgba(236,72,153,0.15); }
+.service-row:nth-child(4) { border-color: rgba(245,158,11,0.15); }
+.service-row:nth-child(5) { border-color: rgba(16,185,129,0.15); }
+.service-row:nth-child(6) { border-color: rgba(139,92,246,0.15); }
+.service-row.reverse .service-text { order: 2; }
+.service-row.reverse .service-media { order: 1; }
+
+.service-text {
+  padding: 3.5rem 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center;
+  background: rgba(13,148,136,0.03);
+}
+.service-row:nth-child(2) .service-text { background: rgba(139,92,246,0.03); }
+.service-row:nth-child(3) .service-text { background: rgba(236,72,153,0.03); }
+.service-row:nth-child(4) .service-text { background: rgba(245,158,11,0.03); }
+.service-row:nth-child(5) .service-text { background: rgba(16,185,129,0.03); }
+.service-row:nth-child(6) .service-text { background: rgba(139,92,246,0.03); }
+.service-num {
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--teal-light); margin-bottom: 1rem;
+  opacity: 0.7;
+}
+.service-row:nth-child(2) .service-num { color: var(--purple); }
+.service-row:nth-child(3) .service-num { color: var(--pink); }
+.service-row:nth-child(4) .service-num { color: var(--amber); }
+.service-row:nth-child(5) .service-num { color: var(--green); }
+.service-row:nth-child(6) .service-num { color: var(--purple); }
+.service-text h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+.service-text h2 .accent { color: var(--teal-light); }
+.service-row:nth-child(2) .service-text h2 .accent { color: var(--purple); }
+.service-row:nth-child(3) .service-text h2 .accent { color: var(--pink); }
+.service-row:nth-child(4) .service-text h2 .accent { color: var(--amber); }
+.service-row:nth-child(5) .service-text h2 .accent { color: var(--green); }
+.service-row:nth-child(6) .service-text h2 .accent { color: var(--purple); }
+.service-text p {
+  font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.8;
+  margin-bottom: 1.5rem; max-width: 440px;
+}
+.service-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+  margin-bottom: 1.5rem; width: 100%; max-width: 440px;
+}
+.service-feature {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.82rem; color: rgba(255,255,255,0.65);
+}
+.service-feature .dot {
+  width: 6px; height: 6px; background: var(--teal-light); flex-shrink: 0;
+}
+.service-row:nth-child(2) .service-feature .dot { background: var(--purple); }
+.service-row:nth-child(3) .service-feature .dot { background: var(--pink); }
+.service-row:nth-child(4) .service-feature .dot { background: var(--amber); }
+.service-row:nth-child(5) .service-feature .dot { background: var(--green); }
+.service-row:nth-child(6) .service-feature .dot { background: var(--purple); }
+.service-stat {
+  display: inline-flex; align-items: baseline; gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem 2rem;
+  background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.15);
+}
+.service-row:nth-child(2) .service-stat { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.15); }
+.service-row:nth-child(3) .service-stat { background: rgba(236,72,153,0.08); border-color: rgba(236,72,153,0.15); }
+.service-row:nth-child(4) .service-stat { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.15); }
+.service-row:nth-child(5) .service-stat { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.15); }
+.service-row:nth-child(6) .service-stat { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.15); }
+.service-stat .stat-number {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 900;
+  color: var(--teal-light); line-height: 1;
+}
+.service-row:nth-child(2) .service-stat .stat-number { color: var(--purple); }
+.service-row:nth-child(3) .service-stat .stat-number { color: var(--pink); }
+.service-row:nth-child(4) .service-stat .stat-number { color: var(--amber); }
+.service-row:nth-child(5) .service-stat .stat-number { color: var(--green); }
+.service-row:nth-child(6) .service-stat .stat-number { color: var(--purple); }
+.service-stat .stat-label {
+  font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.4;
+}
+.service-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: white; background: var(--teal);
+  font-size: 0.85rem; font-weight: 700; text-decoration: none;
+  padding: 14px 32px; transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.service-cta:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,148,136,0.3); }
+.service-row:nth-child(2) .service-cta { background: var(--purple); }
+.service-row:nth-child(2) .service-cta:hover { background: #a78bfa; box-shadow: 0 8px 25px rgba(139,92,246,0.3); }
+.service-row:nth-child(3) .service-cta { background: var(--pink); }
+.service-row:nth-child(3) .service-cta:hover { background: #f472b6; box-shadow: 0 8px 25px rgba(236,72,153,0.3); }
+.service-row:nth-child(4) .service-cta { background: var(--amber); color: var(--navy-deep); }
+.service-row:nth-child(4) .service-cta:hover { background: #fbbf24; box-shadow: 0 8px 25px rgba(245,158,11,0.3); }
+.service-row:nth-child(5) .service-cta { background: var(--green); }
+.service-row:nth-child(5) .service-cta:hover { background: #34d399; box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+.service-row:nth-child(6) .service-cta { background: var(--purple); }
+.service-row:nth-child(6) .service-cta:hover { background: #a78bfa; box-shadow: 0 8px 25px rgba(139,92,246,0.3); }
+.service-cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.service-media {
+  position: relative; overflow: hidden;
+  background: var(--navy-deep);
+}
+.service-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 6s cubic-bezier(0.22,1,0.36,1);
+}
+.service-row:hover .service-media img { transform: scale(1.05); }
+
+/* ============ IMAGE GALLERY ============ */
+.gallery-section {
+  padding: 6rem 6%;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(135deg, #091220 0%, #0d2a2a 30%, #1a0d3a 70%, #091220 100%);
+}
+.gallery-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.gallery-header {
+  text-align: center; margin-bottom: 3rem;
+}
+.gallery-header h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900; color: var(--white); margin-top: 0.8rem;
+}
+.gallery-header h2 .accent { color: var(--pink); }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.gallery-item {
+  position: relative; overflow: hidden;
+  background: var(--navy-deep);
+  border: 1px solid rgba(255,255,255,0.06);
+  aspect-ratio: 4/3;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 6s cubic-bezier(0.22,1,0.36,1);
+}
+.gallery-item:nth-child(1) { border-color: rgba(13,148,136,0.15); }
+.gallery-item:nth-child(2) { border-color: rgba(139,92,246,0.15); }
+.gallery-item:nth-child(3) { border-color: rgba(236,72,153,0.15); }
+.gallery-item:nth-child(1):hover { border-color: rgba(13,148,136,0.4); }
+.gallery-item:nth-child(2):hover { border-color: rgba(139,92,246,0.4); }
+.gallery-item:nth-child(3):hover { border-color: rgba(236,72,153,0.4); }
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* ============ PRICING CARD ============ */
+.pricing-section {
+  padding: 6rem 6%;
+  background: linear-gradient(180deg, transparent 0%, rgba(13,148,136,0.06) 30%, rgba(139,92,246,0.04) 70%, transparent 100%);
+}
+.pricing-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+.pricing-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.pricing-header p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+.pricing-card-wrapper {
+  max-width: 580px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: linear-gradient(135deg, rgba(13,148,136,0.08) 0%, rgba(139,92,246,0.05) 50%, rgba(13,27,42,0.9) 100%);
+  border: 1px solid rgba(13,148,136,0.2);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--green), var(--purple), var(--pink));
+}
+.pricing-card-badge {
+  display: inline-block;
+  background: rgba(13,148,136,0.15);
+  border: 1px solid rgba(13,148,136,0.3);
+  padding: 6px 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 1.5rem;
+}
+.pricing-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+.pricing-amount .currency {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green);
+}
+.pricing-amount .price {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+}
+.pricing-amount .period {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 400;
+}
+.pricing-note {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+}
+.pricing-features li svg {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  fill: var(--teal-light);
+}
+.pricing-features li:nth-child(2) svg { fill: var(--green); }
+.pricing-features li:nth-child(3) svg { fill: var(--purple); }
+.pricing-features li:nth-child(4) svg { fill: var(--pink); }
+.pricing-features li:nth-child(5) svg { fill: var(--amber); }
+.pricing-features li:nth-child(6) svg { fill: var(--green); }
+.pricing-more {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  line-height: 1.6;
+}
+.pricing-cta {
+  display: block;
+  text-align: center;
+  background: linear-gradient(90deg, var(--teal), var(--green));
+  color: white;
+  padding: 14px 36px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.pricing-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(13,148,136,0.4);
+}
+
+/* ============ HOW TO QUALIFY ============ */
+.qualify-section {
+  padding: 6rem 6%;
+  background: linear-gradient(135deg, #0a1628 0%, #1a0d3a 50%, #0a1628 100%);
+}
+.qualify-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.qualify-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.qualify-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.qualify-header p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.qualify-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.qualify-step {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.qualify-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(13,148,136,0.2);
+}
+.qualify-step:nth-child(2):hover { border-color: rgba(139,92,246,0.2); }
+.qualify-step:nth-child(3):hover { border-color: rgba(236,72,153,0.2); }
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  background: rgba(13,148,136,0.12);
+  border: 1px solid rgba(13,148,136,0.25);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--teal-light);
+  margin-bottom: 1.5rem;
+}
+.qualify-step:nth-child(2) .step-number { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.25); color: var(--purple); }
+.qualify-step:nth-child(3) .step-number { background: rgba(236,72,153,0.12); border-color: rgba(236,72,153,0.25); color: var(--pink); }
+.qualify-step h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.qualify-step p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+/* ============ SANITOPIA PARTNERSHIP ============ */
+.partner-section {
+  display: grid; grid-template-columns: 1fr 400px;
+  min-height: 600px;
+}
+.partner-text {
+  padding: 5rem 6%;
+  display: flex; flex-direction: column; justify-content: center;
+  background: linear-gradient(135deg, rgba(13,148,136,0.08) 0%, rgba(9,18,32,0.5) 50%, rgba(139,92,246,0.05) 100%);
+}
+.partner-text h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800; margin-bottom: 1rem; line-height: 1.15;
+}
+.partner-text h2 .accent { color: var(--teal-light); }
+.partner-text p {
+  font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1.5rem;
+  max-width: 520px;
+}
+.partner-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.partner-tags span {
+  font-size: 0.7rem; padding: 6px 14px;
+  background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.15);
+  color: var(--teal-light); font-weight: 500;
+}
+.partner-tags span:nth-child(2) { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.15); color: var(--purple); }
+.partner-tags span:nth-child(3) { background: rgba(236,72,153,0.08); border-color: rgba(236,72,153,0.15); color: var(--pink); }
+.partner-tags span:nth-child(4) { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.15); color: var(--amber); }
+.partner-tags span:nth-child(5) { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.15); color: var(--green); }
+.partner-tags span:nth-child(6) { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.15); color: var(--purple); }
+.partner-image {
+  position: relative; overflow: hidden;
+  background: var(--navy-deep);
+}
+.partner-image img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 7rem 6%;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(135deg, #0d2a2a 0%, #1a0d3a 50%, #2a0d2a 100%);
+}
+.cta-section h2 {
+  font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; margin-bottom: 1rem;
+}
+.cta-section h2 .accent { color: var(--purple); }
+.cta-section p {
+  font-size: 1rem; color: rgba(255,255,255,0.4); line-height: 1.7;
+  max-width: 500px; margin: 0 auto 2.5rem;
+}
+.cta-section .cta-note {
+  font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 1.5rem;
+}
+.cta-actions { display: flex; gap: 0; justify-content: center; }
+
+/* ============ FOOTER ============ */
+footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1300px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+  padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand span { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--teal-light); }
+.footer-brand p { margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 320px; }
+.footer-col h4 {
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1.5rem;
+}
+.footer-col a {
+  display: block; color: rgba(255,255,255,0.45); text-decoration: none;
+  font-size: 0.9rem; padding: 0.4rem 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.25);
+}
+
+/* ============ WHATSAPP ============ */
+.whatsapp-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 998;
+  width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s; text-decoration: none;
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+.whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+/* ============ SCROLL REVEAL ============ */
+.sr {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.sr.visible { opacity: 1; transform: translateY(0); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .service-row { grid-template-columns: 1fr 1fr; height: 550px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .partner-section { grid-template-columns: 1fr 320px; }
+  .qualify-steps { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  nav { width: 96%; padding: 0.6rem 1.2rem; top: 0.5rem; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--navy); flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+
+  .page-hero { min-height: 100vh; }
+  .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat-item .num { font-size: 1.5rem; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .intro-strip-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-scroll-hint { display: none; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .trust-reasons { grid-template-columns: 1fr; }
+
+  .service-row { grid-template-columns: 1fr; height: auto; }
+  .service-features { grid-template-columns: 1fr; }
+  .service-row.reverse .service-text { order: 1; }
+  .service-row.reverse .service-media { order: 2; }
+  .service-text { padding: 3rem 5%; }
+  .service-media { min-height: 300px; }
+
+  .gallery-grid { grid-template-columns: 1fr; }
+
+  .partner-section { grid-template-columns: 1fr; }
+  .partner-text { padding: 3rem 5%; }
+  .partner-image { min-height: 400px; }
+
+  .qualify-steps { grid-template-columns: 1fr; }
+  .pricing-card { padding: 2.5rem 1.5rem; }
+
+  .cta-section { padding: 4rem 5%; }
+  .cta-actions { flex-direction: column; align-items: center; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-brand p { display: none; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  .whatsapp-float { width: 50px; height: 50px; bottom: 1.2rem; right: 1.2rem; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
+}
+@media (max-width: 480px) {
+  .page-hero h1 { font-size: 1.8rem; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .pricing-amount .price { font-size: 2.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="agency.html">Merlins Agency</a></li>
+    <li><a href="construction.html">Construction</a></li>
+    <li><a href="cic.html" class="active">CIC</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-video-bg"></div>
+  <div class="hero-video-overlay"></div>
+  <div class="page-hero-content">
+    <div class="section-tag">CIC & Charity Programme</div>
+    <h1>Marketing for <span class="italic">Charities</span><br><span class="gold">That Actually Works</span></h1>
+    <p>Enterprise-grade marketing, branding, and automation for verified Community Interest Companies &mdash; starting from just &pound;700/month.</p>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Apply Now</a>
+      <a href="#why-us" class="btn-outline">Why Choose Us</a>
+      <a href="https://wa.me/447424053868" class="btn-outline" target="_blank">Chat on WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item"><div class="num">Sanitopia</div><div class="lbl">Flagship Partner</div></div>
+      <div class="hero-stat-item"><div class="num">&pound;700/month</div><div class="lbl">Starting From</div></div>
+      <div class="hero-stat-item"><div class="num">Social Media</div><div class="lbl">Management Included</div></div>
+      <div class="hero-stat-item"><div class="num">Verified CICs</div><div class="lbl">Only</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<section class="intro-strip sr">
+  <div class="intro-strip-inner">
+    <div class="intro-card">
+      <div class="intro-card-icon">&#9883;</div>
+      <h3>Social Media & Marketing</h3>
+      <p>Content creation, scheduling, community management, and paid campaigns across all major platforms &mdash; built for charity audiences.</p>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Grow Your Reach <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-icon">&#9879;</div>
+      <h3>Website & Branding</h3>
+      <p>Professional websites, brand identity, and visual content that communicates your mission clearly and builds trust with supporters.</p>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Build Your Brand <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-icon">&#9881;</div>
+      <h3>Systems & Automation</h3>
+      <p>CRM setup, email automation, donor management workflows, and reporting dashboards &mdash; so you can focus on your mission, not admin.</p>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Automate Your Ops <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="trust-section" id="why-us">
+  <div class="trust-inner">
+    <div class="trust-header sr">
+      <div class="section-tag" style="justify-content:center;">Why Choose Us</div>
+      <h2>Built for Charities.<br><span class="accent">Proven with Sanitopia.</span></h2>
+      <p>We deliver the same quality of work to CICs as we do to our commercial clients. The only difference is the price &mdash; because we believe in what you do.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-card-num">Sanitopia</div>
+        <h3>Flagship CIC Partner</h3>
+        <p>Sanitopia is our first and flagship CIC partner &mdash; a Community Interest Company making a real difference. Everything we offer in this programme is proven through our work with them.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-num">&pound;700/month</div>
+        <h3>Lowest Price Tier</h3>
+        <p>This is our most affordable package, exclusively for verified CICs. We deliver at cost because community organisations deserve professional marketing without the commercial price tag.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-num">Same Quality</div>
+        <h3>As Commercial Clients</h3>
+        <p>This is not a watered-down offering. The same team, the same tools, the same standards of work we deliver to businesses paying three or four times more.</p>
+      </div>
+    </div>
+    <div class="trust-reasons">
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#10003;</div>
+        <div>
+          <h4>We Don't Cut Corners</h4>
+          <p>Same quality as our commercial clients. Same team, same processes, same results &mdash; just at a price that respects your budget and your mission.</p>
+        </div>
+      </div>
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#9883;</div>
+        <div>
+          <h4>Marketing That Actually Works</h4>
+          <p>Social media management, content creation, paid campaigns, and brand strategy &mdash; all tailored to charity and community audiences.</p>
+        </div>
+      </div>
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#9881;</div>
+        <div>
+          <h4>Systems to Run Your Organisation</h4>
+          <p>CRM setup, email automation, donor workflows, and reporting dashboards. We build the infrastructure so you can focus on impact, not admin.</p>
+        </div>
+      </div>
+      <div class="trust-reason">
+        <div class="trust-reason-icon">&#9879;</div>
+        <div>
+          <h4>You Must Be a Verified CIC</h4>
+          <p>Proof of CIC registration is required. This keeps the programme exclusive to genuine community organisations and ensures we can sustain the pricing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="trust-cta">
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Apply for the CIC Programme</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+
+  <div class="services-header sr">
+    <div class="section-tag" style="justify-content:center;">What You Get</div>
+    <h2>Full-Service Marketing for<br><span class="accent">Community Organisations</span></h2>
+    <p>Every service included in the CIC Programme, built to help your organisation reach more people and make a bigger impact.</p>
+  </div>
+
+  <!-- 1. Social Media Management -->
+  <div class="service-row">
+    <div class="service-text">
+      <div class="service-num">01 &mdash; Social Media</div>
+      <h2>Social Media <span class="accent">Management</span></h2>
+      <p>We manage your social media presence end-to-end &mdash; content planning, creation, scheduling, community engagement, and growth strategy across your key platforms.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Content Creation</div>
+        <div class="service-feature"><span class="dot"></span>Scheduling & Posting</div>
+        <div class="service-feature"><span class="dot"></span>Community Management</div>
+        <div class="service-feature"><span class="dot"></span>Growth Strategy</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Sanitopia</span>
+        <span class="stat-label">Managing 3 social platforms<br>with weekly content schedules</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Discuss Social Media <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="CIC/1.jpeg" alt="Social media management for CICs" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 2. Content & Branding -->
+  <div class="service-row reverse">
+    <div class="service-text">
+      <div class="service-num">02 &mdash; Branding</div>
+      <h2>Content & <span class="accent">Branding</span></h2>
+      <p>Professional brand identity, visual content, photography direction, and messaging that communicates your mission with clarity and credibility.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Brand Identity</div>
+        <div class="service-feature"><span class="dot"></span>Visual Content</div>
+        <div class="service-feature"><span class="dot"></span>Messaging Strategy</div>
+        <div class="service-feature"><span class="dot"></span>Design Assets</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Sanitopia</span>
+        <span class="stat-label">Full brand development &mdash;<br>identity, tone of voice, visual assets</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Build Your Brand <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="CIC/2.jpeg" alt="Content and branding for charities" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 3. Website Management -->
+  <div class="service-row">
+    <div class="service-text">
+      <div class="service-num">03 &mdash; Website</div>
+      <h2>Website <span class="accent">Management</span></h2>
+      <p>Ongoing website maintenance, updates, performance optimisation, and new page builds. Your digital home, professionally managed so it always reflects your mission.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Maintenance & Updates</div>
+        <div class="service-feature"><span class="dot"></span>Performance Monitoring</div>
+        <div class="service-feature"><span class="dot"></span>New Page Builds</div>
+        <div class="service-feature"><span class="dot"></span>SEO Fundamentals</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Sanitopia</span>
+        <span class="stat-label">Website managed, updated &<br>optimised on a monthly basis</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Manage Your Website <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="CIC/3.jpeg" alt="Website management for CICs" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 4. Email Marketing -->
+  <div class="service-row reverse">
+    <div class="service-text">
+      <div class="service-num">04 &mdash; Email</div>
+      <h2>Email <span class="accent">Marketing</span></h2>
+      <p>Monthly email campaigns to your supporters, donors, and community. Newsletters, updates, event promotions, and fundraising drives &mdash; all designed and delivered for you.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Campaign Design</div>
+        <div class="service-feature"><span class="dot"></span>Newsletter Management</div>
+        <div class="service-feature"><span class="dot"></span>Supporter Updates</div>
+        <div class="service-feature"><span class="dot"></span>Fundraising Drives</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Sanitopia</span>
+        <span class="stat-label">Monthly email campaigns<br>to supporters and stakeholders</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Start Email Campaigns <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="CIC/4.jpeg" alt="Email marketing for charities" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 5. Reporting & Analytics -->
+  <div class="service-row">
+    <div class="service-text">
+      <div class="service-num">05 &mdash; Analytics</div>
+      <h2>Reporting & <span class="accent">Analytics</span></h2>
+      <p>Monthly performance reports covering social media, website, email, and overall digital presence. Clear, honest data so you know exactly what is working.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>Monthly Reports</div>
+        <div class="service-feature"><span class="dot"></span>Social Analytics</div>
+        <div class="service-feature"><span class="dot"></span>Website Insights</div>
+        <div class="service-feature"><span class="dot"></span>Campaign Performance</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Sanitopia</span>
+        <span class="stat-label">Monthly reporting across all<br>channels with actionable insights</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">See How We Report <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="CIC/5.jpeg" alt="Reporting and analytics for CICs" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 6. Automation & CRM -->
+  <div class="service-row reverse">
+    <div class="service-text">
+      <div class="service-num">06 &mdash; Automation</div>
+      <h2>Automation & <span class="accent">CRM</span></h2>
+      <p>Basic automation setup, CRM configuration, and workflow design to streamline your operations. Donor management, follow-ups, and internal processes &mdash; handled.</p>
+      <div class="service-features">
+        <div class="service-feature"><span class="dot"></span>CRM Setup</div>
+        <div class="service-feature"><span class="dot"></span>Workflow Automation</div>
+        <div class="service-feature"><span class="dot"></span>Donor Management</div>
+        <div class="service-feature"><span class="dot"></span>Email Sequences</div>
+      </div>
+      <div class="service-stat">
+        <span class="stat-number">Sanitopia</span>
+        <span class="stat-label">CRM and automation setup<br>for donor and supporter workflows</span>
+      </div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="service-cta">Automate Your Ops <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-media">
+      <img src="CIC/6.jpeg" alt="Automation and CRM for charities" loading="lazy">
+    </div>
+  </div>
+
+</section>
+
+<!-- IMAGE GALLERY -->
+<section class="gallery-section sr">
+  <div class="gallery-inner">
+    <div class="gallery-header">
+      <div class="section-tag" style="justify-content:center;">Recognition & Awards</div>
+      <h2>Making a <span class="accent">Visible Impact</span></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="CIC/8.png" alt="CIC programme work" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="CIC/9 - awards.jpeg" alt="CIC awards and recognition" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="CIC/11 - awards.png" alt="CIC awards and recognition" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section sr" id="pricing">
+  <div class="pricing-header">
+    <div class="section-tag" style="justify-content:center;">The Package</div>
+    <h2>Built for CICs. Priced for Impact.</h2>
+    <p>Everything a community organisation needs to establish a professional digital presence and reach the people who matter most.</p>
+  </div>
+  <div class="pricing-card-wrapper">
+    <div class="pricing-card">
+      <div class="pricing-card-badge">CIC Exclusive</div>
+      <div class="pricing-card-title">Community Impact Package</div>
+      <div class="pricing-amount">
+        <span class="currency">&pound;</span>
+        <span class="price">700</span>
+        <span class="period">/month</span>
+      </div>
+      <div class="pricing-note">Exclusively available to verified Community Interest Companies.</div>
+      <ul class="pricing-features">
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Social Media Management (2-3 platforms)
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Content Creation & Brand Assets
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Basic Website Maintenance & Updates
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Email Marketing (1-2 campaigns/month)
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Monthly Performance Reporting
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Basic Automation & CRM Setup
+        </li>
+      </ul>
+      <div class="pricing-more">Need more than what is included here? We can build a custom package around your organisation's specific needs. Book a call and we will scope it together.</div>
+      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="pricing-cta">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO QUALIFY -->
+<section class="qualify-section sr">
+  <div class="qualify-inner">
+    <div class="qualify-header">
+      <div class="section-tag" style="justify-content:center;">How to Qualify</div>
+      <h2>The Application Process</h2>
+      <p>This programme is exclusively for registered Community Interest Companies. Here is how to apply.</p>
+    </div>
+    <div class="qualify-steps">
+      <div class="qualify-step">
+        <div class="step-number">1</div>
+        <h3>Prove Your Status</h3>
+        <p>Provide evidence that you are a registered CIC. This includes your CIC certificate, Companies House registration number, or CIC regulator confirmation. We verify every application to keep this programme exclusive.</p>
+      </div>
+      <div class="qualify-step">
+        <div class="step-number">2</div>
+        <h3>Discovery Call</h3>
+        <p>Book a call with our team so we can understand your mission, your goals, and how we can best support your organisation. This is about building a real partnership, not a transaction.</p>
+      </div>
+      <div class="qualify-step">
+        <div class="step-number">3</div>
+        <h3>Get Onboarded</h3>
+        <p>Once verified, you will be fully onboarded within two weeks. We set up your accounts, align on strategy, and start delivering results from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SANITOPIA PARTNERSHIP -->
+<section class="partner-section sr">
+  <div class="partner-text">
+    <div class="section-tag">Featured Partnership</div>
+    <h2>Working with <span class="accent">Sanitopia</span></h2>
+    <p>Sanitopia is a Community Interest Company dedicated to making a tangible difference in the communities they serve. As our flagship CIC partner, they represent exactly the kind of organisation this programme was built for.</p>
+    <p>Merlins Group is supporting Sanitopia with their digital presence, marketing operations, and the technology infrastructure needed to amplify their impact. From social media strategy to automation workflows, we are helping them reach more people, more efficiently, without stretching their budget.</p>
+    <div class="partner-tags">
+      <span>Social Media</span>
+      <span>Content & Branding</span>
+      <span>Website Management</span>
+      <span>Email Marketing</span>
+      <span>Automation</span>
+      <span>Reporting</span>
+    </div>
+  </div>
+  <div class="partner-image">
+    <img src="CIC/8.png" alt="Sanitopia partnership" loading="lazy">
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section sr">
+  <div class="section-tag" style="justify-content:center;">Get Started</div>
+  <h2>Ready to Make an <span class="accent">Impact</span>?</h2>
+  <p>If your Community Interest Company is ready for enterprise-grade marketing at a price built for purpose, we want to hear from you.</p>
+  <div class="cta-actions">
+    <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Apply for the CIC Programme</a>
+    <a href="https://wa.me/447424053868" class="btn-outline" target="_blank">Chat on WhatsApp</a>
+  </div>
+  <div class="cta-note">CIC verification required. You will need to provide evidence of your registered CIC status to qualify.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><span>Merlins Group</span><p>Enterprise technology solutions for businesses that demand results. AI, automation, and scalable infrastructure, all under one roof.</p></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html">Artificial Intelligence</a><a href="services.html">Automation & Workflows</a><a href="services.html">CRM Solutions</a><a href="services.html">Application Development</a><a href="services.html">Data Science & Analytics</a><a href="agency.html">Merlins Agency</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agency.html">Merlins Agency</a><a href="construction.html">Construction</a><a href="cic.html">CIC Programme</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/447424053868">WhatsApp</a><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Book a Call</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Merlins Group. All rights reserved.</span><span>Privacy Policy &middot; Terms of Service</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/447424053868" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.908 15.908 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.35 22.606c-.39 1.1-1.932 2.014-3.17 2.28-.846.18-1.95.324-5.67-1.218-4.762-1.97-7.826-6.798-8.064-7.114-.23-.316-1.928-2.568-1.928-4.898 0-2.33 1.22-3.474 1.654-3.95.434-.476.948-.596 1.264-.596.316 0 .632.004.908.016.292.014.682-.11 1.068.814.39.94 1.33 3.27 1.448 3.506.118.238.196.514.038.83-.158.316-.238.514-.474.79-.238.278-.498.62-.712.832-.236.238-.484.496-.208.972.278.476 1.232 2.032 2.646 3.292 1.818 1.62 3.35 2.122 3.828 2.36.476.238.754.198 1.032-.118.278-.318 1.194-1.39 1.512-1.868.316-.476.634-.396 1.07-.236.434.158 2.762 1.302 3.236 1.54.476.236.792.356.91.554.118.198.118 1.148-.274 2.248z"/></svg>
+</a>
+
+<script>
+document.getElementById('mobileToggle').addEventListener('click', function() {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('active');
+  });
+});
+
+var navbar = document.getElementById('navbar');
+var scrollProgress = document.getElementById('scrollProgress');
+var ticking = false;
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      var scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 60) { navbar.classList.add('scrolled'); }
+      else { navbar.classList.remove('scrolled'); }
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + '%';
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// Scroll-reveal for non-service elements
+var srElements = document.querySelectorAll('.sr');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.15 });
+srElements.forEach(function(el) { observer.observe(el); });
+
+// Scroll-driven parallax for service rows AND trust section elements (scale + fade)
+var serviceRows = document.querySelectorAll('.service-row');
+var trustParallax = document.querySelectorAll('.trust-section .trust-grid, .trust-section .trust-reasons');
+var parallaxTicking = false;
+window.addEventListener('scroll', function() {
+  if (!parallaxTicking) {
+    window.requestAnimationFrame(function() {
+      var winH = window.innerHeight;
+      var allParallax = [];
+      serviceRows.forEach(function(el) { allParallax.push(el); });
+      trustParallax.forEach(function(el) { allParallax.push(el); });
+      allParallax.forEach(function(row) {
+        var rect = row.getBoundingClientRect();
+        var progress = 1 - (rect.top / (winH * 0.8));
+        progress = Math.max(0, Math.min(1, progress));
+        var eased = progress * progress * (3 - 2 * progress);
+        var scale = 0.88 + eased * 0.12;
+        var opacity = eased;
+        row.style.transform = 'scale(' + scale + ')';
+        row.style.opacity = opacity;
+      });
+      parallaxTicking = false;
+    });
+    parallaxTicking = true;
+  }
+});
+</script>
+</body>
+</html>
