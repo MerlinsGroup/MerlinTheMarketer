@@ -124,12 +124,12 @@ nav.scrolled {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(
     135deg,
-    rgba(9,18,32,0.92) 0%,
-    rgba(9,18,32,0.7) 15%,
-    rgba(13,148,136,0.4) 30%,
-    rgba(139,92,246,0.35) 50%,
-    rgba(9,18,32,0.7) 70%,
-    rgba(9,18,32,0.95) 100%
+    rgba(9,18,32,0.95) 0%,
+    rgba(9,18,32,0.85) 15%,
+    rgba(13,148,136,0.55) 30%,
+    rgba(139,92,246,0.5) 50%,
+    rgba(9,18,32,0.85) 70%,
+    rgba(9,18,32,0.97) 100%
   );
 }
 .page-hero-content {
@@ -139,11 +139,18 @@ nav.scrolled {
   padding: 8rem 6% 5rem;
   text-align: center;
   width: 100%;
-  opacity: 0; transform: translateY(40px) scale(0.96);
-  animation: heroContentIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+  perspective: 800px;
 }
-@keyframes heroContentIn {
-  to { opacity: 1; transform: translateY(0) scale(1); }
+.page-hero-content > *:not(.hero-words) {
+  opacity: 0; transform: translateY(20px);
+  animation: heroElIn 0.8s cubic-bezier(0.16,1,0.3,1) 2s forwards;
+}
+.page-hero-content > .section-tag { animation-delay: 0.5s; }
+.page-hero-content > p { animation-delay: 2.2s; }
+.page-hero-content > .hero-ctas { animation-delay: 2.4s; }
+.page-hero-content > .hero-stats { animation-delay: 2.6s; }
+@keyframes heroElIn {
+  to { opacity: 1; transform: translateY(0); }
 }
 .page-hero .section-tag {
   justify-content: center;
@@ -162,6 +169,18 @@ nav.scrolled {
 }
 .page-hero h1 .gold { color: var(--teal-light); }
 .page-hero h1 .italic { font-style: italic; color: var(--purple); }
+/* Word-by-word fade in */
+.hero-words { perspective: 800px; }
+.hw {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(50deg);
+  filter: blur(6px);
+  animation: hwIn 0.8s cubic-bezier(0.16,1,0.3,1) calc(0.8s + var(--i) * 0.18s) forwards;
+}
+@keyframes hwIn {
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); filter: blur(0px); }
+}
 .page-hero p {
   font-size: 1.2rem;
   color: rgba(255,255,255,0.6);
@@ -943,10 +962,11 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   <a href="/" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="agency.html">Merlins Agency</a></li>
+    <li><a href="services.html">Systems & Technology</a></li>
+    <li><a href="agency.html">Growth & Marketing</a></li>
     <li><a href="construction.html">Construction</a></li>
     <li><a href="cic.html" class="active">CIC</a></li>
+    <li><a href="fractional.html">Fractional Support</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
@@ -958,7 +978,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   <div class="hero-video-overlay"></div>
   <div class="page-hero-content">
     <div class="section-tag">CIC & Charity Programme</div>
-    <h1>Empowering <span class="italic">Charities</span><br><span class="gold">to Grow</span></h1>
+    <h1 class="hero-words"><span class="hw" style="--i:0">Empowering</span> <span class="hw italic" style="--i:1">Charities</span><br><span class="hw gold" style="--i:2">to</span> <span class="hw gold" style="--i:3">Grow</span></h1>
     <p>Professional marketing for verified CICs from &pound;700/month.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Apply Now</a>
@@ -1348,8 +1368,8 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand"><span>Merlins Group</span><p>Enterprise technology solutions for businesses that demand results. AI, automation, and scalable infrastructure, all under one roof.</p></div>
-      <div class="footer-col"><h4>Services</h4><a href="services.html">Artificial Intelligence</a><a href="services.html">Automation & Workflows</a><a href="services.html">CRM Solutions</a><a href="services.html">Application Development</a><a href="services.html">Data Science & Analytics</a><a href="agency.html">Merlins Agency</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agency.html">Merlins Agency</a><a href="construction.html">Construction</a><a href="cic.html">CIC Programme</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html">Artificial Intelligence</a><a href="services.html">Automation & Workflows</a><a href="services.html">CRM Solutions</a><a href="services.html">Application Development</a><a href="services.html">Data Science & Analytics</a><a href="agency.html">Growth & Marketing</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agency.html">Growth & Marketing</a><a href="construction.html">Construction</a><a href="cic.html">CIC Programme</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/447424053868">WhatsApp</a><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Book a Call</a></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 Merlins Group. All rights reserved.</span><span>Privacy Policy &middot; Terms of Service</span></div>
@@ -1372,6 +1392,11 @@ document.querySelectorAll('.nav-links a').forEach(function(l) {
 
 var navbar = document.getElementById('navbar');
 var scrollProgress = document.getElementById('scrollProgress');
+var heroWords = document.querySelectorAll('.hw');
+var heroSection = document.querySelector('.page-hero');
+var heroAnimDone = false;
+setTimeout(function() { heroAnimDone = true; }, 2200);
+
 var ticking = false;
 window.addEventListener('scroll', function() {
   if (!ticking) {
@@ -1382,6 +1407,27 @@ window.addEventListener('scroll', function() {
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
       var progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
       scrollProgress.style.width = progress + '%';
+
+      // Hero words parallax scroll-out
+      if (heroSection && heroAnimDone) {
+        var heroRect = heroSection.getBoundingClientRect();
+        var heroH = heroSection.offsetHeight;
+        var scrollOut = Math.max(0, -heroRect.top) / heroH;
+        scrollOut = Math.min(1, scrollOut);
+        if (scrollOut > 0) {
+          heroWords.forEach(function(w, idx) {
+            var spread = (idx - 1.5) * 50 * scrollOut;
+            var lift = -scrollOut * (80 + idx * 30);
+            var fade = 1 - scrollOut * 2;
+            if (fade < 0) fade = 0;
+            w.style.animation = 'none';
+            w.style.filter = 'blur(' + (scrollOut * 4) + 'px)';
+            w.style.transform = 'translateX(' + spread + 'px) translateY(' + lift + 'px) scale(' + (1 + scrollOut * 0.2) + ')';
+            w.style.opacity = fade;
+          });
+        }
+      }
+
       ticking = false;
     });
     ticking = true;

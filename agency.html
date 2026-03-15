@@ -51,6 +51,16 @@ body {
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-logo {
+  position: relative; z-index: 2;
+  animation: logoPulse 2s ease-in-out infinite;
+}
+.preloader-logo img {
+  width: 160px; height: 160px; object-fit: contain;
+  background: #fad99d; border-radius: 50%; padding: 16px;
+  box-shadow: 0 0 60px rgba(242,206,126,0.4), 0 0 120px rgba(242,206,126,0.15);
+}
+@keyframes logoPulse { 0%,100% { opacity:.6; transform:scale(.95) } 50% { opacity:1; transform:scale(1.08) } }
 .preloader-words {
   position: absolute; z-index: 1;
   font-family: 'Outfit', sans-serif; font-size: clamp(5rem, 18vw, 12rem); font-weight: 900;
@@ -108,66 +118,97 @@ nav.scrolled {
 
 /* ============ HERO ============ */
 .hero {
-  height: 100vh; max-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; overflow: hidden;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1800ad 0%, #2e15c5 40%, #1800ad 100%);
+  display: flex; align-items: center; position: relative; overflow: hidden;
 }
 .hero::before {
   content:''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 15% 85%, rgba(242,206,126,0.35) 0%, transparent 50%),
-              radial-gradient(circle at 85% 15%, rgba(155,142,196,0.3) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(46,21,197,0.5) 0%, transparent 55%),
-              radial-gradient(circle at 30% 30%, rgba(242,206,126,0.1) 0%, transparent 40%);
+  background: radial-gradient(circle at 20% 80%, rgba(155,142,196,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(242,206,126,0.1) 0%, transparent 50%);
 }
-.hero-video-bg {
-  position: absolute; inset: -5%; width: 110%; height: 110%;
-  z-index: 0; pointer-events: none;
-  opacity: 0; transform: scale(1.15);
-  animation: heroVideoIn 2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
-@keyframes heroVideoIn { to { opacity: 1; transform: scale(1); } }
-.hero-video-bg iframe { width: 100%; height: 100%; border: none; object-fit: cover; }
-.hero-video-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(to bottom, rgba(24,0,173,0.7) 0%, rgba(46,21,197,0.4) 30%, rgba(24,0,173,0.5) 60%, rgba(16,0,138,0.95) 100%);
-}
+.hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .hero-content {
-  position: relative; z-index: 2;
-  max-width: 900px; margin: 0 auto;
-  padding: 5rem 6% 3rem;
-  text-align: center; width: 100%;
-  opacity: 0; transform: translateY(40px) scale(0.96);
-  animation: heroContentIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+  position: relative; z-index: 2; max-width: 1400px; margin: 0 auto;
+  padding: 120px 4% 4rem; width: 100%;
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 3rem; align-items: center;
 }
-@keyframes heroContentIn { to { opacity: 1; transform: translateY(0) scale(1); } }
-.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+.hero-left {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.16,1,0.3,1) 0.2s, transform 1s cubic-bezier(0.16,1,0.3,1) 0.2s;
+}
+.hero-right {
+  display: flex; flex-direction: column; gap: 1rem;
+  opacity: 0; transform: translateY(50px) scale(0.96);
+  transition: opacity 1.1s cubic-bezier(0.16,1,0.3,1) 0.5s, transform 1.1s cubic-bezier(0.16,1,0.3,1) 0.5s;
+}
+.hero-entered .hero-left,
+.hero-entered .hero-right {
+  opacity: 1; transform: none;
+}
 .hero-stats {
-  display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
-  margin-top: 0.5rem; padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-around; gap: 1rem;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px; padding: 0.5rem 1.2rem;
 }
 .hero-stat { text-align: center; }
 .hero-stat h3 {
-  font-family: 'Outfit', sans-serif; font-size: 1.3rem;
-  font-weight: 900; color: var(--gold); line-height: 1;
+  font-family: 'Outfit', sans-serif; font-size: 1.8rem;
+  font-weight: 800; color: var(--gold); line-height: 1;
 }
 .hero-stat p {
   font-size: 0.7rem; color: rgba(255,255,255,0.45);
   text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px;
 }
-.hero-scroll-hint {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+/* Hero slideshow */
+.hero-slideshow {
+  position: relative; border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(242,206,126,0.15);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #10008a, #1800ad 40%, #2e15c5 70%, #1800ad);
+  transform: scale(1.12);
+  will-change: transform, opacity;
 }
-.hero-scroll-hint span {
-  font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 2px;
-  text-transform: uppercase; font-family: 'Space Mono', monospace;
+.hero-slideshow::after {
+  content:''; position: absolute; inset: 0; border-radius: 20px;
+  border: 1px solid rgba(242,206,126,0.08);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(24,0,173,0.4) 100%);
+  pointer-events: none; z-index: 3;
 }
-.hero-scroll-hint .scroll-line {
-  width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent);
-  animation: scrollPulse 2s infinite;
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s; }
+.hero-slide.active { opacity: 1; }
+.hero-slide iframe, .hero-slide .video-placeholder {
+  display: block; width: 100%; height: 100%; border: none;
 }
-@keyframes scrollPulse { 0% { opacity:1; transform:scaleY(1) } 50% { opacity:0.3; transform:scaleY(0.5) } 100% { opacity:1; transform:scaleY(1) } }
+.slide-label {
+  position: absolute; top: 16px; left: 16px; z-index: 4;
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light);
+  background: rgba(24,0,173,0.7); backdrop-filter: blur(8px);
+  border: 1px solid rgba(242,206,126,0.15); border-radius: 6px; padding: 6px 14px;
+}
+.slideshow-dots {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 5;
+}
+.slideshow-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); border: none;
+  cursor: pointer; transition: all 0.3s; padding: 0;
+}
+.slideshow-dot.active { background: var(--gold); box-shadow: 0 0 10px rgba(242,206,126,0.5); }
+.slideshow-progress {
+  position: absolute; bottom: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--lavender)); z-index: 5;
+  will-change: width;
+}
 
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
@@ -183,9 +224,21 @@ nav.scrolled {
 .hero h1 {
   font-family: 'Outfit', sans-serif; font-size: clamp(2.4rem,4.5vw,4.2rem);
   font-weight: 900; color: var(--white); line-height: 1.08; margin-bottom: 1.2rem;
+  perspective: 800px;
 }
 .hero h1 .gold { color: var(--gold); }
 .hero h1 .italic { font-style: italic; color: var(--lavender-light); }
+/* Word-by-word fade in */
+.hw {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px) rotateX(60deg);
+  filter: blur(8px);
+  animation: hwIn 0.9s cubic-bezier(0.16,1,0.3,1) calc(0.6s + var(--i) * 0.32s) forwards;
+}
+@keyframes hwIn {
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); filter: blur(0px); }
+}
 .hero-sub {
   font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 480px;
   line-height: 1.7; margin-bottom: 1.8rem; margin-left: auto; margin-right: auto;
@@ -229,7 +282,7 @@ nav.scrolled {
   border-top: 1px solid rgba(242,206,126,0.1); border-bottom: 1px solid rgba(242,206,126,0.1);
 }
 .marquee-track {
-  display: flex; animation: marquee 22s linear infinite; animation-direction: reverse; width: max-content;
+  display: flex; animation: marquee 22s linear infinite; width: max-content;
 }
 @keyframes marquee { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
 .marquee-item {
@@ -280,56 +333,53 @@ nav.scrolled {
 }
 
 /* ============ SERVICES ============ */
+.sticky-lock.services-section { padding-top: 3rem; padding-bottom: 2rem; justify-content: flex-start; }
+.sticky-lock.services-section .services-inner { margin-top: auto; margin-bottom: auto; }
+.sticky-lock.services-section .services-header { margin-bottom: 1.5rem; }
 .services-section {
-  padding: 2rem 6%; background: #ffffff;
+  padding: 2rem 6%; background: rgba(24,0,173,0.4);
   position: relative; overflow: hidden;
 }
-.services-section::before { display: none; }
+.services-section::before {
+  content:''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 10% 50%, rgba(155,142,196,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 90% 50%, rgba(242,206,126,0.06) 0%, transparent 50%);
+}
 .services-inner { max-width: 1300px; margin: 0 auto; position: relative; z-index: 1; }
 .services-header { text-align: center; margin-bottom: 3rem; }
 .services-header h2 {
   font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem,4.5vw,4rem);
-  font-weight: 800; color: var(--navy) !important; margin-top: 1rem;
+  font-weight: 800; color: var(--white); margin-top: 1rem;
 }
 .services-header .section-tag { justify-content: center; }
 .services-header .section-tag::before { display: none; }
-.services-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .service-card {
-  background: #f8f6ff; border: 1px solid rgba(24,0,173,0.08);
-  padding: 2.5rem 3rem;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 1.5rem 1.5rem;
   transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
   position: relative; overflow: hidden;
-  display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: center;
-  box-shadow: 0 2px 12px rgba(24,0,173,0.05);
-  opacity: 0; transform: translateY(30px);
 }
-.service-card.visible { opacity: 1; transform: translateY(0); }
 .service-card::before {
-  content:''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px;
-  background: linear-gradient(180deg, var(--gold), var(--lavender));
+  content:''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--lavender));
   opacity: 0; transition: opacity 0.4s;
 }
-.service-card:hover::before { opacity: 1; }
 .service-card:hover {
-  background: #f0edff; transform: translateY(-4px);
-  border-color: var(--gold);
-  box-shadow: 0 12px 40px rgba(24,0,173,0.1);
+  background: rgba(255,255,255,0.06); transform: translateY(-8px);
+  border-color: rgba(242,206,126,0.15);
 }
+.service-card:hover::before { opacity: 1; }
 .service-icon {
-  width: 56px; height: 56px; background: rgba(24,0,173,0.08);
-  display: flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; background: rgba(242,206,126,0.1);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 0.8rem;
 }
 .service-card h3 {
-  font-family: 'Outfit', sans-serif; font-size: 1.4rem;
-  font-weight: 700; color: var(--navy) !important; margin-bottom: 0.4rem;
+  font-family: 'Outfit', sans-serif; font-size: 1.2rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
 }
-.service-card p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
-.service-arrow {
-  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-  color: var(--gold); font-size: 1.2rem; opacity: 0; transform: translateX(-10px);
-  transition: all 0.3s;
-}
-.service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+.service-card p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.5); }
 
 /* ============ DASHBOARD SCROLL ============ */
 .dashboard-scroll-wrapper { position: relative; height: 400vh; background: transparent; }
@@ -836,6 +886,8 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .portfolio-grid { grid-template-columns: repeat(2,1fr); }
   .portfolio-card:first-child { grid-column: 1 / -1; }
   .footer-top { grid-template-columns: 1fr 1fr; }
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-right { max-width: 600px; margin: 0 auto; width: 100%; }
   .hero-eyebrow { margin: 0 auto 1.2rem; }
   .hero-sub { margin: 0 auto 1.8rem; }
   .hero-actions { justify-content: center; }
@@ -859,7 +911,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .nav-links.active { display: flex; }
   .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
   .mobile-toggle { display: flex; z-index: 1000; }
-  .hero { height: auto; min-height: 100vh; max-height: none; padding: 5rem 5% 2rem; }
+  .hero { padding: 5rem 5% 2rem; }
   .hero-content { padding-top: 60px; }
   .hero h1 { font-size: 2.2rem; }
   .hero-sub {
@@ -869,7 +921,6 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   }
   .hero-stats { flex-direction: column; gap: 0.8rem; }
   .hero-actions { flex-direction: column; gap: 0.8rem; }
-  .hero-scroll-hint { display: none; }
   .sticky-wrap { height: auto !important; }
   .sticky-lock {
     position: relative !important;
@@ -909,14 +960,13 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .about-text p { font-size: 0.9rem; }
   .about-text p:last-child { display: none; }
   .services-section { padding: 4rem 5%; }
-  .services-header { margin-bottom: 3rem; }
+  .services-header { margin-bottom: 2rem; }
   .services-header h2 { font-size: 1.8rem; }
-  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .service-card { padding: 1.5rem 1.2rem; grid-template-columns: auto 1fr; gap: 1rem; }
-  .service-arrow { display: none; }
-  .service-card p { display: none; }
-  .service-card h3 { font-size: 1rem; margin-bottom: 0; }
-  .service-icon { width: 42px; height: 42px; }
+  .services-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .service-card { padding: 1.2rem; }
+  .service-card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .service-card p { font-size: 0.8rem; }
+  .service-icon { width: 36px; height: 36px; margin-bottom: 0.5rem; }
   .dashboard-scroll-wrapper { height: 250vh; }
   .dashboard-sticky { padding-top: 5vh; }
   .dashboard-inner { gap: 1.5rem; padding: 0 4%; }
@@ -980,6 +1030,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="preloader" id="preloader">
+  <div class="preloader-logo" style="display:none;"></div>
   <div class="preloader-words" id="preloaderWords"></div>
 </div>
 
@@ -988,10 +1039,11 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   <a href="/" class="nav-brand"><img src="merlinslogo.png" alt="Merlins Group"></a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="agency.html" class="active">Merlins Agency</a></li>
+    <li><a href="services.html">Systems & Technology</a></li>
+    <li><a href="agency.html" class="active">Growth & Marketing</a></li>
     <li><a href="construction.html">Construction</a></li>
     <li><a href="cic.html">CIC</a></li>
+    <li><a href="fractional.html">Fractional Support</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
@@ -999,90 +1051,89 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-video-bg">
-    <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F74a7b7f85b59015bb9f8335c39e29b78%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
-  <div class="hero-video-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-particles" id="particles"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><div class="dot"></div><span>Full-Service Creative Agency</span></div>
-    <h1>We Build Brands<br>That <span class="italic">Dominate</span><br><span class="gold">Markets.</span></h1>
-    <p class="hero-sub">Trusted by industry leaders. From UGC to full-scale brand strategy, paid media to video production — we partner with the biggest names to deliver results that matter.</p>
-    <div class="hero-actions">
-      <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Book a Strategy Call</a>
-      <a href="#services" class="btn-secondary">Explore Services</a>
+    <div class="hero-left">
+      <div class="hero-eyebrow"><div class="dot"></div><span>Enterprise Marketing Solutions</span></div>
+      <h1><span class="hw" style="--i:0">We</span> <span class="hw" style="--i:1">Build</span> <span class="hw" style="--i:2">Brands</span><br><span class="hw" style="--i:3">That</span> <span class="hw italic" style="--i:4">Dominate</span><br><span class="hw gold" style="--i:5">Markets.</span></h1>
+      <p class="hero-sub">Trusted by industry leaders including GSF, NHS, Greggs, and top construction firms like Bordo Design. From UGC to full-scale brand strategy, we partner with the biggest names to deliver results that matter.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-primary">Book a Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#services" class="btn-secondary">Explore Services</a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><h3>1,000+</h3><p>Clients Served</p></div>
-      <div class="hero-stat"><h3>5,000+</h3><p>Videos Produced</p></div>
-      <div class="hero-stat"><h3>12M+</h3><p>Ad Impressions</p></div>
-      <div class="hero-stat"><h3>98%</h3><p>Client Retention</p></div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="hero-stat"><h3>1,000+</h3><p>Clients Served</p></div>
+        <div class="hero-stat"><h3>98%</h3><p>Client Retention</p></div>
+      </div>
+      <div class="hero-slideshow" id="heroSlideshow">
+        <div class="hero-slide active" data-src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F74a7b7f85b59015bb9f8335c39e29b78%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600">
+          <span class="slide-label">Construction</span>
+        </div>
+        <div class="hero-slide" data-src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/d617f6f219ab023d3d4b8fe37c247239/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fd617f6f219ab023d3d4b8fe37c247239%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600">
+          <span class="slide-label">Motor Services</span>
+        </div>
+        <div class="hero-slide" data-src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/479f056f51d90a6543ee15d7d24796b8/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F479f056f51d90a6543ee15d7d24796b8%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600">
+          <span class="slide-label">Entertainment</span>
+        </div>
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" data-slide="0"></button>
+          <button class="slideshow-dot" data-slide="1"></button>
+          <button class="slideshow-dot" data-slide="2"></button>
+        </div>
+        <div class="slideshow-progress" id="slideshowProgress"></div>
+      </div>
     </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <section class="marquee-section">
   <div class="marquee-track">
-    <div class="marquee-item"><span class="sep"></span>Paid Media</div><div class="marquee-item"><span class="sep"></span>UGC Production</div><div class="marquee-item"><span class="sep"></span>Video Shooting</div><div class="marquee-item"><span class="sep"></span>Social Media</div><div class="marquee-item"><span class="sep"></span>Brand Strategy</div><div class="marquee-item"><span class="sep"></span>Content Creation</div><div class="marquee-item"><span class="sep"></span>Google Ads</div><div class="marquee-item"><span class="sep"></span>Meta Campaigns</div>
-    <div class="marquee-item"><span class="sep"></span>Paid Media</div><div class="marquee-item"><span class="sep"></span>UGC Production</div><div class="marquee-item"><span class="sep"></span>Video Shooting</div><div class="marquee-item"><span class="sep"></span>Social Media</div><div class="marquee-item"><span class="sep"></span>Brand Strategy</div><div class="marquee-item"><span class="sep"></span>Content Creation</div><div class="marquee-item"><span class="sep"></span>Google Ads</div><div class="marquee-item"><span class="sep"></span>Meta Campaigns</div>
+    <div class="marquee-item"><span class="sep"></span>Brand Strategy</div><div class="marquee-item"><span class="sep"></span>UGC Production</div><div class="marquee-item"><span class="sep"></span>Paid Media</div><div class="marquee-item"><span class="sep"></span>Social Management</div><div class="marquee-item"><span class="sep"></span>Creative Direction</div><div class="marquee-item"><span class="sep"></span>Lead Generation</div><div class="marquee-item"><span class="sep"></span>SEO & Content</div><div class="marquee-item"><span class="sep"></span>Web Development</div>
+    <div class="marquee-item"><span class="sep"></span>Brand Strategy</div><div class="marquee-item"><span class="sep"></span>UGC Production</div><div class="marquee-item"><span class="sep"></span>Paid Media</div><div class="marquee-item"><span class="sep"></span>Social Management</div><div class="marquee-item"><span class="sep"></span>Creative Direction</div><div class="marquee-item"><span class="sep"></span>Lead Generation</div><div class="marquee-item"><span class="sep"></span>SEO & Content</div><div class="marquee-item"><span class="sep"></span>Web Development</div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
+<div class="sticky-wrap" id="aboutWrap" style="height:130vh;">
+<section class="about-section sticky-lock" id="about">
   <div class="about-grid">
     <div id="aboutHeadingWrap">
-      <div class="section-tag">Who We Are</div>
-      <h2 class="about-heading">The Creative Arm of<br><span class="accent">Merlins Group.</span></h2>
+      <div class="section-tag">About Merlin</div>
+      <h2 class="about-heading">We Don't Just Market.<br>We <span class="accent">Engineer Growth.</span></h2>
     </div>
     <div class="sr from-right">
       <div class="about-text">
-        <p>Merlins Agency is the dedicated marketing and creative division of Merlins Group. We handle everything from paid media campaigns and brand strategy to UGC production, social media management, and full-scale video production. Every campaign is built on data-driven insights, backed by the robust technical infrastructure of Merlins Group.</p>
-        <p>Having worked with over 1,000 companies across every industry, we bring a depth of experience that most agencies simply cannot match. Whether you are launching a new product, scaling an e-commerce brand, or repositioning an established business, Merlins Agency delivers creative marketing that moves the needle.</p>
+        <p>Merlin The Marketer is an enterprise-grade marketing agency trusted by the UK's biggest firms. From GSF and NHS to Greggs, Hoodrich and JD, we operate at the intersection of data-driven strategy and bold creative execution, delivering campaigns that move needles, not just metrics.</p>
+        <p>Having partnered with over 1,000 companies across construction, automotive, recruitment, jewellery, hospitality and beyond, including top-tier firms like Bordo Design and Icebank Jewellers. We bring the rigour of a consultancy with the creativity of a boutique agency. Every engagement is architected to deliver measurable ROI.</p>
       </div>
     </div>
   </div>
 </section>
+</div>
 
-<!-- SERVICES -->
-<section class="services-section" id="services">
+<!-- SERVICES (from OLDMERLINSAGENCY) -->
+<div class="sticky-wrap" id="servicesWrap" style="height:130vh;">
+<section class="services-section sticky-lock" id="services">
   <div class="services-inner">
     <div class="services-header" id="servicesHeaderWrap">
       <div class="section-tag" style="color:var(--gold)">What We Do</div>
-      <h2>Full-Spectrum Creative<br>Marketing Infrastructure</h2>
+      <h2>Full-Spectrum Marketing<br>Infrastructure</h2>
     </div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">&#9883;</div>
-        <div>
-          <h3>Paid Media & Performance</h3>
-          <p>Google Ads, Meta campaigns, TikTok ads, and programmatic — data-driven campaigns that deliver measurable ROI across every channel.</p>
-        </div>
-        <div class="service-arrow">&#8594;</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">&#9879;</div>
-        <div>
-          <h3>Content & Video Production</h3>
-          <p>UGC at scale, brand films, social-first video, product shoots, and full creative direction — from concept to delivery.</p>
-        </div>
-        <div class="service-arrow">&#8594;</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">&#9881;</div>
-        <div>
-          <h3>Brand Strategy & Social</h3>
-          <p>Social media management, influencer partnerships, brand identity, community building, and growth strategy that scales.</p>
-        </div>
-        <div class="service-arrow">&#8594;</div>
-      </div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Paid Media & Performance</h3><p>Precision-targeted campaigns across Meta, Google, TikTok and LinkedIn. We optimise every pound to maximise ROAS and scale profitably.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><h3>UGC Production</h3><p>Authentic creator-led content that converts. Led by our in-house UGC specialist Balraj, we produce scroll-stopping content at scale.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h3>Brand Strategy</h3><p>Positioning, messaging architecture, and go-to-market strategy. We build the strategic foundation that makes every other channel perform.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Web Design & Development</h3><p>Conversion-optimised websites and landing pages that turn visitors into customers. Enterprise-grade builds with premium aesthetics.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h3>Social Media Management</h3><p>End-to-end social management across all major platforms. Content calendars, community management, and growth strategies that deliver.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>SEO & Content Marketing</h3><p>Organic visibility strategies that compound over time. Technical SEO, content creation, and authority building for sustainable growth.</p></div>
     </div>
   </div>
 </section>
+</div>
 
 <!-- PARALLAX STATEMENT -- "Creative." + "Fearless." -->
 <div class="sticky-wrap" id="statement2Wrap" style="height:130vh;">
@@ -1303,56 +1354,6 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 </section>
 </div>
 
-<!-- PORTFOLIO -->
-<section class="portfolio-section" id="portfolio">
-  <div class="portfolio-inner">
-    <div class="portfolio-header">
-      <div class="section-tag">Our Work</div>
-      <h2>Content That<br>Speaks For Itself</h2>
-      <p>From brand films to social media content, see the work that drives results for our clients.</p>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F74a7b7f85b59015bb9f8335c39e29b78%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="autoplay; encrypted-media"></iframe>
-        <div class="portfolio-overlay"><h4>BordoDesign</h4><p>Brand Film & Showcase</p></div>
-      </div>
-      <div class="portfolio-card">
-        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/d617f6f219ab023d3d4b8fe37c247239/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2Fd617f6f219ab023d3d4b8fe37c247239%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="autoplay; encrypted-media"></iframe>
-        <div class="portfolio-overlay"><h4>Motor Services</h4><p>Social Content & Ads</p></div>
-      </div>
-      <div class="portfolio-card">
-        <iframe src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/479f056f51d90a6543ee15d7d24796b8/iframe?muted=true&autoplay=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-w3eshzf2kramnqvl.cloudflarestream.com%2F479f056f51d90a6543ee15d7d24796b8%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600" loading="lazy" allow="autoplay; encrypted-media"></iframe>
-        <div class="portfolio-overlay"><h4>Entertainment</h4><p>Event Coverage & Promo</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENTS -->
-<section class="clients-section" id="clients">
-  <div class="clients-inner">
-    <div class="clients-header">
-      <div class="section-tag">Trusted Partners</div>
-      <h2>Brands That Trust<br>Merlins Agency</h2>
-      <p>From construction to hospitality, e-commerce to professional services, we partner with ambitious brands across every sector.</p>
-    </div>
-    <div class="clients-logos">
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/1.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/2.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/3.jpg" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/4.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/5.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/6.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/anytax.jpeg" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/hirely.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/images.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/karakchai.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/nhs.png" alt="Client" loading="lazy"></div></div>
-      <div class="client-logo-card"><div class="client-icon"><img src="logos/oxfordbusinesscollege.png" alt="Client" loading="lazy"></div></div>
-    </div>
-    <div class="clients-count"><h3>1,000+</h3><p>Companies served and counting</p></div>
-  </div>
-</section>
 
 <!-- RESULTS -->
 <section class="results-section" id="results">
@@ -1432,7 +1433,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 const isMobile = () => window.innerWidth <= 768;
 
 // ============ PRELOADER ============
-const mw = ['Marketing','Creative','Agency'];
+const mw = ['Growth','Market','Creative'];
 const we = document.getElementById('preloaderWords');
 let wi = 0;
 function cw() {
@@ -1455,6 +1456,59 @@ window.addEventListener('load', () => {
 // ============ MOBILE MENU ============
 document.getElementById('mobileToggle').addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('active'));
 document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active')));
+
+// ============ PARTICLES ============
+const pc = document.getElementById('particles');
+const particleCount = isMobile() ? 6 : 12;
+for (let i = 0; i < particleCount; i++) {
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDelay = Math.random() * 10 + 's';
+  p.style.animationDuration = (8 + Math.random() * 8) + 's';
+  const s = (2 + Math.random() * 3) + 'px';
+  p.style.width = s;
+  p.style.height = s;
+  pc.appendChild(p);
+}
+
+// ============ LAZY-LOADED SLIDESHOW ============
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.slideshow-dot');
+const progressBar = document.getElementById('slideshowProgress');
+let currentSlide = 0;
+const slideDuration = 9000;
+let slideStart = Date.now();
+const loadedSlides = new Set();
+
+function loadSlideIframe(index) {
+  if (loadedSlides.has(index)) return;
+  const slide = slides[index];
+  const src = slide.dataset.src;
+  if (!src) return;
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.loading = 'lazy';
+  iframe.allow = 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;';
+  iframe.allowFullscreen = true;
+  iframe.style.cssText = 'display:block;width:100%;height:100%;border:none;';
+  slide.appendChild(iframe);
+  loadedSlides.add(index);
+}
+
+function goToSlide(i) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = i;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  slideStart = Date.now();
+  loadSlideIframe(currentSlide);
+  loadSlideIframe((currentSlide + 1) % slides.length);
+}
+
+loadSlideIframe(0);
+dots.forEach(d => d.addEventListener('click', () => goToSlide(parseInt(d.dataset.slide))));
 
 // ============ DASHBOARD PARALLAX STATE ============
 const dashboardWrapper = document.querySelector('.dashboard-scroll-wrapper');
@@ -1621,6 +1675,12 @@ const resultCardObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.result-card').forEach(card => resultCardObserver.observe(card));
 
+// ============ HERO WORD PARALLAX ============
+const heroWords = document.querySelectorAll('.hw');
+const heroSection = document.querySelector('.hero');
+let heroAnimDone = false;
+setTimeout(() => { heroAnimDone = true; }, 2200);
+
 // ============ SINGLE UNIFIED SCROLL HANDLER ============
 let scrollTicking = false;
 
@@ -1646,6 +1706,35 @@ function onScroll() {
 
     // 2. Scroll progress bar
     document.getElementById('scrollProgress').style.width = (scrollY / (docH - winH) * 100) + '%';
+
+    // 2b. Hero words parallax scroll-out
+    if (heroSection && heroAnimDone && !mobile) {
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroH = heroSection.offsetHeight;
+      let scrollOut = Math.max(0, -heroRect.top) / heroH;
+      scrollOut = Math.min(1, scrollOut);
+      if (scrollOut > 0) {
+        heroWords.forEach((w, idx) => {
+          const spread = (idx - 2.5) * 50 * scrollOut;
+          const lift = -scrollOut * (80 + idx * 30);
+          let fade = 1 - scrollOut * 2;
+          if (fade < 0) fade = 0;
+          w.style.animation = 'none';
+          w.style.filter = 'blur(' + (scrollOut * 4) + 'px)';
+          w.style.transform = 'translateX(' + spread + 'px) translateY(' + lift + 'px) scale(' + (1 + scrollOut * 0.2) + ')';
+          w.style.opacity = fade;
+        });
+      }
+    }
+
+    // Hero slideshow parallax -- desktop only
+    const heroSlideshow = document.getElementById('heroSlideshow');
+    if (heroSlideshow && !mobile) {
+      const progress = Math.min(scrollY / winH, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      heroSlideshow.style.transform = `scale(${1.12 - eased * 0.17})`;
+      heroSlideshow.style.opacity = 1 - eased * 0.5;
+    }
 
     // 3. Dashboard panels (scroll-driven)
     if (dashboardWrapper) {
@@ -1710,14 +1799,16 @@ function onScroll() {
         }
       }
 
-      // 6. About heading fade-in (uses viewport position instead of sticky wrapper)
-      if (aboutHeadingWrap) {
-        const aRect = aboutHeadingWrap.getBoundingClientRect();
-        const aProgress = Math.max(0, Math.min(1, (winH - aRect.top) / (winH * 0.6)));
-        const aEased = aProgress * aProgress * (3 - 2 * aProgress);
-        aboutHeadingWrap.style.transform = `scale(${0.92 + aEased * 0.08})`;
-        aboutHeadingWrap.style.opacity = aEased;
+      // 6. Fade-in helper — sticky scroll-lock based
+      function parallaxFade(el, wrapperId) {
+        if (!el) return;
+        const p = stickyProgress(wrapperId);
+        if (p < 0) return;
+        const eased = p * p * (3 - 2 * p);
+        el.style.transform = `scale(${0.92 + eased * 0.08})`;
+        el.style.opacity = eased;
       }
+      parallaxFade(aboutHeadingWrap, 'aboutWrap');
 
       // 6b. Services header fade-in
       if (servicesHeaderWrap) {
@@ -1774,6 +1865,15 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(checkMode, 150);
 });
+
+// ============ SLIDESHOW TIMER ============
+function slideshowTick() {
+  const elapsed = Date.now() - slideStart;
+  progressBar.style.width = Math.min(elapsed / slideDuration * 100, 100) + '%';
+  if (elapsed >= slideDuration) goToSlide((currentSlide + 1) % slides.length);
+  requestAnimationFrame(slideshowTick);
+}
+requestAnimationFrame(slideshowTick);
 
 // ============ SMOOTH ANCHORS ============
 document.querySelectorAll('a[href^="#"]').forEach(a => {

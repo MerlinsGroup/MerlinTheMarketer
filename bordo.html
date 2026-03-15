@@ -1,0 +1,2571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>BORDO Design | Award-Winning Interior Design & Fit-Out in Birmingham, UK</title>
+  <meta name="description" content="Birmingham's leading design & build studio specialising in commercial fit-outs, shop fitting, and bespoke interiors. Carpentry, Fabrication, Glasswork & Masonry.">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       CSS VARIABLES - LUXURY PALETTE
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      --burgundy: #4A0E0E;
+      --burgundy-deep: #2D0808;
+      --burgundy-light: #6B1818;
+      --ivory: #FAF8F5;
+      --ivory-warm: #F5F0E8;
+      --champagne: #800020;
+      --champagne-light: #A52A2A;
+      --charcoal: #1A1614;
+      --charcoal-soft: #2A2422;
+      --stone: #8A8279;
+      --white: #FFFFFF;
+      --black: #0A0908;
+      
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Syne', sans-serif;
+      
+      --ease-luxe: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+      
+      --shadow-soft: 0 4px 40px rgba(45, 8, 8, 0.08);
+      --shadow-elevated: 0 20px 80px rgba(45, 8, 8, 0.12);
+      --shadow-dramatic: 0 40px 120px rgba(45, 8, 8, 0.2);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--ivory);
+      line-height: 1.7;
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    ::selection {
+      background: var(--burgundy);
+      color: var(--ivory);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.5s var(--ease-luxe);
+    }
+
+    /* Custom cursor for premium feel */
+    @media (pointer: fine) {
+      body {
+        cursor: default;
+      }
+      a, button, .cursor-pointer {
+        cursor: pointer;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       TYPOGRAPHY
+       ═══════════════════════════════════════════════════════════ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .display-xl {
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      font-weight: 300;
+      line-height: 0.95;
+    }
+
+    .display-lg {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+    }
+
+    .display-md {
+      font-size: clamp(1.75rem, 4vw, 3rem);
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HEADER - Minimal Luxury
+       ═══════════════════════════════════════════════════════════ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 2rem 5%;
+      transition: all 0.6s var(--ease-luxe);
+      mix-blend-mode: difference;
+    }
+
+    .header.scrolled {
+      padding: 1.25rem 5%;
+      mix-blend-mode: normal;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(74, 14, 14, 0.08);
+    }
+
+    .header-inner {
+      max-width: 1800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      transition: color 0.6s var(--ease-luxe);
+    }
+
+    .header.scrolled .logo {
+      color: var(--burgundy);
+    }
+
+    .nav-desktop {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .header.scrolled .nav-link {
+      color: var(--charcoal);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.5s var(--ease-luxe);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      background: var(--ivory);
+      padding: 1rem 2rem;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--burgundy);
+      transform: translateY(100%);
+      transition: transform 0.5s var(--ease-luxe);
+    }
+
+    .nav-cta span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.5s var(--ease-luxe);
+    }
+
+    .nav-cta:hover::before {
+      transform: translateY(0);
+    }
+
+    .nav-cta:hover span {
+      color: var(--white);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 28px;
+      height: 1px;
+      background: var(--white);
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .header.scrolled .menu-toggle span {
+      background: var(--charcoal);
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--burgundy-deep);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.8s var(--ease-luxe);
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--ivory);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s var(--ease-luxe);
+    }
+
+    .mobile-menu.active a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.active a:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active a:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu.active a:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu.active a:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu.active a:nth-child(5) { transition-delay: 0.3s; }
+
+    @media (max-width: 1024px) {
+      .nav-desktop { display: none; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO - Cinematic Full-Screen
+       ═══════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      background: var(--black);
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-video iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh;
+      height: 100vh;
+      min-width: 100vw;
+      min-height: 56.25vw;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(10, 9, 8, 0.3) 0%, transparent 30%),
+        linear-gradient(0deg, rgba(10, 9, 8, 0.7) 0%, transparent 50%),
+        linear-gradient(90deg, rgba(10, 9, 8, 0.4) 0%, transparent 50%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 0 5% 8vh;
+      max-width: 1800px;
+      width: 100%;
+    }
+
+    .hero-tagline {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s var(--ease-luxe) 0.5s forwards;
+    }
+
+    .hero-tagline-line {
+      width: 60px;
+      height: 1px;
+      background: var(--champagne);
+    }
+
+    .hero-tagline span {
+      color: var(--champagne);
+    }
+
+    .hero-title {
+      color: var(--white);
+      max-width: 900px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.2s var(--ease-luxe) 0.7s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--champagne-light);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s var(--ease-luxe) 1s forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 1.25rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--champagne);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s var(--ease-luxe);
+    }
+
+    .hero-cta span,
+    .hero-cta i {
+      position: relative;
+      z-index: 1;
+      transition: color 0.5s var(--ease-luxe);
+    }
+
+    .hero-cta:hover::before {
+      transform: scaleX(1);
+    }
+
+    .hero-cta:hover span,
+    .hero-cta:hover i {
+      color: var(--burgundy-deep);
+    }
+
+    .hero-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-link:hover {
+      color: var(--white);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 3rem;
+      right: 5%;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeIn 1s var(--ease-luxe) 1.5s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      writing-mode: vertical-rl;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--champagne), transparent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: var(--white);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { transform: translateY(-30px); }
+      100% { transform: translateY(80px); }
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CLIENTS MARQUEE - Subtle & Elegant
+       ═══════════════════════════════════════════════════════════ */
+    .marquee {
+      padding: 3rem 0;
+      background: var(--white);
+      border-bottom: 1px solid rgba(74, 14, 14, 0.06);
+      overflow: hidden;
+    }
+
+    .marquee-label {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 5rem;
+      animation: marquee 40s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-track img {
+      height: 35px;
+      width: auto;
+      filter: grayscale(100%) brightness(0.3);
+      opacity: 0.4;
+      transition: all 0.5s var(--ease-luxe);
+    }
+
+    .marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-track img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       INTRO STATEMENT - Editorial Style
+       ═══════════════════════════════════════════════════════════ */
+    .intro {
+      padding: 12rem 5%;
+      background: var(--ivory);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro::before {
+      content: 'BORDO';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(15rem, 30vw, 40rem);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(74, 14, 14, 0.04);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .intro-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .intro-title {
+      color: var(--charcoal);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    .intro-title span {
+      color: var(--burgundy);
+    }
+
+    .intro-title em {
+      font-style: italic;
+    }
+
+    .intro-desc {
+      font-size: 1.1rem;
+      color: var(--stone);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .intro-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 2.5rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s var(--ease-luxe);
+    }
+
+    .btn-primary {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--burgundy-deep);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s var(--ease-luxe);
+    }
+
+    .btn-primary:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn-primary span,
+    .btn-primary i {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--burgundy);
+      border: 1px solid var(--burgundy);
+    }
+
+    .btn-outline:hover {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SERVICES SHOWCASE - Split Editorial
+       ═══════════════════════════════════════════════════════════ */
+    .services-showcase {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      min-height: 100vh;
+    }
+
+    .services-images {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .services-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-luxe);
+    }
+
+    .services-images img:hover {
+      transform: scale(1.03);
+    }
+
+    .services-images img:first-child {
+      grid-row: span 2;
+    }
+
+    .services-content {
+      background: var(--ivory-warm);
+      padding: 8rem 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .services-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--champagne), transparent);
+    }
+
+    .services-list {
+      margin-bottom: 4rem;
+    }
+
+    .services-list-item {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(74, 14, 14, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .services-list-item:hover {
+      padding-left: 1.5rem;
+      color: var(--burgundy);
+    }
+
+    .services-list-item span {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .services-list-item:hover span {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .services-spaces h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--burgundy);
+      line-height: 1.15;
+      text-align: right;
+    }
+
+    .services-spaces h2 span {
+      display: block;
+      color: var(--charcoal);
+      font-style: italic;
+    }
+
+    @media (max-width: 1024px) {
+      .services-showcase {
+        grid-template-columns: 1fr;
+      }
+      .services-images {
+        min-height: 50vh;
+      }
+      .services-content {
+        padding: 4rem 5%;
+      }
+      .services-spaces h2 {
+        text-align: left;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       STORY SECTION - Full-Width Slides
+       ═══════════════════════════════════════════════════════════ */
+    .story-section {
+      background: var(--charcoal);
+      padding: 10rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .story-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 5rem;
+    }
+
+    .story-header-left {
+      max-width: 500px;
+    }
+
+    .story-header .eyebrow {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-header h2 {
+      color: var(--ivory);
+    }
+
+    .story-nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .story-btn {
+      width: 60px;
+      height: 60px;
+      border: 1px solid rgba(250, 248, 245, 0.2);
+      background: transparent;
+      color: var(--ivory);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.4s var(--ease-luxe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-btn:hover {
+      background: var(--champagne);
+      border-color: var(--champagne);
+      color: var(--burgundy-deep);
+    }
+
+    .story-carousel {
+      position: relative;
+    }
+
+    .story-slide {
+      display: none;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .story-slide.active {
+      display: grid;
+    }
+
+    .story-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+
+    .story-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(10, 9, 8, 0.4) 100%);
+    }
+
+    .story-text {
+      padding: 2rem 0;
+    }
+
+    .story-number {
+      font-family: var(--font-display);
+      font-size: 6rem;
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--champagne);
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    .story-text h3 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      color: var(--ivory);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .story-text p {
+      color: rgba(250, 248, 245, 0.7);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+
+    .story-link i {
+      transition: transform 0.3s var(--ease-luxe);
+    }
+
+    .story-link:hover i {
+      transform: translateX(5px);
+    }
+
+    .story-progress {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 4rem;
+    }
+
+    .story-progress-bar {
+      height: 2px;
+      flex: 1;
+      background: rgba(250, 248, 245, 0.2);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-progress-bar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--champagne);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s var(--ease-luxe);
+    }
+
+    .story-progress-bar.active::after {
+      transform: scaleX(1);
+    }
+
+    @media (max-width: 1024px) {
+      .story-slide {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .story-image img {
+        height: 400px;
+      }
+      .story-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       MOSAIC GALLERY - Asymmetric Grid
+       ═══════════════════════════════════════════════════════════ */
+    .mosaic-gallery {
+      padding: 10rem 5%;
+      background: var(--white);
+    }
+
+    .mosaic-header {
+      max-width: 1600px;
+      margin: 0 auto 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .mosaic-header-left h2 {
+      color: var(--charcoal);
+      margin-top: 1rem;
+    }
+
+    .mosaic-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    .mosaic-link i {
+      transition: transform 0.3s var(--ease-luxe);
+    }
+
+    .mosaic-link:hover i {
+      transform: translateX(5px);
+    }
+
+    .mosaic-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 150px;
+      gap: 1.5rem;
+    }
+
+    .mosaic-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .mosaic-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s var(--ease-luxe);
+    }
+
+    .mosaic-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .mosaic-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10, 9, 8, 0.8) 100%);
+      opacity: 0;
+      transition: opacity 0.5s var(--ease-luxe);
+      z-index: 1;
+    }
+
+    .mosaic-item:hover::before {
+      opacity: 1;
+    }
+
+    .mosaic-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.5s var(--ease-luxe);
+      z-index: 2;
+    }
+
+    .mosaic-item:hover .mosaic-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mosaic-category {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 0.5rem;
+    }
+
+    .mosaic-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    /* Mosaic grid positions */
+    .mosaic-item:nth-child(1) { grid-column: span 5; grid-row: span 3; }
+    .mosaic-item:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+    .mosaic-item:nth-child(3) { grid-column: span 3; grid-row: span 2; }
+    .mosaic-item:nth-child(4) { grid-column: span 4; grid-row: span 3; }
+    .mosaic-item:nth-child(5) { grid-column: span 3; grid-row: span 2; }
+    .mosaic-item:nth-child(6) { grid-column: span 5; grid-row: span 3; }
+    .mosaic-item:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+    .mosaic-item:nth-child(8) { grid-column: span 3; grid-row: span 2; }
+
+    @media (max-width: 1024px) {
+      .mosaic-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+      }
+      .mosaic-item:nth-child(n) {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+      .mosaic-item:nth-child(1),
+      .mosaic-item:nth-child(4) {
+        grid-column: span 2 !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .mosaic-container {
+        grid-template-columns: 1fr;
+      }
+      .mosaic-item:nth-child(n) {
+        grid-column: span 1 !important;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FEATURED PROJECTS - Horizontal Scroll
+       ═══════════════════════════════════════════════════════════ */
+    .projects {
+      padding: 8rem 0;
+      background: var(--ivory-warm);
+    }
+
+    .projects-header {
+      max-width: 1600px;
+      margin: 0 auto 4rem;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .projects-header-left h2 {
+      color: var(--charcoal);
+      margin-top: 1rem;
+    }
+
+    .projects-track {
+      display: flex;
+      gap: 2rem;
+      padding: 0 5%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+
+    .projects-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-card {
+      flex: 0 0 calc(40% - 1rem);
+      min-width: 450px;
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-luxe);
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(10, 9, 8, 0.6) 100%);
+      transition: opacity 0.5s var(--ease-luxe);
+    }
+
+    .project-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      z-index: 2;
+    }
+
+    .project-category {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 768px) {
+      .project-card {
+        flex: 0 0 85%;
+        min-width: 300px;
+      }
+      .project-image {
+        height: 400px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SERVICES GRID - Minimal Cards
+       ═══════════════════════════════════════════════════════════ */
+    .services {
+      padding: 10rem 5%;
+      background: var(--white);
+    }
+
+    .services-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .services-header h2 {
+      color: var(--charcoal);
+      margin-top: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(74, 14, 14, 0.08);
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: all 0.5s var(--ease-luxe);
+      position: relative;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--burgundy);
+      opacity: 0;
+      transition: opacity 0.5s var(--ease-luxe);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+      transition: color 0.5s var(--ease-luxe);
+    }
+
+    .service-card:hover > * {
+      color: var(--white);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      border: 1px solid var(--burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--burgundy);
+      transition: all 0.5s var(--ease-luxe);
+    }
+
+    .service-card:hover .service-icon {
+      border-color: var(--champagne);
+      color: var(--champagne);
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+
+    .service-card:hover .service-title,
+    .service-card:hover .service-desc {
+      color: var(--white);
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PROCESS - Timeline Style
+       ═══════════════════════════════════════════════════════════ */
+    .process {
+      padding: 10rem 5%;
+      background: var(--ivory);
+      position: relative;
+    }
+
+    .process::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--champagne), transparent);
+    }
+
+    .process-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+
+    .process-header h2 {
+      color: var(--charcoal);
+      margin-top: 1rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4rem;
+      position: relative;
+    }
+
+    .process-card {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--champagne);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .process-desc {
+      font-size: 0.9rem;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+      .process::before { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CONTACT - Split Layout
+       ═══════════════════════════════════════════════════════════ */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      min-height: 100vh;
+    }
+
+    .contact-info {
+      background: var(--burgundy);
+      padding: 8rem 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-info::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(201, 169, 98, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-info .eyebrow {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--ivory);
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      color: rgba(250, 248, 245, 0.7);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      max-width: 400px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: var(--ivory);
+      font-size: 0.95rem;
+    }
+
+    .contact-item i {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(250, 248, 245, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .contact-item:hover i {
+      background: var(--champagne);
+      border-color: var(--champagne);
+      color: var(--burgundy-deep);
+    }
+
+    .contact-form-wrapper {
+      background: var(--ivory);
+      padding: 8rem 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-form {
+      max-width: 500px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.9rem;
+      color: var(--stone);
+      margin-bottom: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem 0;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      border: none;
+      border-bottom: 1px solid rgba(74, 14, 14, 0.15);
+      background: transparent;
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--stone);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--burgundy);
+    }
+
+    .form-group textarea {
+      resize: none;
+      min-height: 100px;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A0E0E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1.25rem 2rem;
+      background: var(--burgundy);
+      color: var(--white);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s var(--ease-luxe);
+    }
+
+    .form-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--champagne);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease-luxe);
+    }
+
+    .form-submit span {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: color 0.5s var(--ease-luxe);
+    }
+
+    .form-submit:hover::before {
+      transform: scaleX(1);
+    }
+
+    .form-submit:hover span {
+      color: var(--burgundy-deep);
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--stone);
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+      .contact-info,
+      .contact-form-wrapper {
+        padding: 4rem 5%;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER - Minimal Luxury
+       ═══════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 6rem 5% 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(250, 248, 245, 0.6);
+      margin-top: 1.5rem;
+      max-width: 320px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--ivory);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--champagne);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      color: rgba(250, 248, 245, 0.6);
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .footer-col a:hover {
+      color: var(--ivory);
+      padding-left: 0.5rem;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(250, 248, 245, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: rgba(250, 248, 245, 0.4);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-socials a {
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(250, 248, 245, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--ivory);
+      transition: all 0.4s var(--ease-luxe);
+    }
+
+    .footer-socials a:hover {
+      background: var(--champagne);
+      border-color: var(--champagne);
+      color: var(--burgundy-deep);
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SCROLL REVEAL
+       ═══════════════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s var(--ease-luxe);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SMOOTH LOAD
+       ═══════════════════════════════════════════════════════════ */
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--burgundy-deep);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s var(--ease-luxe), visibility 0.8s;
+    }
+
+    .page-loader.loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--ivory);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <span class="loader-logo">BORDO</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="/" class="logo">BORDO</a>
+      <nav class="nav-desktop">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/whatwedo" class="nav-link">What We Do</a>
+        <a href="/projects" class="nav-link">Projects</a>
+        <a href="/marketing" class="nav-link">Marketing</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/contact" class="nav-cta"><span>Start Here</span></a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/whatwedo">What We Do</a>
+    <a href="/projects">Projects</a>
+    <a href="/marketing">Marketing</a>
+    <a href="/about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-video">
+      <iframe
+        src="https://customer-w3eshzf2kramnqvl.cloudflarestream.com/74a7b7f85b59015bb9f8335c39e29b78/iframe?autoplay=true&muted=true&loop=true&controls=false"
+        allow="autoplay; encrypted-media"
+        loading="eager"
+        title="BORDO Design Showreel"
+      ></iframe>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tagline">
+        <div class="hero-tagline-line"></div>
+        <span class="eyebrow">Birmingham's Premier Design Studio</span>
+      </div>
+      <h1 class="hero-title display-xl">
+        Where Design<br>Meets <em>Craft</em>
+      </h1>
+      <div class="hero-cta-group">
+        <a href="#contact" class="hero-cta">
+          <span>Start Your Project</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="/projects" class="hero-link">
+          View Portfolio
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- CLIENTS MARQUEE -->
+  <section class="marquee">
+    <div class="marquee-label">
+      <span class="eyebrow">Trusted By Industry Leaders</span>
+    </div>
+    <div class="marquee-track">
+      <img src="logos/2.png" alt="Client">
+      <img src="logos/9.png" alt="Client">
+      <img src="logos/3.png" alt="Client">
+      <img src="logos/4.png" alt="Client">
+      <img src="logos/5.png" alt="Client">
+      <img src="logos/6.png" alt="Client">
+      <img src="logos/7.png" alt="Client">
+      <img src="logos/8.png" alt="Client">
+      <img src="logos/1.png" alt="Client">
+      
+      <img src="logos/2.png" alt="Client">
+      <img src="logos/9.png" alt="Client">
+      <img src="logos/3.png" alt="Client">
+      <img src="logos/4.png" alt="Client">
+      <img src="logos/5.png" alt="Client">
+      <img src="logos/6.png" alt="Client">
+      <img src="logos/7.png" alt="Client">
+      <img src="logos/8.png" alt="Client">
+      <img src="logos/1.png" alt="Client">
+      
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-inner reveal">
+      <h2 class="intro-title display-lg">
+        A multidisciplinary design & build studio<br>
+        uniting <span>design, fabrication</span> and<br>
+        <em>craftsmanship</em> under one roof.
+      </h2>
+      <p class="intro-desc">
+        For over a decade, we've transformed commercial spaces across the Midlands 
+        into extraordinary environments that inspire, engage, and endure.
+      </p>
+      <div class="intro-buttons">
+        <a href="#contact" class="btn btn-primary">
+          <span>Request Quote</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="/projects" class="btn btn-outline">Explore Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SHOWCASE -->
+  <section class="services-showcase">
+    <div class="services-images">
+      <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2789.JPG" alt="Geometric hallway with crafted wooden doors" loading="lazy">
+      <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2782.JPG" alt="Modern wall with wooden slats and illuminated panels" loading="lazy">
+      <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2791.JPG" alt="Executive office with textured accent wall" loading="lazy">
+    </div>
+    <div class="services-content">
+      <div class="services-list reveal">
+        <div class="services-list-item">
+          Carpentry
+          <span>VIEW</span>
+        </div>
+        <div class="services-list-item">
+          Fabrication
+          <span>VIEW</span>
+        </div>
+        <div class="services-list-item">
+          Glasswork
+          <span>VIEW</span>
+        </div>
+        <div class="services-list-item">
+          Masonry
+          <span>VIEW</span>
+        </div>
+      </div>
+      <div class="services-spaces reveal">
+        <h2>
+          Receptions<br>
+          Meeting Rooms<br>
+          <span>Lobbys</span><br>
+          <span>Restaurants</span>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story-section">
+    <div class="story-container">
+      <div class="story-header">
+        <div class="story-header-left">
+          <span class="eyebrow">Our Story</span>
+          <h2 class="display-md">Crafting Spaces That Define Brands</h2>
+        </div>
+        <div class="story-nav">
+          <button class="story-btn" id="storyPrev" aria-label="Previous">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="story-btn" id="storyNext" aria-label="Next">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="story-carousel">
+        <!-- Slide 1 -->
+        <div class="story-slide active" data-slide="0">
+          <div class="story-image">
+            <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/hero/12.png" alt="BORDO Workshop">
+            <div class="story-image-overlay"></div>
+          </div>
+          <div class="story-text">
+            <div class="story-number">01</div>
+            <h3>Craftsmanship Rooted in Birmingham</h3>
+            <p>For over a decade, BORDO has been transforming spaces across the Midlands. Our Birmingham workshop is where ideas become reality—where raw materials meet masterful hands.</p>
+            <a href="/about" class="story-link">
+              Discover Our Heritage
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="story-slide" data-slide="1">
+          <div class="story-image">
+            <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/hero/15.png" alt="Reception Design">
+            <div class="story-image-overlay"></div>
+          </div>
+          <div class="story-text">
+            <div class="story-number">02</div>
+            <h3>Receptions That Command Attention</h3>
+            <p>From Fortune 500 headquarters to boutique agencies, we design spaces that embody your brand's essence and make lasting first impressions.</p>
+            <a href="/projects" class="story-link">
+              View Reception Projects
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="story-slide" data-slide="2">
+          <div class="story-image">
+            <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/hero/14.png" alt="Restaurant Design">
+            <div class="story-image-overlay"></div>
+          </div>
+          <div class="story-text">
+            <div class="story-number">03</div>
+            <h3>Creating Dining Experiences</h3>
+            <p>From fast-casual to fine dining, we understand how design influences appetite, mood, and the overall guest journey. Every detail serves the experience.</p>
+            <a href="/projects" class="story-link">
+              Explore Hospitality Work
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="story-progress">
+          <div class="story-progress-bar active" data-slide="0"></div>
+          <div class="story-progress-bar" data-slide="1"></div>
+          <div class="story-progress-bar" data-slide="2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOSAIC GALLERY -->
+  <section class="mosaic-gallery">
+    <div class="mosaic-header reveal">
+      <div class="mosaic-header-left">
+        <span class="eyebrow">Portfolio</span>
+        <h2 class="display-md">Recent Work</h2>
+      </div>
+      <a href="/projects" class="mosaic-link">
+        View All Projects
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="mosaic-container">
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/c7b65716-011b-4d34-cd98-8a5bb8758900/public" alt="Luxury Reception" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Commercial Fit-Out</p>
+          <h3 class="mosaic-title">Executive Reception</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/ac2511a9-2357-4d22-6172-17129e8b8900/public" alt="Modern Office" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Office Design</p>
+          <h3 class="mosaic-title">Contemporary Workspace</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/f8e2839d-9e0c-42dc-2836-5b1b3b476a00/public" alt="Restaurant Interior" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Hospitality</p>
+          <h3 class="mosaic-title">Fine Dining</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/31984f9b-27ab-42da-8c8a-37be008a7200/public" alt="Meeting Room" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Meeting Rooms</p>
+          <h3 class="mosaic-title">Boardroom Excellence</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/d32ad120-a8d1-4f3e-1dfe-716838575100/public" alt="Retail Space" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Shop Fitting</p>
+          <h3 class="mosaic-title">Boutique Retail</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e432568e-d7b8-4b96-a939-b159d4d95f00/public" alt="Hotel Lobby" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Hospitality</p>
+          <h3 class="mosaic-title">Luxury Hotel Lobby</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/385f12d8-c467-4c5a-414d-305c7b562200/public" alt="Corporate Interior" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Commercial</p>
+          <h3 class="mosaic-title">Corporate HQ</h3>
+        </div>
+      </div>
+      <div class="mosaic-item reveal">
+        <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/539ae873-e2ff-432f-2bd5-104c1c5f7200/public" alt="Cafe Design" loading="lazy">
+        <div class="mosaic-overlay">
+          <p class="mosaic-category">Hospitality</p>
+          <h3 class="mosaic-title">Artisan Cafe</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="projects">
+    <div class="projects-header">
+      <div class="projects-header-left">
+        <span class="eyebrow">Featured</span>
+        <h2 class="display-md">Latest Completions</h2>
+      </div>
+      <a href="/projects" class="mosaic-link">
+        All Projects
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="projects-track">
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/6a18474b-353c-4647-b165-d81b3fd7d300/public" alt="Steakhouse" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Hospitality / Restaurant</p>
+          <h3 class="project-title">Steakhouse: Sculptural Bar & Intimate Dining</h3>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2857.JPG" alt="Al-Noor Islamic Centre" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Religious / Community</p>
+          <h3 class="project-title">Al-Noor Islamic Centre: Sacred Geometry in Modern Design</h3>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2806.JPG" alt="TechHub Co-Working" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Office Fit-Out</p>
+          <h3 class="project-title">TechHub Co-Working: Private Pods for Modern Teams</h3>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2824.JPG" alt="Spectrum Creative Agency" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Office Design</p>
+          <h3 class="project-title">Spectrum Creative Agency: Where Colour Meets Culture</h3>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2832.JPG" alt="Folio Publishing House" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Reception / Lobby</p>
+          <h3 class="project-title">Folio Publishing House: Literary-Inspired Atrium</h3>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/a4cd8910-29fd-439c-2129-1b068fc0fe00/public" alt="The Vault" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Hospitality / Restaurant</p>
+          <h3 class="project-title">The Vault: Premium Steakhouse & Grill Theatre</h3>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://pub-7713e6b0ef0f4cd494d9e7933a0f667b.r2.dev/prabjortjlkvnfs/home/IMG_2836.JPG" alt="The Mayfair Lounge" loading="lazy">
+        </div>
+        <div class="project-content">
+          <p class="project-category">Hospitality</p>
+          <h3 class="project-title">The Mayfair Lounge: Luxury Circular Feature Wall</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="services">
+    <div class="services-inner">
+      <div class="services-header reveal">
+        <span class="eyebrow">Expertise</span>
+        <h2 class="display-md">Premium Design & Build</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-ruler-combined"></i>
+          </div>
+          <h3 class="service-title">Bespoke Carpentry</h3>
+          <p class="service-desc">Luxury joinery, custom millwork, and architectural woodwork by master craftsmen.</p>
+        </article>
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h3 class="service-title">Metal Fabrication</h3>
+          <p class="service-desc">Premium metal, steel, and bronze fabrication for signature fixtures.</p>
+        </article>
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3 class="service-title">Architectural Glass</h3>
+          <p class="service-desc">Custom partitions, artistic installations, and luxury balustrades.</p>
+        </article>
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <i class="fas fa-monument"></i>
+          </div>
+          <h3 class="service-title">Stone Masonry</h3>
+          <p class="service-desc">Natural stone, marble, and premium tile creating timeless finishes.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <h3 class="service-title">Interior Design</h3>
+          <p class="service-desc">Complete interior architecture from concept to final styling.</p>
+        </article>
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="service-title">Project Management</h3>
+          <p class="service-desc">End-to-end coordination ensuring seamless delivery.</p>
+        </article>
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 class="service-title">Custom Finishes</h3>
+          <p class="service-desc">Specialist decorative finishes, gilding, and bespoke techniques.</p>
+        </article>
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="service-title">Lighting Design</h3>
+          <p class="service-desc">Architectural lighting solutions enhancing ambiance.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="process-inner">
+      <div class="process-header reveal">
+        <span class="eyebrow">The Bordo Process</span>
+        <h2 class="display-md">From Concept to Completion</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <div class="process-number">01</div>
+          <h3 class="process-title">Design</h3>
+          <p class="process-desc">In-depth consultation to understand your space, goals, and aesthetic vision.</p>
+        </div>
+        <div class="process-card reveal reveal-delay-1">
+          <div class="process-number">02</div>
+          <h3 class="process-title">Visualise</h3>
+          <p class="process-desc">3D renders and VR walkthroughs so you experience your space before it's built.</p>
+        </div>
+        <div class="process-card reveal reveal-delay-2">
+          <div class="process-number">03</div>
+          <h3 class="process-title">Build</h3>
+          <p class="process-desc">Expert construction with our in-house team and trusted specialist partners.</p>
+        </div>
+        <div class="process-card reveal reveal-delay-3">
+          <div class="process-number">04</div>
+          <h3 class="process-title">Deliver</h3>
+          <p class="process-desc">Final styling, snagging, and handover. Ready for business on day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Let's Create Something Extraordinary</h2>
+      <p>Ready to transform your space? Schedule a consultation and discover how BORDO can bring your vision to life.</p>
+      <div class="contact-details">
+        <a href="tel:01217929167" class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>0121 792 9167</span>
+        </a>
+        <a href="mailto:info@bordodesign.com" class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>info@bordodesign.com</span>
+        </a>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>30-34 Rookery Road, Birmingham, B21 9NB</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrapper">
+      <form class="contact-form reveal" id="contactForm">
+        <h3 class="form-title">Request a Quote</h3>
+        <p class="form-subtitle">We'll respond within 24 hours.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="John">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="john@company.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="0121 234 5678">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="projectType">Project Type</label>
+          <select id="projectType" name="projectType" required>
+            <option value="">Select project type...</option>
+            <option value="reception">Reception / Lobby</option>
+            <option value="meeting">Meeting Rooms</option>
+            <option value="restaurant">Restaurant / Hospitality</option>
+            <option value="retail">Retail / Shop Fitting</option>
+            <option value="office">Office Fit-Out</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Project Details</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project, timeline, and requirements..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          <span>
+            Submit Request
+            <i class="fas fa-arrow-right"></i>
+          </span>
+        </button>
+        <p class="form-note">Your information is secure and will never be shared.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">BORDO</span>
+          <p>A multidisciplinary design and build studio uniting design, fabrication and craftsmanship under one roof.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="/projects">Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/whatwedo">Carpentry</a></li>
+            <li><a href="/whatwedo">Fabrication</a></li>
+            <li><a href="/whatwedo">Glasswork</a></li>
+            <li><a href="/whatwedo">Masonry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:01217929167">0121 792 9167</a></li>
+            <li><a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
+            <li>30-34 Rookery Road<br>Birmingham, B21 9NB</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 BORDO Design Ltd. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Page Loader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('loaded');
+      }, 500);
+    });
+
+    // Header scroll
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      header.classList.toggle('scrolled', currentScroll > 100);
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuToggle.addEventListener('click', () => {
+      const isActive = mobileMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Story carousel
+    const storySlides = document.querySelectorAll('.story-slide');
+    const storyBars = document.querySelectorAll('.story-progress-bar');
+    const storyPrev = document.getElementById('storyPrev');
+    const storyNext = document.getElementById('storyNext');
+    let currentStory = 0;
+    let storyInterval;
+
+    function showStory(index) {
+      storySlides.forEach(s => s.classList.remove('active'));
+      storyBars.forEach(b => b.classList.remove('active'));
+      
+      currentStory = (index + storySlides.length) % storySlides.length;
+      storySlides[currentStory].classList.add('active');
+      storyBars[currentStory].classList.add('active');
+    }
+
+    function startAutoPlay() {
+      storyInterval = setInterval(() => showStory(currentStory + 1), 6000);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(storyInterval);
+      startAutoPlay();
+    }
+
+    storyPrev.addEventListener('click', () => {
+      showStory(currentStory - 1);
+      resetAutoPlay();
+    });
+    
+    storyNext.addEventListener('click', () => {
+      showStory(currentStory + 1);
+      resetAutoPlay();
+    });
+    
+    storyBars.forEach((bar, i) => {
+      bar.addEventListener('click', () => {
+        showStory(i);
+        resetAutoPlay();
+      });
+    });
+
+    startAutoPlay();
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Form
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your enquiry! We will be in touch within 24 hours.');
+      contactForm.reset();
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Disable right-click and inspect
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12' ||
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+          (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+      }
+    });
+  </script>
+
+</body>
+</html>
