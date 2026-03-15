@@ -510,9 +510,40 @@ footer {
   .nav-links.active { display: flex; }
   .nav-links a { font-size: 1.4rem; }
   .mobile-toggle { display: flex; z-index: 1000; }
+
+  /* Hero */
+  .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+  .page-hero p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .page-hero-content { padding: 6rem 5% 3rem; }
+
+  /* Service details */
+  .service-detail { grid-template-columns: 1fr !important; gap: 1.5rem; padding: 3rem 0; }
+  .service-detail.reverse .service-detail-visual { order: 1 !important; }
+  .service-detail.reverse .service-detail-content { order: 2 !important; }
+  .service-detail-visual { min-height: 180px; padding: 2rem; }
+  .service-detail-content h3 { font-size: 1.4rem; }
+  .service-detail-content p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .service-tags { display: none; }
+
+  /* Process */
   .process-grid { grid-template-columns: 1fr; }
+  .process-step h4 { font-size: 1rem; }
+  .process-step p { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* CTA */
+  .cta-section { padding: 3rem 5%; }
+  .cta-inner h2 { font-size: 1.6rem; }
+  .cta-inner p { display: none; }
   .cta-buttons { flex-direction: column; align-items: center; }
+
+  /* Footer */
   .footer-top { grid-template-columns: 1fr; }
+  .footer-brand p { display: none; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  /* WhatsApp */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 1.2rem; right: 1.2rem; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
 }
 
 /* ============ WHATSAPP BUTTON ============ */
@@ -551,11 +582,12 @@ footer {
     <img src="merlinsgrouplogo.png" alt="Merlins Group">
   </a>
   <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="agency.html">Merlins Agency</a></li>
-    <li><a href="construction.html">Construction</a></li>
-    <li><a href="cic.html">CIC</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services" class="active">Systems & Technology</a></li>
+    <li><a href="/agency">Growth & Marketing</a></li>
+    <li><a href="/construction">Construction</a></li>
+    <li><a href="/cic">CIC</a></li>
+    <li><a href="/fractional">Fractional Support</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
@@ -792,17 +824,17 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html">AI</a>
-        <a href="services.html">Automation</a>
-        <a href="services.html">CRM Solutions</a>
-        <a href="services.html">App Development</a>
-        <a href="services.html">Data Science</a>
-        <a href="services.html">Migration & Scaling</a>
+        <a href="/services">AI</a>
+        <a href="/services">Automation</a>
+        <a href="/services">CRM Solutions</a>
+        <a href="/services">App Development</a>
+        <a href="/services">Data Science</a>
+        <a href="/services">Migration & Scaling</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="agency.html">Merlins Agency</a>
+        <a href="/about">About Us</a>
+        <a href="/agency">Merlins Agency</a>
         <a href="/#clients">Our Clients</a>
         <a href="/#results">Case Studies</a>
         <a href="#">Careers</a>

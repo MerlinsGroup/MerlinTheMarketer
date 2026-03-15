@@ -580,11 +580,45 @@ footer {
   .nav-links.active { display: flex; }
   .nav-links a { font-size: 1.4rem; }
   .mobile-toggle { display: flex; z-index: 1000; }
-  .process-grid { grid-template-columns: 1fr; }
-  .who-visual { grid-template-columns: 1fr 1fr; }
+
+  /* Hero */
+  .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+  .page-hero p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .page-hero-content { padding: 6rem 5% 3rem; }
   .hero-buttons { flex-direction: column; align-items: center; }
+
+  /* Service cards */
+  .services-grid { grid-template-columns: 1fr !important; gap: 0.8rem; }
+  .service-card { padding: 1.2rem; }
+  .service-card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .service-card p { display: none; }
+
+  /* Process */
+  .process-grid { grid-template-columns: 1fr; }
+  .process-card h3 { font-size: 1rem; }
+  .process-card p { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Who section */
+  .who-inner { grid-template-columns: 1fr !important; gap: 2rem; }
+  .who-content h2 { font-size: 1.6rem; }
+  .who-content p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .who-visual { grid-template-columns: 1fr 1fr; }
+  .who-list li { font-size: 0.88rem; }
+
+  /* CTA */
+  .cta-section { padding: 3rem 5%; }
+  .cta-inner h2 { font-size: 1.6rem; }
+  .cta-inner p { display: none; }
   .cta-buttons { flex-direction: column; align-items: center; }
+
+  /* Footer */
   .footer-top { grid-template-columns: 1fr; }
+  .footer-brand p { display: none; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  /* WhatsApp */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 1.2rem; right: 1.2rem; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
 }
 
 /* ============ WHATSAPP BUTTON ============ */
@@ -623,12 +657,12 @@ footer {
     <img src="merlinsgrouplogo.png" alt="Merlins Group">
   </a>
   <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Systems & Technology</a></li>
-    <li><a href="agency.html">Growth & Marketing</a></li>
-    <li><a href="construction.html">Construction</a></li>
-    <li><a href="cic.html">CIC</a></li>
-    <li><a href="fractional.html" class="active">Fractional Support</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Systems & Technology</a></li>
+    <li><a href="/agency">Growth & Marketing</a></li>
+    <li><a href="/construction">Construction</a></li>
+    <li><a href="/cic">CIC</a></li>
+    <li><a href="/fractional" class="active">Fractional Support</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
@@ -776,15 +810,15 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html">Systems & Technology</a>
-        <a href="agency.html">Growth & Marketing</a>
-        <a href="construction.html">Construction</a>
-        <a href="fractional.html">Fractional Support</a>
+        <a href="/services">Systems & Technology</a>
+        <a href="/agency">Growth & Marketing</a>
+        <a href="/construction">Construction</a>
+        <a href="/fractional">Fractional Support</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="cic.html">CIC</a>
+        <a href="/about">About Us</a>
+        <a href="/cic">CIC</a>
         <a href="/#clients">Our Clients</a>
         <a href="/#results">Case Studies</a>
       </div>

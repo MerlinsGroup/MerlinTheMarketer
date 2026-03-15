@@ -106,7 +106,7 @@ nav.scrolled {
 }
 .accent { color: var(--gold); font-style: italic; }
 
-/* ============ HERO — IMAGE BACKGROUND (CIC STYLE) ============ */
+/* ============ HERO — SPOTLIGHT BACKGROUND ============ */
 .page-hero {
   min-height: 100vh;
   background: var(--navy-deep);
@@ -114,29 +114,58 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
 }
-.hero-image-bg {
+.hero-spotlights {
   position: absolute; inset: 0; z-index: 0;
-  background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80') center/cover no-repeat;
-  opacity: 0; transform: scale(1.1);
-  animation: heroImgIn 2s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
 }
-@keyframes heroImgIn {
-  to { opacity: 1; transform: scale(1); }
+.hero-spotlights::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  top: -20%; left: -10%;
+  background: radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 60%);
+  animation: spotlightDrift1 8s ease-in-out infinite alternate;
 }
-.hero-image-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(9,18,32,0.94) 0%,
-    rgba(9,18,32,0.85) 20%,
-    rgba(37,99,235,0.35) 45%,
-    rgba(96,165,250,0.25) 60%,
-    rgba(9,18,32,0.88) 75%,
-    rgba(9,18,32,0.96) 100%
-  );
+.hero-spotlights::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  bottom: -15%; right: -5%;
+  background: radial-gradient(circle, rgba(96,165,250,0.3) 0%, transparent 55%);
+  animation: spotlightDrift2 10s ease-in-out infinite alternate;
+}
+.hero-spotlight-accent {
+  position: absolute; z-index: 0;
+  width: 500px; height: 500px;
+  top: 30%; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 50%);
+  animation: spotlightPulse 6s ease-in-out infinite alternate;
+}
+.hero-spotlight-warm {
+  position: absolute; z-index: 0;
+  width: 400px; height: 400px;
+  top: 10%; right: 15%;
+  background: radial-gradient(circle, rgba(147,197,253,0.15) 0%, transparent 55%);
+  animation: spotlightDrift3 12s ease-in-out infinite alternate;
+}
+@keyframes spotlightDrift1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 60px) scale(1.15); }
+}
+@keyframes spotlightDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-60px, -40px) scale(1.2); }
+}
+@keyframes spotlightDrift3 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  100% { transform: translate(-40px, 30px) scale(1.1); opacity: 1; }
+}
+@keyframes spotlightPulse {
+  0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.3); }
 }
 .hero-grid-bg {
-  position: absolute; inset: 0; z-index: 2;
+  position: absolute; inset: 0; z-index: 1;
   background-image:
     linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
@@ -775,9 +804,85 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .origin-logo { min-width: 110px; padding: 1rem 1.2rem; }
   .cta-buttons { flex-direction: column; align-items: center; }
   .footer-top { grid-template-columns: 1fr; }
+  .footer-brand p { display: none; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   .hero-stats-bar { gap: 1.5rem; }
   .hero-stat h3 { font-size: 2rem; }
   .page-hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+  .page-hero p { font-size: 0.9rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* About The Company */
+  .about-company { padding: 3rem 5% !important; }
+  .about-company-inner { gap: 1.5rem !important; }
+  .about-company h2 { font-size: 1.8rem !important; }
+  .about-text p { font-size: 0.9rem !important; line-height: 1.7 !important; }
+  .about-text p:last-child { display: none; }
+
+  /* Origins */
+  .origins-section { padding: 3rem 5% !important; }
+  .origins-header h2 { font-size: 1.6rem !important; }
+  .origins-header p { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .origins-logos { gap: 0.8rem; }
+  .origin-logo span { font-size: 0.65rem; }
+  .origin-role p { font-size: 0.8rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .origin-role h3 { font-size: 1rem; }
+
+  /* Parliament */
+  .parliament-section { padding: 3rem 5% !important; }
+  .parliament-header h2 { font-size: 1.6rem !important; }
+  .parliament-header p { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Stats */
+  .stats-inner { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem; }
+  .stat-item h3 { font-size: 2.2rem; }
+  .stat-item p { font-size: 0.65rem; }
+
+  /* Projects */
+  .projects-section { padding: 3rem 5% !important; }
+  .projects-header h2 { font-size: 1.6rem !important; }
+  .projects-header p { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .project-card { grid-template-columns: 1fr !important; gap: 1.5rem; padding: 2rem 0; }
+  .project-card.reverse .project-visual { order: 1 !important; }
+  .project-card.reverse .project-content { order: 2 !important; }
+  .project-visual { min-height: 180px; padding: 2rem; }
+  .project-content h3 { font-size: 1.3rem; }
+  .project-content p { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .project-tags { display: none; }
+  .project-number { font-size: 2.5rem; }
+
+  /* Showcase */
+  .showcase-section { padding: 3rem 5% !important; }
+  .showcase-header h2 { font-size: 1.6rem !important; }
+  .showcase-header p { display: none; }
+
+  /* Clients */
+  .clients-section { padding: 3rem 5% !important; }
+  .clients-header h2 { font-size: 1.6rem !important; }
+  .client-logo-card { padding: 1rem; }
+  .client-icon { height: 50px; }
+
+  /* Values */
+  .values-section { padding: 3rem 5% !important; }
+  .values-header h2 { font-size: 1.6rem !important; }
+  .value-card { padding: 2rem 1.5rem; }
+  .value-card p { font-size: 0.8rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .value-card h3 { font-size: 1.1rem; }
+
+  /* Industries */
+  .industries-section { padding: 3rem 5% !important; }
+  .industries-header h2 { font-size: 1.6rem !important; }
+  .industries-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.8rem; }
+  .industry-card { padding: 1.5rem 1rem; }
+  .industry-card h4 { font-size: 0.85rem; }
+
+  /* CTA */
+  .cta-section { padding: 3rem 5% !important; }
+  .cta-inner h2 { font-size: 1.6rem !important; }
+  .cta-inner p { display: none; }
+
+  /* WhatsApp */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 1.2rem; right: 1.2rem; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
 }
 </style>
 </head>
@@ -789,12 +894,12 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
     <img src="merlinsgrouplogo.png" alt="Merlins Group">
   </a>
   <ul class="nav-links">
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="services.html">Systems & Technology</a></li>
-    <li><a href="agency.html">Growth & Marketing</a></li>
-    <li><a href="construction.html">Construction</a></li>
-    <li><a href="cic.html">CIC</a></li>
-    <li><a href="fractional.html">Fractional Support</a></li>
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/services">Systems & Technology</a></li>
+    <li><a href="/agency">Growth & Marketing</a></li>
+    <li><a href="/construction">Construction</a></li>
+    <li><a href="/cic">CIC</a></li>
+    <li><a href="/fractional">Fractional Support</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
@@ -804,8 +909,9 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 
 <!-- HERO -->
 <section class="page-hero">
-  <div class="hero-image-bg"></div>
-  <div class="hero-image-overlay"></div>
+  <div class="hero-spotlights"></div>
+  <div class="hero-spotlight-accent"></div>
+  <div class="hero-spotlight-warm"></div>
   <div class="hero-grid-bg"></div>
   <div class="page-hero-content">
     <div class="section-tag">About Merlins Group</div>
@@ -1098,7 +1204,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
     <p>Book a no-obligation strategy call with our team and discover how Merlins Group can transform your business.</p>
     <div class="cta-buttons">
       <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book Strategy Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="services.html" class="btn-outline">View Our Systems & Technology</a>
+      <a href="/services" class="btn-outline">View Our Systems & Technology</a>
     </div>
   </div>
 </section>
@@ -1113,20 +1219,20 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html">AI & Automation</a>
-        <a href="services.html">CRM Implementation</a>
-        <a href="services.html">App Development</a>
-        <a href="services.html">Data Science</a>
-        <a href="services.html">Migration Projects</a>
-        <a href="agency.html">Growth & Marketing</a>
+        <a href="/services">AI & Automation</a>
+        <a href="/services">CRM Implementation</a>
+        <a href="/services">App Development</a>
+        <a href="/services">Data Science</a>
+        <a href="/services">Migration Projects</a>
+        <a href="/agency">Growth & Marketing</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="agency.html">Growth & Marketing</a>
-        <a href="construction.html">Construction</a>
-        <a href="fractional.html">Fractional Support</a>
-        <a href="cic.html">CIC Programme</a>
+        <a href="/about">About Us</a>
+        <a href="/agency">Growth & Marketing</a>
+        <a href="/construction">Construction</a>
+        <a href="/fractional">Fractional Support</a>
+        <a href="/cic">CIC Programme</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>

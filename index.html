@@ -1099,6 +1099,16 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   .cta-inner p { display: none; }
   .cta-buttons { flex-direction: column; align-items: center; }
 
+  /* About The Company - stack on mobile */
+  .founders-section { padding: 3rem 5% !important; }
+  .founders-section > div > div[style*="grid-template-columns: 1fr 1fr"] {
+    display: block !important;
+  }
+  .founders-section h2 { font-size: 1.8rem !important; margin-bottom: 1.5rem !important; }
+  .founders-section p { font-size: 0.9rem !important; line-height: 1.7 !important; }
+  .founders-section p:last-of-type { display: none; }
+  .founders-section div[style*="aspect-ratio"] { display: none; }
+
   /* Footer */
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-brand p { display: none; }
@@ -1134,11 +1144,12 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
 <nav id="navbar">
   <a href="/" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
   <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="agency.html">Merlins Agency</a></li>
-    <li><a href="construction.html">Construction</a></li>
-    <li><a href="cic.html">CIC</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Systems & Technology</a></li>
+    <li><a href="/agency">Growth & Marketing</a></li>
+    <li><a href="/construction">Construction</a></li>
+    <li><a href="/cic">CIC</a></li>
+    <li><a href="/fractional">Fractional Support</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
@@ -1455,8 +1466,8 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; }
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand"><span>Merlins Group</span><p>Enterprise technology solutions for businesses that demand results. AI, automation, and scalable infrastructure, all under one roof.</p></div>
-      <div class="footer-col"><h4>Services</h4><a href="services.html">Artificial Intelligence</a><a href="services.html">Automation & Workflows</a><a href="services.html">CRM Solutions</a><a href="services.html">Application Development</a><a href="services.html">Data Science & Analytics</a><a href="services.html">Migration & Scaling</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agency.html">Merlins Agency</a><a href="#clients">Our Clients</a><a href="#results">Case Studies</a><a href="#">Careers</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="/services">Artificial Intelligence</a><a href="/services">Automation & Workflows</a><a href="/services">CRM Solutions</a><a href="/services">Application Development</a><a href="/services">Data Science & Analytics</a><a href="/services">Migration & Scaling</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/about">About Us</a><a href="/agency">Merlins Agency</a><a href="#clients">Our Clients</a><a href="#results">Case Studies</a><a href="#">Careers</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/447388539987">07388539987 - WhatsApp</a></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 Merlins Group. All rights reserved.</span><span>Privacy Policy &middot; Terms of Service</span></div>
