@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYS4Z1VX5J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TYS4Z1VX5J');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Construction & Property | Merlins Group</title>
-<meta name="description" content="Merlins Group delivers end-to-end technology, marketing, and automation solutions for the construction and property sector. Trusted by BordoDesign, BordoGlass, and more.">
-<meta name="keywords" content="construction technology, property marketing, construction automation, CRM construction, BordoDesign, BordoGlass, Merlins Group">
+<title>Construction Website, Automation & Marketing Birmingham | Property & Maintenance Technology | Merlins Group</title>
+<meta name="description" content="Merlins Group builds websites, automates workflows and runs marketing for construction, property and maintenance companies in Birmingham. Website development, CRM, Google Ads, SEO, video content, data analytics, app development and system migration for construction firms. Trusted by BordoDesign, BordoGlass and builders across Birmingham and London.">
+<meta name="keywords" content="merlinsgroup, Merlins Group, construction website Birmingham, construction website design Birmingham, construction company website Birmingham, builder website Birmingham, property website Birmingham, maintenance company website Birmingham, construction automation Birmingham, construction CRM Birmingham, construction marketing Birmingham, construction SEO Birmingham, construction Google Ads Birmingham, property marketing Birmingham, builder marketing Birmingham, construction app Birmingham, construction software Birmingham, construction data analytics Birmingham, property management software Birmingham, maintenance software Birmingham, construction video Birmingham, construction social media Birmingham, BordoDesign, BordoGlass, Merlins Group, construction website London, property marketing London, construction automation London, West Midlands construction technology, Solihull, Wolverhampton">
 <meta name="author" content="Merlins Group">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://merlinsgroup.co.uk/construction">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://merlinsgroup.co.uk/construction">
+<meta property="og:title" content="Construction & Property Technology Birmingham | Merlins Group">
+<meta property="og:description" content="Technology, marketing, automation and software for construction, property and maintenance. CRM, paid ads, video, AI. Trusted by BordoDesign, BordoGlass.">
+<meta property="og:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+<meta property="og:site_name" content="Merlins Group">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Construction & Property Technology Birmingham | Merlins Group">
+<meta name="twitter:description" content="Technology, marketing, automation and software for construction, property and maintenance companies. Birmingham & UK.">
+<meta name="twitter:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Merlins Group - Construction & Property",
+  "url": "https://merlinsgroup.co.uk/construction",
+  "logo": "https://merlinsgroup.co.uk/merlinslogo.png",
+  "description": "End-to-end technology, marketing, automation and software development for construction, property and maintenance companies in Birmingham and the UK. Trusted by BordoDesign and BordoGlass.",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Merlins Group",
+    "url": "https://merlinsgroup.co.uk"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Birmingham",
+    "addressRegion": "West Midlands",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Birmingham"},
+    {"@type": "City", "name": "London"},
+    {"@type": "AdministrativeArea", "name": "West Midlands"},
+    {"@type": "Country", "name": "United Kingdom"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Construction Technology Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Systems & Automation for Construction"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marketing & Ads for Construction"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Video & Content for Construction"}}
+    ]
+  }
+}
+</script>
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
 <link rel="icon" href="favicon_io/favicon.ico">
@@ -876,6 +938,18 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
 .sr.visible { opacity: 1; transform: translateY(0); }
 
 /* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  nav { padding: 0.6rem 1.2rem; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(13,27,42,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+}
 @media (max-width: 1024px) {
   .service-row { grid-template-columns: 1fr 1fr; min-height: 500px; }
   .clients-grid { grid-template-columns: repeat(3, 1fr); }
@@ -885,16 +959,6 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   .portfolio-item.large { grid-column: span 2; grid-row: span 1; aspect-ratio: 2/1; }
 }
 @media (max-width: 768px) {
-  nav { width: 96%; padding: 0.6rem 1.2rem; top: 0.5rem; }
-  .nav-links {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: var(--navy); flex-direction: column; align-items: center;
-    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
-  }
-  .nav-links.active { display: flex; }
-  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
-  .mobile-toggle { display: flex; z-index: 1000; }
-
   .page-hero { height: auto; min-height: 100vh; }
   .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
   .page-hero p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -961,7 +1025,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="/" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
+  <a href="/agency" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/services">Systems & Technology</a></li>
@@ -969,6 +1033,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
     <li><a href="/construction" class="active">Construction</a></li>
     <li><a href="/cic">CIC</a></li>
     <li><a href="/fractional">Fractional Support</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
@@ -1406,8 +1471,8 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand"><span>Merlins Group</span><p>Enterprise technology solutions for businesses that demand results. AI, automation, and scalable infrastructure, all under one roof.</p></div>
-      <div class="footer-col"><h4>Services</h4><a href="/services">Artificial Intelligence</a><a href="/services">Automation & Workflows</a><a href="/services">CRM Solutions</a><a href="/services">Application Development</a><a href="/services">Data Science & Analytics</a><a href="/services">Migration & Scaling</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="/about">About Us</a><a href="/agency">Growth & Marketing</a><a href="/construction">Construction</a><a href="#">Careers</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="/agency">Artificial Intelligence</a><a href="/agency">Automation & Workflows</a><a href="/agency">CRM Solutions</a><a href="/agency">Application Development</a><a href="/agency">Data Science & Analytics</a><a href="/agency">Migration & Scaling</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/agency">About Us</a><a href="/agency">Growth & Marketing</a><a href="/agency">Construction</a><a href="#">Careers</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/447424053868">WhatsApp</a><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Book a Call</a></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 Merlins Group. All rights reserved.</span><span>Privacy Policy &middot; Terms of Service</span></div>

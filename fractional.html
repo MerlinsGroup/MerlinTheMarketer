@@ -1,25 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYS4Z1VX5J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TYS4Z1VX5J');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fractional CTO & Marketing Support | Merlins Group</title>
-<meta name="description" content="Fractional CTO and marketing leadership from Merlins Group. Senior technology strategy and marketing expertise without the full-time cost. Scale smarter.">
-<meta name="keywords" content="fractional CTO, fractional marketing, part-time CTO, technology leadership, marketing strategy, Merlins Group">
+<title>Fractional CTO & Marketing Director Birmingham | Website, Automation & Data Science Leadership | Merlins Group</title>
+<meta name="description" content="Fractional CTO and fractional marketing director in Birmingham from Merlins Group. Senior leadership for website development, business automation, app development, data science, migration projects and marketing strategy without the full-time cost. Ideal for Birmingham startups, SMEs, construction and property companies.">
+<meta name="keywords" content="merlinsgroup, Merlins Group, fractional CTO Birmingham, fractional CTO for website development, fractional CTO for automation, fractional CTO for data science, fractional CTO for app development, fractional CTO for migration, part-time CTO Birmingham, outsourced CTO Birmingham, interim CTO Birmingham, fractional marketing director Birmingham, part-time marketing director Birmingham, fractional CMO Birmingham, startup CTO Birmingham, SME CTO Birmingham, technology consultant Birmingham, marketing consultant Birmingham, website strategy Birmingham, automation strategy Birmingham, data science consultant Birmingham, app development consultant Birmingham, Merlins Group, fractional CTO London, fractional marketing London, West Midlands CTO, Solihull">
 <meta name="author" content="Merlins Group">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://merlinsagency.co.uk/fractional">
+<link rel="canonical" href="https://merlinsgroup.co.uk/fractional">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://merlinsagency.co.uk/fractional">
-<meta property="og:title" content="Fractional CTO & Marketing Support | Merlins Group">
-<meta property="og:description" content="Senior technology leadership and marketing strategy without the full-time cost. Scale smarter with Merlins Group.">
-<meta property="og:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+<meta property="og:url" content="https://merlinsgroup.co.uk/fractional">
+<meta property="og:title" content="Fractional CTO & Marketing Director Birmingham | Merlins Group">
+<meta property="og:description" content="Senior technology and marketing leadership without the full-time cost. Birmingham-based. Ideal for startups, SMEs and growing businesses across the UK.">
+<meta property="og:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+<meta property="og:site_name" content="Merlins Group">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fractional CTO & Marketing Support | Merlins Group">
-<meta name="twitter:description" content="Senior technology leadership and marketing strategy without the full-time cost. Scale smarter with Merlins Group.">
-<meta name="twitter:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+<meta name="twitter:title" content="Fractional CTO & Marketing Director Birmingham | Merlins Group">
+<meta name="twitter:description" content="Senior tech and marketing leadership without the full-time cost. Birmingham-based. Ideal for startups, SMEs and growing businesses.">
+<meta name="twitter:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Merlins Group - Fractional CTO & Marketing Support",
+  "url": "https://merlinsgroup.co.uk/fractional",
+  "logo": "https://merlinsgroup.co.uk/merlinslogo.png",
+  "description": "Birmingham-based fractional CTO and marketing director. Senior technology strategy, AI, automation, software development and marketing leadership without the full-time cost. Ideal for startups, SMEs, construction and property companies.",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Merlins Group",
+    "url": "https://merlinsgroup.co.uk"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Birmingham",
+    "addressRegion": "West Midlands",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Birmingham"},
+    {"@type": "City", "name": "London"},
+    {"@type": "AdministrativeArea", "name": "West Midlands"},
+    {"@type": "Country", "name": "United Kingdom"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Fractional Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fractional CTO"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fractional Marketing Director"}}
+    ]
+  }
+}
+</script>
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
@@ -562,6 +608,18 @@ footer {
 }
 
 /* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  nav { padding: 0.6rem 1.2rem; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(13,27,42,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+}
 @media (max-width: 1024px) {
   .duo-grid { grid-template-columns: 1fr; }
   .who-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -569,18 +627,6 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  nav { width: 96%; padding: 0.6rem 1.2rem; top: 0.5rem; }
-  .nav-links {
-    display: none;
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: var(--navy); flex-direction: column;
-    align-items: center; justify-content: center; gap: 2rem; z-index: 999;
-    border-radius: 0;
-  }
-  .nav-links.active { display: flex; }
-  .nav-links a { font-size: 1.4rem; }
-  .mobile-toggle { display: flex; z-index: 1000; }
-
   /* Hero */
   .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
   .page-hero p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -653,7 +699,7 @@ footer {
 
 <!-- NAVIGATION -->
 <nav id="navbar">
-  <a href="/" class="nav-brand">
+  <a href="/agency" class="nav-brand">
     <img src="merlinsgrouplogo.png" alt="Merlins Group">
   </a>
   <ul class="nav-links">
@@ -663,6 +709,7 @@ footer {
     <li><a href="/construction">Construction</a></li>
     <li><a href="/cic">CIC</a></li>
     <li><a href="/fractional" class="active">Fractional Support</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
@@ -795,7 +842,7 @@ footer {
     <p>Book a strategy call and we'll map out exactly how fractional support can accelerate your business — no commitment required.</p>
     <div class="cta-buttons">
       <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="btn-dark">Book a Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="/" class="btn-outline">Back to Home</a>
+      <a href="/agency" class="btn-outline">Back to Home</a>
     </div>
   </div>
 </section>
@@ -810,17 +857,17 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="/services">Systems & Technology</a>
+        <a href="/agency">Systems & Technology</a>
         <a href="/agency">Growth & Marketing</a>
-        <a href="/construction">Construction</a>
-        <a href="/fractional">Fractional Support</a>
+        <a href="/agency">Construction</a>
+        <a href="/agency">Fractional Support</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="/about">About Us</a>
-        <a href="/cic">CIC</a>
-        <a href="/#clients">Our Clients</a>
-        <a href="/#results">Case Studies</a>
+        <a href="/agency">About Us</a>
+        <a href="/agency">CIC</a>
+        <a href="/agency">Our Clients</a>
+        <a href="/agency">Case Studies</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>

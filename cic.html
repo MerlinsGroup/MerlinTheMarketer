@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYS4Z1VX5J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TYS4Z1VX5J');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIC & Charity Programme | Merlins Group</title>
-<meta name="description" content="Merlins Group CIC & Charity Programme. Enterprise-grade marketing, automation and digital services for verified Community Interest Companies from just £700/month.">
-<meta name="keywords" content="CIC services, charity marketing, community interest company, affordable digital services, charity automation, Sanitopia, Merlins Group CIC">
+<title>CIC & Charity Website, Marketing & Automation Birmingham | From £700/month | Merlins Group</title>
+<meta name="description" content="Merlins Group CIC & Charity Programme in Birmingham. Affordable website development, marketing, automation, data analytics and digital services for Community Interest Companies from just £700/month. We build charity websites, run marketing campaigns and automate workflows for CICs across Birmingham and London.">
+<meta name="keywords" content="merlinsgroup, Merlins Group, charity website Birmingham, CIC website Birmingham, charity website design Birmingham, non-profit website Birmingham, charity marketing Birmingham, CIC marketing Birmingham, charity SEO Birmingham, charity Google Ads Birmingham, charity social media Birmingham, charity automation Birmingham, CIC automation Birmingham, charity data analytics Birmingham, CIC digital services Birmingham, affordable website Birmingham, cheap website design Birmingham, charity app Birmingham, CIC software Birmingham, Sanitopia, Merlins Group CIC, charity website London, CIC marketing London, non-profit digital Birmingham, community interest company Birmingham, West Midlands charity services">
 <meta name="author" content="Merlins Group">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://merlinsagency.co.uk/cic">
+<link rel="canonical" href="https://merlinsgroup.co.uk/cic">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://merlinsagency.co.uk/cic">
+<meta property="og:url" content="https://merlinsgroup.co.uk/cic">
 <meta property="og:title" content="CIC & Charity Programme | Merlins Group">
 <meta property="og:description" content="Enterprise-grade services for verified Community Interest Companies from just £700/month. Apply now.">
-<meta property="og:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+<meta property="og:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+<meta property="og:site_name" content="Merlins Group">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CIC & Charity Programme | Merlins Group">
 <meta name="twitter:description" content="Enterprise-grade services for verified Community Interest Companies from just £700/month. Apply now.">
-<meta name="twitter:image" content="https://merlinsagency.co.uk/merlinslogo.png">
+<meta name="twitter:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Merlins Group - CIC & Charity Programme",
+  "url": "https://merlinsgroup.co.uk/cic",
+  "logo": "https://merlinsgroup.co.uk/merlinslogo.png",
+  "description": "Birmingham-based enterprise-grade marketing, automation, software development and digital services for verified Community Interest Companies from just £700/month.",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Merlins Group",
+    "url": "https://merlinsgroup.co.uk"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Birmingham",
+    "addressRegion": "West Midlands",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Birmingham"},
+    {"@type": "City", "name": "London"},
+    {"@type": "AdministrativeArea", "name": "West Midlands"},
+    {"@type": "Country", "name": "United Kingdom"}
+  ],
+  "priceRange": "From £700/month"
+}
+</script>
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
 <link rel="icon" href="favicon_io/favicon.ico">
@@ -892,6 +932,18 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
 .sr.visible { opacity: 1; transform: translateY(0); }
 
 /* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  nav { padding: 0.6rem 1.2rem; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(13,27,42,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+}
 @media (max-width: 1024px) {
   .service-row { grid-template-columns: 1fr 1fr; height: 550px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -900,16 +952,6 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  nav { width: 96%; padding: 0.6rem 1.2rem; top: 0.5rem; }
-  .nav-links {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: var(--navy); flex-direction: column; align-items: center;
-    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
-  }
-  .nav-links.active { display: flex; }
-  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
-  .mobile-toggle { display: flex; z-index: 1000; }
-
   .page-hero { min-height: 100vh; }
   .page-hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
   .page-hero-content > p { font-size: 0.88rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -972,7 +1014,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="/" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
+  <a href="/agency" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/services">Systems & Technology</a></li>
@@ -980,6 +1022,7 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
     <li><a href="/construction">Construction</a></li>
     <li><a href="/cic" class="active">CIC</a></li>
     <li><a href="/fractional">Fractional Support</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
@@ -1381,8 +1424,8 @@ footer { background: var(--navy-deep); padding: 5rem 6% 2rem; border-top: 1px so
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand"><span>Merlins Group</span><p>Enterprise technology solutions for businesses that demand results. AI, automation, and scalable infrastructure, all under one roof.</p></div>
-      <div class="footer-col"><h4>Services</h4><a href="/services">Artificial Intelligence</a><a href="/services">Automation & Workflows</a><a href="/services">CRM Solutions</a><a href="/services">Application Development</a><a href="/services">Data Science & Analytics</a><a href="/agency">Growth & Marketing</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="/about">About Us</a><a href="/agency">Growth & Marketing</a><a href="/construction">Construction</a><a href="/cic">CIC Programme</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="/agency">Artificial Intelligence</a><a href="/agency">Automation & Workflows</a><a href="/agency">CRM Solutions</a><a href="/agency">Application Development</a><a href="/agency">Data Science & Analytics</a><a href="/agency">Growth & Marketing</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/agency">About Us</a><a href="/agency">Growth & Marketing</a><a href="/agency">Construction</a><a href="/agency">CIC Programme</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/447424053868">WhatsApp</a><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1">Book a Call</a></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 Merlins Group. All rights reserved.</span><span>Privacy Policy &middot; Terms of Service</span></div>

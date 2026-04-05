@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYS4Z1VX5J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TYS4Z1VX5J');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Merlins Group Birmingham — Website Development, Marketing, Data Science News</title>
+<meta name="description" content="Merlins Group blog. Behind the scenes of website development, marketing campaigns, filming and events in Birmingham. GSF Car Parts filming, IceBank Jewellers branding, Parliament attendance, BordoDesign construction marketing and more.">
+<meta name="keywords" content="merlinsgroup, Merlins Group blog, digital agency Birmingham blog, website development Birmingham, marketing Birmingham, GSF Car Parts filming, IceBank Jewellers, Parliament, BordoDesign, construction marketing, data science Birmingham, app development Birmingham, automation Birmingham">
+<meta name="author" content="Merlins Group">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://merlinsgroup.co.uk/blog">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://merlinsgroup.co.uk/blog">
+<meta property="og:title" content="Blog | Merlins Group Birmingham">
+<meta property="og:description" content="Behind the scenes of website development, marketing campaigns, filming and events. GSF Car Parts, IceBank Jewellers, Parliament and more.">
+<meta property="og:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+<meta property="og:site_name" content="Merlins Group">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Merlins Group Birmingham">
+<meta name="twitter:description" content="Behind the scenes of website development, marketing, filming and events in Birmingham. GSF Car Parts, IceBank Jewellers, Parliament and more.">
+<meta name="twitter:image" content="https://merlinsgroup.co.uk/merlinslogo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Merlins Group Blog",
+  "url": "https://merlinsgroup.co.uk/blog",
+  "description": "Behind the scenes of website development, marketing campaigns, filming and events from Merlins Group Birmingham.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Merlins Group",
+    "url": "https://merlinsgroup.co.uk",
+    "logo": "https://merlinsgroup.co.uk/merlinslogo.png"
+  }
+}
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="icon" href="favicon_io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-deep: #060e18;
+  --navy-card: #0a1628;
+  --gold: #2563eb;
+  --gold-light: #3b82f6;
+  --lavender: #60a5fa;
+  --lavender-light: #93c5fd;
+  --white: #fafafa;
+  --text-muted: #5a5a7a;
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(37,99,235,0.35);
+  --glow: rgba(37,99,235,0.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background: var(--navy-deep);
+  overflow-x: hidden;
+}
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 1000;
+  padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  width: 94%; max-width: 1400px; border-radius: 60px;
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: rgba(13,27,42,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+nav.scrolled {
+  background: rgba(13,27,42,0.92); border-color: rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3); top: 0.6rem;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand img { height: 46px; width: 46px; object-fit: contain; background: #e0ecff; border-radius: 50%; padding: 4px; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content:''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--gold) !important; color: var(--navy-deep) !important;
+  padding: 9px 24px; border-radius: 40px; font-weight: 700 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+.nav-cta::after { display: none !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.mobile-toggle span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+/* ============ SHARED ============ */
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: '';
+  width: 30px; height: 1px;
+  background: var(--lavender);
+}
+.accent { color: var(--gold); font-style: italic; }
+
+/* ============ HERO ============ */
+.page-hero {
+  min-height: 50vh;
+  background: var(--navy-deep);
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+}
+.hero-ambient {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+.hero-ambient::before {
+  content: '';
+  position: absolute;
+  width: 900px; height: 900px;
+  top: -40%; left: -15%;
+  background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 55%);
+  animation: ambientDrift 12s ease-in-out infinite alternate;
+}
+.hero-ambient::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  bottom: -30%; right: -10%;
+  background: radial-gradient(circle, rgba(96,165,250,0.08) 0%, transparent 50%);
+  animation: ambientDrift2 15s ease-in-out infinite alternate;
+}
+@keyframes ambientDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 40px) scale(1.1); }
+}
+@keyframes ambientDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-40px, -30px) scale(1.15); }
+}
+.hero-line {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.2) 30%, rgba(37,99,235,0.2) 70%, transparent);
+  z-index: 2;
+}
+.page-hero-content {
+  position: relative; z-index: 3;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 6% 2rem;
+  text-align: center;
+  width: 100%;
+}
+.hero-count {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.6s forwards;
+}
+.page-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 1.2rem;
+  letter-spacing: -2px;
+  perspective: 600px;
+}
+.page-hero h1 .gold { color: var(--gold); }
+.hw {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(50deg);
+  filter: blur(6px);
+  animation: hwIn 0.8s cubic-bezier(0.16,1,0.3,1) calc(0.3s + var(--i) * 0.15s) forwards;
+}
+@keyframes hwIn {
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); filter: blur(0); }
+}
+.page-hero p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.4);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.75;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.3s forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ BLOG SECTION ============ */
+.blog-section {
+  padding: 3rem 6% 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Search bar */
+.blog-toolbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  flex-wrap: wrap; margin-bottom: 3rem;
+  opacity: 0; animation: fadeUp 0.6s ease 1.8s forwards;
+}
+.blog-search {
+  position: relative; flex: 0 0 auto;
+}
+.blog-search input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  color: var(--white);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem 0.5rem 2.4rem;
+  width: 220px;
+  transition: all 0.3s;
+  outline: none;
+}
+.blog-search input::placeholder {
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.blog-search input:focus {
+  border-color: var(--border-hover);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 20px var(--glow);
+}
+.blog-search svg {
+  position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
+  color: rgba(255,255,255,0.25); pointer-events: none;
+}
+.blog-search input:focus ~ svg { color: var(--gold); }
+.no-results {
+  text-align: center; padding: 4rem 2rem; color: rgba(255,255,255,0.3);
+  font-family: 'Space Mono', monospace; font-size: 0.85rem;
+  letter-spacing: 1px; display: none;
+  grid-column: 1 / -1;
+}
+
+/* Filter */
+.blog-filter {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  justify-content: center; flex: 1;
+}
+.blog-filter button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.4);
+  padding: 0.45rem 1.3rem;
+  border-radius: 4px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.blog-filter button:hover {
+  color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.15);
+}
+.blog-filter button.active {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* ============ FEATURED POST ============ */
+.featured-post {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 0;
+  background: var(--navy-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: border-color 0.5s, box-shadow 0.5s;
+  position: relative;
+}
+.featured-post::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(135deg, transparent 60%, rgba(37,99,235,0.03) 100%);
+}
+.featured-post.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.featured-post:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 60px var(--glow);
+}
+.featured-img {
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+.featured-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 70%, var(--navy-card) 100%);
+  pointer-events: none;
+}
+.featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.featured-post:hover .featured-img img {
+  transform: scale(1.04);
+}
+.featured-body {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative; z-index: 1;
+}
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37,99,235,0.1);
+  color: var(--lavender);
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  padding: 0.35rem 0.9rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  border: 1px solid rgba(37,99,235,0.15);
+}
+.featured-body h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+}
+.featured-body p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+.featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.5px;
+  transition: gap 0.3s;
+}
+.featured-post:hover .featured-cta { gap: 14px; }
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.25);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* ============ BLOG GRID ============ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.blog-card {
+  background: var(--navy-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0;
+  transform: translateY(25px);
+  position: relative;
+}
+.blog-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.blog-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-hover);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35), 0 0 40px var(--glow);
+}
+.blog-card-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  filter: brightness(0.9);
+}
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+.blog-card-img .blog-category {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: rgba(6,14,24,0.7);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  color: var(--lavender);
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.blog-card-body {
+  padding: 1.5rem 1.5rem 1rem;
+}
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+.blog-card-meta svg {
+  width: 13px; height: 13px;
+  stroke: rgba(255,255,255,0.25);
+  fill: none;
+  stroke-width: 2;
+}
+.blog-card-body h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.3px;
+  transition: color 0.3s;
+}
+.blog-card:hover .blog-card-body h3 {
+  color: var(--lavender-light);
+}
+.blog-card-body p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-card-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.blog-card-footer .read-more {
+  font-size: 0.75rem;
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s;
+}
+.blog-card:hover .read-more { gap: 12px; }
+.blog-card-footer .read-time {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.2);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* ============ DIVIDER ============ */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.15) 30%, rgba(37,99,235,0.15) 70%, transparent);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 4rem 6% 4rem;
+  text-align: center;
+  position: relative;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 60%);
+}
+.cta-inner {
+  position: relative; z-index: 1;
+  max-width: 600px; margin: 0 auto;
+}
+.cta-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  letter-spacing: -1px;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.35);
+  max-width: 450px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--navy-deep);
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+  overflow: hidden;
+}
+.cta-btn::before {
+  content:''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+  transform: translateX(-100%); transition: transform 0.6s;
+}
+.cta-btn:hover::before { transform: translateX(100%); }
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(37,99,235,0.35);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 3rem 6% 2rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  text-align: center;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  nav { padding: 0.6rem 1.2rem; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(13,27,42,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 999; border-radius: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .page-hero { min-height: 40vh; padding-top: 5rem; }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .page-hero p { font-size: 0.9rem; }
+
+  .blog-toolbar { flex-direction: column; gap: 1rem; }
+  .blog-search { width: 100%; }
+  .blog-search input { width: 100%; }
+
+  .featured-post { grid-template-columns: 1fr; }
+  .featured-img { min-height: 250px; }
+  .featured-img::after { background: linear-gradient(180deg, transparent 60%, var(--navy-card) 100%); }
+  .featured-body { padding: 1.5rem 1.5rem 2rem; }
+  .featured-body h2 { font-size: 1.4rem; }
+
+  .blog-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .blog-card-img { height: 200px; }
+  .blog-card-body h3 { font-size: 1.05rem; }
+  .blog-card-body p { font-size: 0.82rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/agency" class="nav-brand"><img src="merlinsgrouplogo.png" alt="Merlins Group"></a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Systems & Technology</a></li>
+    <li><a href="/agency">Growth & Marketing</a></li>
+    <li><a href="/construction">Construction</a></li>
+    <li><a href="/cic">CIC</a></li>
+    <li><a href="/fractional">Fractional Support</a></li>
+    <li><a href="/blog" class="active">Blog</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-ambient"></div>
+  <div class="hero-line"></div>
+  <div class="page-hero-content">
+    <div class="section-tag" style="justify-content:center;">Journal</div>
+    <h1><span class="hw" style="--i:0">Behind</span> <span class="hw" style="--i:1">The</span> <span class="hw gold" style="--i:2">Scenes</span></h1>
+    <p>Work, events and stories from the Merlins Group team across Birmingham and beyond.</p>
+    <div class="hero-count">9 ARTICLES</div>
+  </div>
+</section>
+
+<!-- BLOG CONTENT -->
+<section class="blog-section">
+
+  <!-- Toolbar: Filter + Search -->
+  <div class="blog-toolbar">
+    <div class="blog-filter">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="filming">Filming</button>
+      <button data-filter="events">Events</button>
+      <button data-filter="clients">Client Work</button>
+    </div>
+    <div class="blog-search">
+      <input type="text" id="blogSearch" placeholder="Search articles..." autocomplete="off">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+  </div>
+
+  <!-- Featured Post -->
+  <a href="/blog/parliament" style="text-decoration:none;color:inherit;">
+  <article class="featured-post" data-category="events">
+    <div class="featured-img">
+      <img src="parliament1.jpg" alt="Merlins Group co-founders at British Parliament">
+    </div>
+    <div class="featured-body">
+      <div class="featured-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Featured
+      </div>
+      <h2>Merlins Group Attends British Parliament</h2>
+      <p>Our co-founders had the privilege of attending a commemoration at British Parliament, recognising the courage and contribution of Commonwealth soldiers. Hosted by Rt. Hon. Bob Blackman CBE MP.</p>
+      <span class="featured-cta">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      <div class="featured-meta">
+        <span>12 FEB 2025</span>
+        <span>5 MIN READ</span>
+      </div>
+    </div>
+  </article>
+  </a>
+
+  <!-- Blog Grid -->
+  <div class="blog-grid">
+
+    <!-- GSF Filming -->
+    <a href="/blog/gsf-car-parts" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="filming">
+      <div class="blog-card-img">
+        <img src="gsf.png" alt="Behind the scenes filming at GSF Car Parts Birmingham">
+        <span class="blog-category">Filming</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>28 JAN 2025</span>
+        </div>
+        <h3>Behind the Scenes: Filming with GSF Car Parts</h3>
+        <p>A look at our content production day with GSF Car Parts — one of the UK's largest automotive parts distributors. Warehouse walkthroughs to staff interviews.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">4 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- IceBank Jewellers -->
+    <a href="/blog/icebank-jewellers" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="clients">
+      <div class="blog-card-img">
+        <img src="clients/11.jpeg" alt="IceBank Jewellers brand shoot and content creation Birmingham">
+        <span class="blog-category">Client</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>15 JAN 2025</span>
+        </div>
+        <h3>IceBank Jewellers: Crafting a Premium Digital Presence</h3>
+        <p>How we helped IceBank Jewellers build a premium brand identity — from website development and product photography to paid ad campaigns.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">3 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- Parliament Gallery -->
+    <a href="/blog/parliament" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="events">
+      <div class="blog-card-img">
+        <img src="parliament2.jpg" alt="Merlins Group at Parliament commemoration event">
+        <span class="blog-category">Events</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>12 FEB 2025</span>
+        </div>
+        <h3>Parliament Photo Gallery: A Day to Remember</h3>
+        <p>A gallery from our day at the Houses of Parliament. Meeting MPs, networking with business leaders on a national stage.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">3 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- Easy2Recruit -->
+    <a href="/blog/easy2recruit" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="clients">
+      <div class="blog-card-img">
+        <img src="clients/12.jpeg" alt="Easy2Recruit website and automation project Birmingham">
+        <span class="blog-category">Client</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>03 DEC 2024</span>
+        </div>
+        <h3>Easy2Recruit: Automating Recruitment from the Ground Up</h3>
+        <p>We built Easy2Recruit a brand-new website, CRM integration and automated their entire candidate pipeline — from application to placement.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">5 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- Woodside Motor Services -->
+    <a href="/blog/woodside-motor" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="clients">
+      <div class="blog-card-img">
+        <img src="clients/13.jpeg" alt="Woodside Motor Services website and marketing Birmingham">
+        <span class="blog-category">Client</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>18 NOV 2024</span>
+        </div>
+        <h3>Woodside Motor Services: Website, SEO & Local Marketing</h3>
+        <p>A full website build, Google Ads campaign and ongoing social media management to dominate Birmingham search results.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">4 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- Parliament 3 -->
+    <a href="/blog/parliament" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="events">
+      <div class="blog-card-img">
+        <img src="parliament3.jpg" alt="Merlins Group networking at Houses of Parliament London">
+        <span class="blog-category">Events</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>12 FEB 2025</span>
+        </div>
+        <h3>Representing Birmingham Tech at the Houses of Parliament</h3>
+        <p>Connecting with policymakers and business leaders discussing the role of data science and AI in the UK's digital economy.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">4 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- BordoDesign -->
+    <a href="/blog/bordodesign" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="clients">
+      <div class="blog-card-img">
+        <img src="clients/7.jpg" alt="BordoDesign construction company website and marketing">
+        <span class="blog-category">Client</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>05 OCT 2024</span>
+        </div>
+        <h3>BordoDesign: Full Digital Transformation for Construction</h3>
+        <p>Complete digital overhaul — website, CRM, automated quoting, marketing and video content. End-to-end technology stack.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">6 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- GSF Content Day -->
+    <a href="/blog/gsf-car-parts" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="filming">
+      <div class="blog-card-img">
+        <img src="gsf.png" alt="GSF Car Parts content production day Birmingham">
+        <span class="blog-category">Filming</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10 JAN 2025</span>
+        </div>
+        <h3>GSF Car Parts: Content Production Day in Birmingham</h3>
+        <p>Product demos, staff testimonials and warehouse tours — creating a library of professional video and photo assets.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">3 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <!-- Hoodrich -->
+    <a href="/blog/hoodrich" style="text-decoration:none;color:inherit;">
+    <article class="blog-card" data-category="clients">
+      <div class="blog-card-img">
+        <img src="clients/hoodrich.png" alt="Hoodrich streetwear brand marketing and content">
+        <span class="blog-category">Client</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span><svg style="display:inline;vertical-align:middle;margin-right:4px" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>22 SEP 2024</span>
+        </div>
+        <h3>Hoodrich: Marketing for Birmingham's Biggest Streetwear Brand</h3>
+        <p>Social media strategy to content creation — amplifying their digital presence and connecting with a global audience.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <span class="read-time">4 MIN</span>
+      </div>
+    </article>
+    </a>
+
+    <div class="no-results" id="noResults">No articles found.</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-tag" style="justify-content:center;">Start a Project</div>
+    <h2>Got Something in Mind?</h2>
+    <p>Whether it's a website, marketing campaign, automation or data science — let's talk.</p>
+    <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="cta-btn">Book a Consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Merlins Group. All rights reserved.</p>
+</footer>
+
+<script>
+// Nav scroll
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile toggle
+var mobileToggle = document.getElementById('mobileToggle');
+var navLinks = document.querySelector('.nav-links');
+mobileToggle.addEventListener('click', function() {
+  navLinks.classList.toggle('open');
+});
+
+// Card reveal on scroll — immediate, no delay on visible cards
+var cards = document.querySelectorAll('.blog-card, .featured-post');
+function revealCards() {
+  var batch = 0;
+  cards.forEach(function(card) {
+    var rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 30 && !card.classList.contains('visible')) {
+      setTimeout(function() {
+        card.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+        card.classList.add('visible');
+      }, batch * 60);
+      batch++;
+    }
+  });
+}
+window.addEventListener('scroll', revealCards);
+window.addEventListener('load', function() { setTimeout(revealCards, 150); });
+
+// Filter + Search
+var filterBtns = document.querySelectorAll('.blog-filter button');
+var blogCards = document.querySelectorAll('.blog-card');
+var featuredPost = document.querySelector('.featured-post');
+var searchInput = document.getElementById('blogSearch');
+var noResults = document.getElementById('noResults');
+var activeFilter = 'all';
+
+function getCardText(el) {
+  return (el.textContent || '').toLowerCase();
+}
+
+function applyFilterAndSearch() {
+  var query = searchInput.value.trim().toLowerCase();
+  var visibleCount = 0;
+
+  // Featured post
+  var featMatch = activeFilter === 'all' || featuredPost.getAttribute('data-category') === activeFilter;
+  var featSearch = !query || getCardText(featuredPost).indexOf(query) !== -1;
+  featuredPost.parentElement.style.display = (featMatch && featSearch) ? '' : 'none';
+  if (featMatch && featSearch) visibleCount++;
+
+  // Grid cards
+  blogCards.forEach(function(card) {
+    var link = card.closest('a');
+    var catMatch = activeFilter === 'all' || card.getAttribute('data-category') === activeFilter;
+    var searchMatch = !query || getCardText(card).indexOf(query) !== -1;
+    var show = catMatch && searchMatch;
+    if (link) link.style.display = show ? '' : 'none';
+    else card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+
+  noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    activeFilter = btn.getAttribute('data-filter');
+    applyFilterAndSearch();
+  });
+});
+
+searchInput.addEventListener('input', applyFilterAndSearch);
+</script>
+
+</body>
+</html>
