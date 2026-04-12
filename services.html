@@ -271,6 +271,26 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
   min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13,27,42,0.03);
+  border: 1px solid rgba(13,27,42,0.06);
+}
+.service-visual-card .service-icon-large {
+  width: 120px;
+  height: 120px;
+  background: rgba(37,99,235,0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+.service-detail:hover .service-icon-large {
+  transform: scale(1.1);
+  background: rgba(37,99,235,0.14);
+  box-shadow: 0 20px 60px rgba(37,99,235,0.15);
 }
 .service-visual-card img {
   width: 100%;
@@ -632,13 +652,13 @@ footer {
     <img src="merlinsgrouplogo.png" alt="Merlins Group">
   </a>
   <ul class="nav-links">
-    <li><a href="/">About</a></li>
-    <li><a href="/" class="active">Systems & Technology</a></li>
-    <li><a href="/">Growth & Marketing</a></li>
-    <li><a href="/">Construction</a></li>
-    <li><a href="/">CIC</a></li>
-    <li><a href="/">Fractional Support</a></li>
-    <li><a href="/">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Systems & Technology</a></li>
+    <li><a href="agency.html">Growth & Marketing</a></li>
+    <li><a href="construction.html">Construction</a></li>
+    <li><a href="cic.html">CIC</a></li>
+    <li><a href="fractional.html">Fractional Support</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="mobile-toggle" id="mobileToggle">
@@ -668,7 +688,7 @@ footer {
   <div class="service-detail">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <img src="clients/7.jpg" alt="Artificial Intelligence">
+        <div class="service-icon-large"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2 4 4 0 0 1 4-4z"/><path d="M8 8v2a4 4 0 0 0 8 0V8"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M12 14v3"/><path d="M8 17h8"/><path d="M5 20a7 7 0 0 1 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="0"/></svg></div>
       </div>
     </div>
     <div class="service-detail-content">
@@ -688,7 +708,7 @@ footer {
   <div class="service-detail reverse">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <img src="clients/3.jpeg" alt="Automation & Workflows">
+        <div class="service-icon-large"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
       </div>
     </div>
     <div class="service-detail-content">
@@ -708,7 +728,7 @@ footer {
   <div class="service-detail">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <img src="clients/9.png" alt="CRM Solutions">
+        <div class="service-icon-large"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       </div>
     </div>
     <div class="service-detail-content">
@@ -728,7 +748,7 @@ footer {
   <div class="service-detail reverse">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <img src="clients/13.jpeg" alt="Application Development">
+        <div class="service-icon-large"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg></div>
       </div>
     </div>
     <div class="service-detail-content">
@@ -748,7 +768,7 @@ footer {
   <div class="service-detail">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <img src="clients/3fx1.jpg" alt="Data Science & Analytics">
+        <div class="service-icon-large"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
       </div>
     </div>
     <div class="service-detail-content">
@@ -768,7 +788,7 @@ footer {
   <div class="service-detail reverse">
     <div class="service-detail-visual">
       <div class="service-visual-card">
-        <img src="clients/15.png" alt="Migration & Scaling">
+        <div class="service-icon-large"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><polyline points="15 13 18 10 21 13"/></svg></div>
       </div>
     </div>
     <div class="service-detail-content">
