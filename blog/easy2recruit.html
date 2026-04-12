@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYS4Z1VX5J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TYS4Z1VX5J');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy2Recruit: Automating Recruitment from the Ground Up | Merlins Group Birmingham</title>
+<meta name="description" content="How Merlins Group built Easy2Recruit a brand-new website, CRM integration and automated their entire candidate pipeline from application to placement. Easy2Recruit website Birmingham, recruitment automation Birmingham.">
+<meta name="keywords" content="Easy2Recruit website Birmingham, recruitment automation Birmingham, merlinsgroup, CRM implementation Birmingham, candidate tracking automation, recruitment website development, digital transformation recruitment, SEO recruitment keywords, email automation recruitment, data analytics dashboard Birmingham">
+<meta name="author" content="Merlins Group">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://merlinsgroup.co.uk/blog/easy2recruit">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://merlinsgroup.co.uk/blog/easy2recruit">
+<meta property="og:title" content="Easy2Recruit: Automating Recruitment from the Ground Up | Merlins Group">
+<meta property="og:description" content="Full digital transformation for Easy2Recruit — website development, CRM integration, workflow automation and candidate pipeline automation in Birmingham.">
+<meta property="og:image" content="https://merlinsgroup.co.uk/clients/12.jpeg">
+<meta property="og:site_name" content="Merlins Group">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Easy2Recruit: Automating Recruitment from the Ground Up | Merlins Group">
+<meta name="twitter:description" content="Full digital transformation for Easy2Recruit — website, CRM, workflow automation and candidate pipeline automation in Birmingham.">
+<meta name="twitter:image" content="https://merlinsgroup.co.uk/clients/12.jpeg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Easy2Recruit: Automating Recruitment from the Ground Up",
+  "description": "How Merlins Group built Easy2Recruit a brand-new website, CRM integration and automated their entire candidate pipeline from application to placement.",
+  "image": "https://merlinsgroup.co.uk/clients/12.jpeg",
+  "datePublished": "2024-12-03",
+  "dateModified": "2024-12-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Merlins Group",
+    "url": "https://merlinsgroup.co.uk"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Merlins Group",
+    "url": "https://merlinsgroup.co.uk",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://merlinsgroup.co.uk/merlinslogo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://merlinsgroup.co.uk/blog/easy2recruit"
+  }
+}
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+<link rel="icon" href="../favicon_io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="../favicon_io/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-deep: #091220;
+  --gold: #2563eb;
+  --gold-light: #3b82f6;
+  --lavender: #60a5fa;
+  --lavender-light: #93c5fd;
+  --white: #fafafa;
+  --off-white: #f0eef5;
+  --text-dark: #0e0e1a;
+  --text-muted: #5a5a7a;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background: var(--navy-deep);
+  overflow-x: hidden;
+}
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 1000;
+  padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  width: 94%; max-width: 1400px; border-radius: 60px;
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: rgba(13,27,42,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+nav.scrolled {
+  background: rgba(13,27,42,0.92); border-color: rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3); top: 0.6rem;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand img { height: 46px; width: 46px; object-fit: contain; background: #e0ecff; border-radius: 50%; padding: 4px; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content:''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--gold) !important; color: var(--navy-deep) !important;
+  padding: 9px 24px; border-radius: 40px; font-weight: 700 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+.nav-cta::after { display: none !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.mobile-toggle span { width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+/* ============ SHARED ============ */
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+.accent { color: var(--gold); font-style: italic; }
+
+/* ============ HERO ============ */
+.page-hero {
+  min-height: 70vh;
+  background: var(--navy-deep);
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 6rem;
+}
+.hero-spotlights {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-spotlights::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  top: -20%; left: -10%;
+  background: radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 60%);
+  animation: spotlightDrift1 8s ease-in-out infinite alternate;
+}
+.hero-spotlights::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  bottom: -15%; right: -5%;
+  background: radial-gradient(circle, rgba(96,165,250,0.2) 0%, transparent 55%);
+  animation: spotlightDrift2 10s ease-in-out infinite alternate;
+}
+@keyframes spotlightDrift1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 60px) scale(1.15); }
+}
+@keyframes spotlightDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-60px, -40px) scale(1.2); }
+}
+.hero-grid-bg {
+  position: absolute; inset: 0; z-index: 1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.hero-img-overlay {
+  position: absolute; inset: 0; z-index: 1;
+}
+.hero-img-overlay img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+}
+.hero-img-overlay::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--navy-deep) 0%, rgba(9,18,32,0.6) 40%, var(--navy-deep) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 3;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 6% 3rem;
+  text-align: center;
+  width: 100%;
+}
+.page-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+  perspective: 600px;
+}
+.page-hero h1 .gold { color: var(--gold); }
+.hw {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(50deg);
+  filter: blur(6px);
+  animation: hwIn 0.8s cubic-bezier(0.16,1,0.3,1) calc(0.3s + var(--i) * 0.15s) forwards;
+}
+@keyframes hwIn {
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); filter: blur(0); }
+}
+.page-hero .hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.page-hero .hero-meta svg {
+  display: inline; vertical-align: middle; margin-right: 4px;
+}
+.page-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.5);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.5s forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: gap 0.3s;
+}
+.back-link:hover { gap: 10px; }
+
+/* ============ ARTICLE ============ */
+.article-section {
+  padding: 4rem 6% 3rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.article-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+.article-section h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+.article-section p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+.article-section a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+.article-section a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+.article-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.article-section ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+.article-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.article-section .highlight-box {
+  background: rgba(37,99,235,0.08);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.article-section .highlight-box p {
+  margin-bottom: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+}
+.article-section .stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+.stat-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 0;
+}
+.stat-card .stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.stat-card .stat-label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero-feature-img {
+  width: 100%;
+  margin: 2rem 0 3rem;
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hero-feature-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============ REVEAL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ RELATED POSTS ============ */
+.related-section {
+  padding: 4rem 6% 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.related-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+  text-align: center;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.related-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+  text-decoration: none;
+  display: block;
+}
+.related-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(37,99,235,0.15);
+  border-color: rgba(37,99,235,0.2);
+}
+.related-card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.related-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.related-card:hover .related-card-img img {
+  transform: scale(1.05);
+}
+.related-card-body {
+  padding: 1.5rem;
+}
+.related-card-body h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.3px;
+}
+.related-card-body p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 5rem 6%;
+  text-align: center;
+  background: linear-gradient(180deg, transparent 0%, rgba(37,99,235,0.08) 50%, transparent 100%);
+}
+.cta-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.5);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy-deep);
+  padding: 14px 36px;
+  border-radius: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(37,99,235,0.3);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 3rem 6% 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 1100px) {
+  nav { padding: 0.6rem 1.2rem; }
+  .nav-links { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(13,27,42,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; z-index: 999; border-radius: 0; }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.4rem; color: rgba(255,255,255,0.8) !important; }
+  .mobile-toggle { display: flex; z-index: 1000; }
+}
+@media (max-width: 768px) {
+  .page-hero { min-height: 50vh; padding-top: 5rem; }
+  .page-hero h1 { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+  .page-hero p { font-size: 0.95rem; }
+
+  .article-section { padding: 2.5rem 5% 2rem; }
+  .article-section h2 { font-size: 1.5rem; }
+  .article-section h3 { font-size: 1.2rem; }
+  .article-section p { font-size: 0.95rem; }
+  .article-section .stat-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+  .hero-feature-img img { height: 250px; }
+
+  .related-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .related-card-img { height: 180px; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+  .article-section .stat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-brand"><img src="../merlinsgrouplogo.png" alt="Merlins Group"></a>
+  <ul class="nav-links">
+    <li><a href="/">About</a></li>
+    <li><a href="/">Systems & Technology</a></li>
+    <li><a href="/">Growth & Marketing</a></li>
+    <li><a href="/">Construction</a></li>
+    <li><a href="/">CIC</a></li>
+    <li><a href="/">Fractional Support</a></li>
+    <li><a href="/">Blog</a></li>
+    <li><a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-spotlights"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-img-overlay">
+    <img src="../clients/12.jpeg" alt="Easy2Recruit website and recruitment automation project">
+  </div>
+  <div class="page-hero-content">
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19 12 5 12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Blog
+    </a>
+    <div class="section-tag">Case Study</div>
+    <h1>
+      <span class="hw" style="--i:0">Easy2Recruit:</span>
+      <span class="hw" style="--i:1">Automating</span>
+      <span class="hw gold" style="--i:2">Recruitment</span>
+      <span class="hw" style="--i:3">from</span>
+      <span class="hw" style="--i:4">the</span>
+      <span class="hw" style="--i:5">Ground</span>
+      <span class="hw gold" style="--i:6">Up</span>
+    </h1>
+    <div class="hero-meta" style="opacity:0;animation:fadeUp 0.8s ease 1.3s forwards;">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        3 December 2024
+      </span>
+      <span>7 min read</span>
+      <span>Client Work</span>
+    </div>
+    <p>A full digital transformation project for a Birmingham-based recruitment agency. We built the website, integrated the CRM, automated the candidate pipeline and delivered a data analytics dashboard — all from scratch.</p>
+  </div>
+</section>
+
+<!-- FEATURE IMAGE -->
+<div class="article-section">
+  <div class="hero-feature-img reveal">
+    <img src="../clients/12.jpeg" alt="Easy2Recruit recruitment automation project by Merlins Group Birmingham">
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT -->
+<section class="article-section">
+
+  <div class="reveal">
+    <h2>The Brief: Build Everything from Zero</h2>
+    <p>Easy2Recruit is a recruitment agency based in Birmingham specialising in placing candidates across logistics, warehousing and industrial sectors. When they came to <a href="/">Merlins Group</a>, they had no website, no CRM, no digital pipeline and no way to track candidates at scale. Everything was run on spreadsheets, phone calls and manual email threads. They needed a complete digital transformation — and they needed it fast.</p>
+    <p>The goal was clear: build a professional online presence, implement a CRM that could handle high-volume candidate management, and automate as much of the recruitment workflow as possible. This was not a redesign project. This was a ground-up build across every digital touchpoint in the business.</p>
+  </div>
+
+  <div class="reveal">
+    <h2>Website Development: A Recruitment Platform, Not Just a Brochure</h2>
+    <p>The first deliverable was a brand-new website. But this was not going to be a static brochure site with a contact form. Easy2Recruit needed a platform — somewhere candidates could browse live vacancies, submit applications and upload CVs directly. Employers needed a portal to post jobs and track applications in real time.</p>
+    <p>We designed and developed the Easy2Recruit website with a focus on conversion. Every page was built to drive either a candidate application or an employer enquiry. The design language was clean, professional and mobile-first — critical given that the majority of job seekers in the logistics and warehousing sectors browse on their phones.</p>
+    <ul>
+      <li>Fully responsive design optimised for mobile job seekers</li>
+      <li>Live vacancy board with filtering by sector, location and contract type</li>
+      <li>Integrated application forms with CV upload functionality</li>
+      <li>Employer portal for posting and managing vacancies</li>
+      <li>Fast load times and clean architecture for <a href="/">SEO</a> performance</li>
+    </ul>
+    <p>The site was built on a modern stack that allowed Easy2Recruit to manage content independently after launch, reducing their dependency on external developers for day-to-day updates.</p>
+  </div>
+
+  <div class="reveal">
+    <h2>CRM Implementation: One System to Rule Them All</h2>
+    <p>Before we arrived, candidate data was scattered across spreadsheets, email inboxes and handwritten notes. There was no single source of truth. Recruiters were spending hours each day on admin tasks that should have been automated. The <a href="/">CRM implementation</a> was the backbone of the entire project.</p>
+    <p>We set up a purpose-built CRM tailored specifically to recruitment workflows. This was not an off-the-shelf install — we customised every pipeline stage, every field, every automation trigger to match how Easy2Recruit actually operates on the ground.</p>
+    <ul>
+      <li>Custom candidate pipeline: Application, Screening, Interview, Offer, Placement, Onboarding</li>
+      <li>Employer relationship management with deal tracking</li>
+      <li>Centralised contact database with tagging and segmentation</li>
+      <li>Activity logging for every recruiter interaction — calls, emails, notes</li>
+      <li>Role-based access so recruiters only see relevant candidates and vacancies</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p>The CRM eliminated over 15 hours per week of manual admin across the recruitment team. Every candidate, every vacancy and every placement is now tracked in one place with full visibility for management.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h2>Workflow Automation: From Application to Placement</h2>
+    <p>The real power of this project was in the <a href="/">automation</a>. We did not just build tools — we connected them. When a candidate submits an application on the website, a chain of automated actions fires in sequence, moving the candidate through the pipeline without manual intervention at every step.</p>
+    <h3>The Automated Candidate Pipeline</h3>
+    <p>Here is what happens when a candidate applies through the Easy2Recruit website:</p>
+    <ul>
+      <li>Application data is captured and pushed directly into the CRM</li>
+      <li>Candidate receives an instant confirmation email with next steps</li>
+      <li>CV is automatically parsed and key data fields are extracted</li>
+      <li>Candidate is assigned to the relevant pipeline stage based on vacancy type</li>
+      <li>The responsible recruiter is notified with a summary card and action items</li>
+      <li>If the candidate is not progressed within 48 hours, a follow-up reminder triggers</li>
+      <li>Status updates generate automatic email notifications to the candidate</li>
+    </ul>
+    <p>This automation chain means that no application falls through the cracks. Every candidate gets a response. Every recruiter knows exactly what they need to do next. The system works around the clock — even when the office is closed.</p>
+  </div>
+
+  <div class="reveal">
+    <h2>Candidate Tracking and Communication</h2>
+    <p>Recruitment is a high-volume, high-velocity business. Easy2Recruit might process hundreds of applications in a single week. Without proper tracking, candidates get lost, updates get missed and placements get delayed.</p>
+    <p>We built a candidate tracking system that gives every recruiter a real-time view of their pipeline. Each candidate has a profile showing their full history — every application, every interview, every email, every placement. Managers can see the full pipeline at a glance and identify bottlenecks before they become problems.</p>
+    <h3>Email Automation</h3>
+    <p>We set up a complete email automation system covering the full candidate lifecycle:</p>
+    <ul>
+      <li>Application received confirmations</li>
+      <li>Interview scheduling with calendar integrations</li>
+      <li>Offer letters and contract delivery</li>
+      <li>Onboarding checklists and document collection</li>
+      <li>Post-placement check-in sequences</li>
+      <li>Re-engagement campaigns for dormant candidates</li>
+    </ul>
+    <p>Every email is branded, personalised and triggered automatically based on pipeline activity. The recruitment team no longer writes individual emails for routine communications — the system handles it.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Hours Saved Weekly</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Application Response Rate</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">3x</span>
+        <span class="stat-label">Faster Placements</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h2>Data Analytics Dashboard</h2>
+    <p>You cannot improve what you cannot measure. As part of the <a href="/">data science</a> component of this project, we built Easy2Recruit a custom analytics dashboard that pulls real-time data from the CRM, website and email systems into a single view.</p>
+    <p>The dashboard tracks the metrics that actually matter for a recruitment business:</p>
+    <ul>
+      <li>Applications per vacancy with source attribution</li>
+      <li>Time-to-placement by sector and role type</li>
+      <li>Recruiter performance and activity metrics</li>
+      <li>Candidate pipeline velocity and conversion rates at each stage</li>
+      <li>Email open rates, click rates and engagement trends</li>
+      <li>Website traffic, bounce rates and application conversion rates</li>
+    </ul>
+    <p>For the first time, Easy2Recruit's management team could see exactly how the business was performing — not based on gut feeling, but on hard data. They can identify which job boards drive the most qualified candidates, which recruiters are the most efficient, and where candidates are dropping out of the pipeline.</p>
+  </div>
+
+  <div class="reveal">
+    <h2>SEO for Recruitment Keywords</h2>
+    <p>A recruitment website is only useful if candidates and employers can find it. We implemented a comprehensive <a href="/">SEO strategy</a> targeting recruitment-specific keywords across Birmingham and the West Midlands.</p>
+    <p>The SEO work included:</p>
+    <ul>
+      <li>Keyword research targeting "recruitment agency Birmingham", "warehouse jobs Birmingham", "logistics recruitment West Midlands" and sector-specific long-tail terms</li>
+      <li>On-page optimisation across all vacancy pages with structured data markup</li>
+      <li>Technical SEO audit and implementation — site speed, mobile usability, crawlability</li>
+      <li>Local SEO with Google Business Profile optimisation</li>
+      <li>Content strategy with regular blog posts targeting job seeker queries</li>
+      <li>Backlink acquisition through industry directories and partnerships</li>
+    </ul>
+    <p>Within the first three months, Easy2Recruit was ranking on page one for multiple recruitment keywords in Birmingham, driving organic traffic that converts directly into candidate applications.</p>
+  </div>
+
+  <div class="reveal">
+    <h2>The Result: A Fully Digital Recruitment Operation</h2>
+    <p>What started as a business running on spreadsheets and phone calls is now a fully digital recruitment operation. Easy2Recruit has a professional website that generates applications around the clock, a CRM that tracks every candidate and employer relationship, automated workflows that eliminate manual admin, and a data dashboard that drives smarter decisions.</p>
+    <p>This is the kind of project that demonstrates what a <a href="/">fractional CTO</a> engagement can deliver. We did not just build technology — we transformed how Easy2Recruit operates as a business. Every system connects. Every process is automated where it should be. Every decision is backed by data.</p>
+
+    <div class="highlight-box">
+      <p>If your business is still running critical operations on spreadsheets and manual processes, it is time to talk. Merlins Group specialises in <a href="/">automation</a>, <a href="/">CRM implementation</a> and full digital transformation for businesses across Birmingham and the UK.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- RELATED POSTS -->
+<section class="related-section reveal">
+  <div class="section-tag" style="justify-content:center;">Related Posts</div>
+  <h2>More Case Studies</h2>
+  <div class="related-grid">
+    <a href="/blog/gsf-car-parts" class="related-card">
+      <div class="related-card-img">
+        <img src="../gsf.png" alt="GSF Car Parts filming and content production Birmingham">
+      </div>
+      <div class="related-card-body">
+        <h3>Behind the Scenes: Filming with GSF Car Parts</h3>
+        <p>Content production day with one of the UK's largest automotive parts distributors across their Birmingham operations.</p>
+      </div>
+    </a>
+    <a href="/blog/woodside-motor" class="related-card">
+      <div class="related-card-img">
+        <img src="../clients/13.jpeg" alt="Woodside Motor Services website and marketing Birmingham">
+      </div>
+      <div class="related-card-body">
+        <h3>Woodside Motor Services: Website, SEO & Local Marketing</h3>
+        <p>Full website build, Google Ads campaign and ongoing social media management to dominate Birmingham search results.</p>
+      </div>
+    </a>
+    <a href="/blog/bordodesign" class="related-card">
+      <div class="related-card-img">
+        <img src="../clients/7.jpg" alt="BordoDesign construction company digital transformation">
+      </div>
+      <div class="related-card-body">
+        <h3>BordoDesign: Full Digital Transformation for Construction</h3>
+        <p>Complete digital overhaul — website, CRM, automated quoting system, marketing and video content for a construction firm.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="section-tag" style="justify-content:center;">Get In Touch</div>
+  <h2>Got a Project in Mind?</h2>
+  <p>Whether it's a website, marketing campaign, automation or data science — let's talk.</p>
+  <a href="https://calendly.com/merlinsgroup/businessconsultation?back=1" class="cta-btn">Book a Consultation</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Merlins Group. All rights reserved.</p>
+</footer>
+
+<script>
+// Nav scroll
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile toggle
+var mobileToggle = document.getElementById('mobileToggle');
+var navLinks = document.querySelector('.nav-links');
+mobileToggle.addEventListener('click', function() {
+  navLinks.classList.toggle('open');
+});
+
+// Scroll reveal
+var reveals = document.querySelectorAll('.reveal');
+function revealOnScroll() {
+  reveals.forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60 && !el.classList.contains('visible')) {
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', function() { setTimeout(revealOnScroll, 200); });
+</script>
+
+</body>
+</html>
